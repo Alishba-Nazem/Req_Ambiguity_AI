@@ -1,0 +1,32 @@
+requirement,true_dataset_label,true_name,pred_dataset_label,pred_name,pred_confidence,true_class_probability,confusion_group,token_count
+Ability to list date employment ended if they did not return to work,1,lexical,4,syntax,0.867545485496521,0.01326221413910389,other,13
+Each display shall reflect the level of access and the privileges of the user (security aware).,1,lexical,3,semantic,0.6201080679893494,0.15679480135440826,other,16
+The tool shall run each process each of which  uses the configuration found in the application to gather feature metadata information from the selected feature classes and stores this metadata information into the appropriate table.,1,lexical,3,semantic,0.6053087711334229,0.19749130308628082,other,35
+"System must have conflict resolution features so each of which  two different users shall not
+  update each record differently only at  the same time.",1,lexical,3,semantic,0.5773530602455139,0.14361141622066498,other,24
+Generates standard or custom inspection failure/correction notices.,1,lexical,2,syntactic,0.5544992089271545,0.09920260310173035,lexical_syntactic,7
+Suggest Computation Application for CA Request,2,syntactic,5,pragmatic,0.8461374044418335,0.026213988661766052,other,6
+Prepare files to be submitted to EEA and Eionet,2,syntactic,5,pragmatic,0.6411243081092834,0.05791623890399933,other,9
+"There are two types of loan items, language tapes, and books. each language tape has each title language (e.g. French), and level (e.g. beginner). each book has each title, and author(s). each customer shall borrow only up to  each maximum of 8 items. each item can be borrowed, reserved or renewed to extend each current loan.",2,syntactic,1,lexical,0.6175252795219421,0.098746657371521,lexical_syntactic,56
+Ability to access GIS mapping data for road/street locations,2,syntactic,4,syntax,0.6075968742370605,0.11681590974330902,syntactic_syntax,9
+Ability to create PO user defined fields each of which  are available only during  PO entry process.,2,syntactic,3,semantic,0.5884994864463806,0.08324846625328064,other,17
+"This shall be done via Drupal, with Drupal storing the username and password in the MySQL database with encryption. each other information about specific users, tasks, and money shall also be stored in the MySQL database.",3,semantic,1,lexical,0.5905049443244934,0.13404902815818787,other,36
+The characteristics required of the interface between the software product and each of the hardware components,3,semantic,5,pragmatic,0.5824434161186218,0.1713142693042755,other,16
+"Upper page contains the skeleton of Fault Session without each mining data. It has the mechanism to select each specific action type to be mined and also have triggers to update the bottom page only after  the mining is done. This page loads instantly. Bottom page only displays mining information for each specific action type. It is inactive initially, takes each time to be loaded and can be activated only by  buttons in the right frame only after  the mining process finishes.",3,semantic,1,lexical,0.5404738187789917,0.21280448138713837,other,82
+Clicking on parent menu items in the top navigation shall reveal child menu items and clicking on each of these shall take to their respective page in the website.,3,semantic,1,lexical,0.502857506275177,0.33016711473464966,other,29
+The system must allow user both to edit and modify operation runtime. (only business hours).,3,semantic,6,clean,0.5026552081108093,0.08092132210731506,ambiguous_to_clean,15
+Personnel Action Reports,4,syntax,5,pragmatic,0.9627306461334229,0.010122507810592651,other,3
+The password shall be minimum 6 numbers,4,syntax,5,pragmatic,0.9454807639122009,0.014822685159742832,other,7
+The system design shall be intuitive,4,syntax,5,pragmatic,0.9401316046714783,0.01939690113067627,other,6
+View parcels current location (Enter tracking number),4,syntax,5,pragmatic,0.928021252155304,0.0265420563519001,other,7
+Uploaded files shall be viewed for assessment,4,syntax,5,pragmatic,0.9269839525222778,0.02561894990503788,other,7
+User shall Enable or Disable each fare and set $ amounts,5,pragmatic,4,syntax,0.7767799496650696,0.025514492765069008,other,11
+Provides extensive documentation and online help functions,5,pragmatic,4,syntax,0.6443231701850891,0.18044422566890717,other,7
+The user selects each specific choice of status change and this choice is captured and sent to the KPS.,5,pragmatic,3,semantic,0.6398451328277588,0.08175213634967804,other,19
+Input is provided only through  each XML message in which each particular tag shall contain the path to the new file.,5,pragmatic,3,semantic,0.6170170307159424,0.059589434415102005,other,21
+"Ability to monitor who is currently online, who is in the virtual classrooms.",5,pragmatic,2,syntactic,0.6051101684570312,0.017901381477713585,other,13
+User defined fields,6,clean,5,pragmatic,0.9642799496650696,0.011347007006406784,clean_to_ambiguous,3
+CUSTOMER DATA RECORD,6,clean,5,pragmatic,0.9635955691337585,0.011629733256995678,clean_to_ambiguous,3
+Trigger each harvesting job,6,clean,5,pragmatic,0.9630732536315918,0.010138580575585365,clean_to_ambiguous,4
+Tracking of requisition status,6,clean,5,pragmatic,0.9588218927383423,0.012897639535367489,clean_to_ambiguous,4
+Topic names shall be reworded,6,clean,5,pragmatic,0.9554393887519836,0.015649519860744476,clean_to_ambiguous,5

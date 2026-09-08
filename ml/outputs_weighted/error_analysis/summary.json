@@ -1,0 +1,187 @@
+{
+  "model": "C:\\Users\\alish\\Desktop\\Req_Ambiguity_AI\\ml\\outputs_weighted\\best_model",
+  "split": "C:\\Users\\alish\\Desktop\\Req_Ambiguity_AI\\dataset\\processed\\test.csv",
+  "n_rows": 679,
+  "accuracy": 0.43151693667157587,
+  "macro_precision": 0.4256687441931312,
+  "macro_recall": 0.5070860004926773,
+  "macro_f1": 0.4147669183735991,
+  "n_correct": 293,
+  "n_misclassified": 386,
+  "focused_confusion_counts": {
+    "lexical_syntactic": 13,
+    "syntactic_syntax": 3,
+    "semantic_syntax": 9,
+    "ambiguous_to_clean": 24,
+    "clean_to_ambiguous": 253,
+    "other": 84
+  },
+  "focused_confusion_detail": {
+    "lexical_to_syntactic": 8,
+    "syntactic_to_lexical": 5,
+    "syntactic_to_syntax": 2,
+    "syntax_to_syntactic": 1,
+    "semantic_to_syntax": 1,
+    "syntax_to_semantic": 8,
+    "ambiguous_to_clean_by_class": {
+      "lexical": 4,
+      "syntactic": 9,
+      "semantic": 4,
+      "syntax": 0,
+      "pragmatic": 7
+    },
+    "clean_to_ambiguous_by_class": {
+      "lexical": 8,
+      "syntactic": 83,
+      "semantic": 98,
+      "syntax": 35,
+      "pragmatic": 29
+    }
+  },
+  "hardest_classes_by_f1": [
+    {
+      "name": "syntactic",
+      "f1": 0.31958762886597936,
+      "precision": 0.23134328358208955,
+      "recall": 0.5166666666666667,
+      "support": 60
+    },
+    {
+      "name": "lexical",
+      "f1": 0.3409090909090909,
+      "precision": 0.36585365853658536,
+      "recall": 0.3191489361702128,
+      "support": 47
+    },
+    {
+      "name": "semantic",
+      "f1": 0.35918367346938773,
+      "precision": 0.23783783783783785,
+      "recall": 0.7333333333333333,
+      "support": 60
+    },
+    {
+      "name": "syntax",
+      "f1": 0.46153846153846156,
+      "precision": 0.391304347826087,
+      "recall": 0.5625,
+      "support": 48
+    },
+    {
+      "name": "clean",
+      "f1": 0.4822429906542056,
+      "precision": 0.8431372549019608,
+      "recall": 0.337696335078534,
+      "support": 382
+    },
+    {
+      "name": "pragmatic",
+      "f1": 0.5251396648044693,
+      "precision": 0.4845360824742268,
+      "recall": 0.573170731707317,
+      "support": 82
+    }
+  ],
+  "top_confusion_pairs": [
+    {
+      "true_dataset_label": 6,
+      "true_name": "clean",
+      "pred_dataset_label": 3,
+      "pred_name": "semantic",
+      "count": 98,
+      "percent_of_errors": 25.39,
+      "percent_of_true_class": 25.65,
+      "confusion_group": "clean_to_ambiguous"
+    },
+    {
+      "true_dataset_label": 6,
+      "true_name": "clean",
+      "pred_dataset_label": 2,
+      "pred_name": "syntactic",
+      "count": 83,
+      "percent_of_errors": 21.5,
+      "percent_of_true_class": 21.73,
+      "confusion_group": "clean_to_ambiguous"
+    },
+    {
+      "true_dataset_label": 6,
+      "true_name": "clean",
+      "pred_dataset_label": 4,
+      "pred_name": "syntax",
+      "count": 35,
+      "percent_of_errors": 9.07,
+      "percent_of_true_class": 9.16,
+      "confusion_group": "clean_to_ambiguous"
+    },
+    {
+      "true_dataset_label": 6,
+      "true_name": "clean",
+      "pred_dataset_label": 5,
+      "pred_name": "pragmatic",
+      "count": 29,
+      "percent_of_errors": 7.51,
+      "percent_of_true_class": 7.59,
+      "confusion_group": "clean_to_ambiguous"
+    },
+    {
+      "true_dataset_label": 1,
+      "true_name": "lexical",
+      "pred_dataset_label": 3,
+      "pred_name": "semantic",
+      "count": 14,
+      "percent_of_errors": 3.63,
+      "percent_of_true_class": 29.79,
+      "confusion_group": "other"
+    },
+    {
+      "true_dataset_label": 5,
+      "true_name": "pragmatic",
+      "pred_dataset_label": 3,
+      "pred_name": "semantic",
+      "count": 12,
+      "percent_of_errors": 3.11,
+      "percent_of_true_class": 14.63,
+      "confusion_group": "other"
+    },
+    {
+      "true_dataset_label": 4,
+      "true_name": "syntax",
+      "pred_dataset_label": 5,
+      "pred_name": "pragmatic",
+      "count": 10,
+      "percent_of_errors": 2.59,
+      "percent_of_true_class": 20.83,
+      "confusion_group": "other"
+    },
+    {
+      "true_dataset_label": 2,
+      "true_name": "syntactic",
+      "pred_dataset_label": 3,
+      "pred_name": "semantic",
+      "count": 9,
+      "percent_of_errors": 2.33,
+      "percent_of_true_class": 15.0,
+      "confusion_group": "other"
+    },
+    {
+      "true_dataset_label": 2,
+      "true_name": "syntactic",
+      "pred_dataset_label": 6,
+      "pred_name": "clean",
+      "count": 9,
+      "percent_of_errors": 2.33,
+      "percent_of_true_class": 15.0,
+      "confusion_group": "ambiguous_to_clean"
+    },
+    {
+      "true_dataset_label": 1,
+      "true_name": "lexical",
+      "pred_dataset_label": 2,
+      "pred_name": "syntactic",
+      "count": 8,
+      "percent_of_errors": 2.07,
+      "percent_of_true_class": 17.02,
+      "confusion_group": "lexical_syntactic"
+    }
+  ]
+}

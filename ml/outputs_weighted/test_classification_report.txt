@@ -1,0 +1,12 @@
+              precision    recall  f1-score   support
+
+     lexical     0.3659    0.3191    0.3409        47
+   syntactic     0.2313    0.5167    0.3196        60
+    semantic     0.2378    0.7333    0.3592        60
+      syntax     0.3913    0.5625    0.4615        48
+   pragmatic     0.4845    0.5732    0.5251        82
+       clean     0.8431    0.3377    0.4822       382
+
+    accuracy                         0.4315       679
+   macro avg     0.4257    0.5071    0.4148       679
+weighted avg     0.6273    0.4315    0.4509       679

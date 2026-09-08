@@ -1,0 +1,72 @@
+{
+  "best_global_step": 678,
+  "best_metric": 0.31780946308854496,
+  "best_model_checkpoint": "C:\\Users\\alish\\Desktop\\Req_Ambiguity_AI\\ml\\outputs\\checkpoint-678",
+  "epoch": 2.0,
+  "eval_steps": 500,
+  "global_step": 678,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 1.0,
+      "grad_norm": 13.407304763793945,
+      "learning_rate": 1.3352999016715832e-05,
+      "loss": 1.2423399078459163,
+      "step": 339
+    },
+    {
+      "epoch": 1.0,
+      "eval_accuracy": 0.6316568047337278,
+      "eval_loss": 1.1054515838623047,
+      "eval_macro_f1": 0.2943574831761571,
+      "eval_macro_precision": 0.31923423492497444,
+      "eval_macro_recall": 0.2989983638311818,
+      "eval_runtime": 79.7832,
+      "eval_samples_per_second": 8.473,
+      "eval_steps_per_second": 0.539,
+      "step": 339
+    },
+    {
+      "epoch": 2.0,
+      "grad_norm": 9.56287670135498,
+      "learning_rate": 6.686332350049165e-06,
+      "loss": 1.0454959475536965,
+      "step": 678
+    },
+    {
+      "epoch": 2.0,
+      "eval_accuracy": 0.643491124260355,
+      "eval_loss": 1.01547372341156,
+      "eval_macro_f1": 0.31780946308854496,
+      "eval_macro_precision": 0.34973690947799607,
+      "eval_macro_recall": 0.32005869358423844,
+      "eval_runtime": 93.7761,
+      "eval_samples_per_second": 7.209,
+      "eval_steps_per_second": 0.459,
+      "step": 678
+    }
+  ],
+  "logging_steps": 500,
+  "max_steps": 1017,
+  "num_input_tokens_seen": 0,
+  "num_train_epochs": 3,
+  "save_steps": 500,
+  "stateful_callbacks": {
+    "TrainerControl": {
+      "args": {
+        "should_epoch_stop": false,
+        "should_evaluate": false,
+        "should_log": false,
+        "should_save": true,
+        "should_training_stop": false
+      },
+      "attributes": {}
+    }
+  },
+  "total_flos": 712004086075392.0,
+  "train_batch_size": 16,
+  "trial_name": null,
+  "trial_params": null
+}

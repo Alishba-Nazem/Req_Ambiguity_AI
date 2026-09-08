@@ -1,0 +1,66 @@
+{
+  "split": "test",
+  "n_rows": 679,
+  "accuracy": 0.6450662739322534,
+  "macro_precision": 0.5770444744993491,
+  "macro_recall": 0.33496972502447536,
+  "macro_f1": 0.3576389072033212,
+  "per_class": [
+    {
+      "dataset_label": 1,
+      "name": "lexical",
+      "full_name": "Lexical Ambiguity",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 47
+    },
+    {
+      "dataset_label": 2,
+      "name": "syntactic",
+      "full_name": "Syntactic Ambiguity",
+      "precision": 1.0,
+      "recall": 0.06666666666666667,
+      "f1": 0.125,
+      "support": 60
+    },
+    {
+      "dataset_label": 3,
+      "name": "semantic",
+      "full_name": "Semantic Ambiguity",
+      "precision": 0.25806451612903225,
+      "recall": 0.13333333333333333,
+      "f1": 0.17582417582417584,
+      "support": 60
+    },
+    {
+      "dataset_label": 4,
+      "name": "syntax",
+      "full_name": "Syntax Ambiguity",
+      "precision": 0.8333333333333334,
+      "recall": 0.3125,
+      "f1": 0.45454545454545453,
+      "support": 48
+    },
+    {
+      "dataset_label": 5,
+      "name": "pragmatic",
+      "full_name": "Pragmatic Ambiguity",
+      "precision": 0.7213114754098361,
+      "recall": 0.5365853658536586,
+      "f1": 0.6153846153846154,
+      "support": 82
+    },
+    {
+      "dataset_label": 6,
+      "name": "clean",
+      "full_name": "Clean",
+      "precision": 0.6495575221238938,
+      "recall": 0.9607329842931938,
+      "f1": 0.7750791974656811,
+      "support": 382
+    }
+  ],
+  "syntactic_syntax_confusion_count": 0,
+  "n_misclassified": 241
+}

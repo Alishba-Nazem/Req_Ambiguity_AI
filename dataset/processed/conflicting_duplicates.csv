@@ -1,0 +1,93 @@
+source_row_index,requirement,label,labels_for_this_text,n_distinct_labels,n_rows_for_this_text,review_status
+759,Also the connections to the servers shall be based on the attributes of the user like his location and server shall be working 24X7 times.,5,2; 5,2,2,unresolved
+760,"This system shall work on client-server architecture. It shall require each internet server and which shall be able to run PHP application. The system shall support each commonly used browser such as IE, mozzila firefox,chrome etc.",5,1; 5,2,2,unresolved
+778,Customer workstation shall be internet capable with only at  least one internet browser available.,6,3; 6,2,2,unresolved
+779,Customer mobile device shall be internet capable with each internet browser.,6,3; 6,2,2,unresolved
+828,"The User Interface consists of J2ME GUI components like Forms, Buttons, Canvas, Textbox, TextField, AlertBoxes and Lists.",2,2; 6,2,2,unresolved
+888,The system shall be designed in each way each of which  shall allow it to be run on multiple computers with Microsoft Office Professional 2007 or later installed.,1,1; 6,2,3,unresolved
+889,The system shall be designed in each way each of which  shall allow it to be run on multiple computers with Microsoft Office Professional 2007 or later installed.,1,1; 6,2,3,unresolved
+890,The system shall be designed in each way each of which  allows the database to be re-used regularly for the various silent auctions each of which  the organization shall hold.,1,1; 6,2,2,unresolved
+891,"This system requires the Microsoft Office Professional 2007 suite or later, as it operates primarily only through  Microsoft Access, in conjunction with Microsoft Excel.",5,5; 6,2,2,unresolved
+892,The maintenance of the system shall be able to be sufficiently performed only by  each person with each basic understanding of Microsoft Access.,3,3; 6,2,2,unresolved
+911,It shall display and allow modification of each database tables with the exception of log tables.,3,2; 3,2,3,unresolved
+912,It shall display and allow modification of each database tables with the exception of log tables.,3,2; 3,2,3,unresolved
+913,It shall display and allow modification of each database tables with the exception of log tables.,2,2; 3,2,3,unresolved
+1121,The system shall allow users to login to their account to continue the learning session with their saved progress,6,4; 6,2,2,unresolved
+1122,The system shall allow users to logout of their account when necessary.,6,5; 6,2,2,unresolved
+1123,The system shall allow users to register each account,6,4; 6,2,2,unresolved
+1124,The system shall allow the administrator to delete user accounts,6,4; 6,2,2,unresolved
+1126,The system shall allow the user to exit the game only at  each point,6,4; 6,2,2,unresolved
+1127,The system shall allow the user to exit the training system only at  each time,6,4; 6,2,3,unresolved
+1130,The system shall allow the user to exit the training system only at  each time,6,4; 6,2,3,unresolved
+1131,The system shall allow the user to view their performance history.,6,5; 6,2,2,unresolved
+1132,The system shall allow the user to choose each reward,6,4; 6,2,2,unresolved
+1134,The system shall allow the user to modify their game settings,6,4; 6,2,2,unresolved
+1135,The system shall allow the administrator to add levels / games,6,4; 6,2,2,unresolved
+1136,The system shall allow the administrator to modify levels / games,6,4; 6,2,2,unresolved
+1137,The system shall allow the administrator to delete levels / games,6,4; 6,2,2,unresolved
+1139,"The system shall support only one simultaneous user on each machine; however, it shall support multiple users to create personal accounts and access the system on the same machine only at  different times.",6,3; 6,2,2,unresolved
+1143,Each account shall be stored and activated within 5 seconds only after  creation.,6,3; 6,2,2,unresolved
+1144,Each video clip (less than 5 minutes) shall be loaded completely within 30 seconds 95% of the time,6,3; 6,2,2,unresolved
+1145,Each user input only during  the session shall be responded to (a simple sign which indicates if the timing of interruption is correct or incorrect) within 3 seconds 98% of the time.,6,3; 6,2,2,unresolved
+1146,Each sessional grade report shall be generated within 5 seconds only at  the end of each session 95% of the time.,6,3; 6,2,2,unresolved
+1955,"Ability to delete each record types singly or via batch processing, with capability to recover or restore deleted data.",6,5; 6,2,2,unresolved
+2022,Compatible with Zebra Z4M thermal transfer printers (for printing spine labels).,6,5; 6,2,2,unresolved
+2062,"System provides customizable 'Rules of Suppression' each of which  specify whether patrons and staff can view authority, bibliographic, order, and item records in staff and public (OPAC) interfaces.",5,5; 6,2,2,unresolved
+2064,"Ability to delete each record types singly or via batch processing, with capability to recover or restore deleted data.",5,5; 6,2,2,unresolved
+2065,Compatible with Zebra Z4M thermal transfer printers (for printing spine labels).,5,5; 6,2,2,unresolved
+2183,"System provides customizable 'Rules of Suppression' each of which  specify whether patrons and staff can view authority, bibliographic, order, and item records in staff and public (OPAC) interfaces.",6,5; 6,2,2,unresolved
+4929,"Applicants can enter application for each permit/license via web-browser interface. Process will
+  allow checklist of process for applicant .",4,3; 4,2,2,unresolved
+4940,"Applicants can enter application for each permit/license via web-browser interface. Process will
+  allow checklist of process for applicant .",3,3; 4,2,2,unresolved
+5296,"Input is provided only through  each XML message in which each particular tag shall contain the name of the new files, and other relevant information describing the attached file. The path to the Distance Support replication directory shall also be provided to this component.",1,1; 3,2,2,unresolved
+5302,"Input is provided only through  each XML message in which each particular tag shall contain the name of the new files, and other relevant information describing the attached file. The path to the Distance Support replication directory shall also be provided to this component.",3,1; 3,2,2,unresolved
+5348,Also the connections to the servers shall be based on the attributes of the user like his location and server shall be working 24X7 times.,2,2; 5,2,2,unresolved
+5349,"This system shall work on client-server architecture. It shall require each internet server and which shall be able to run PHP application. The system shall support each commonly used browser such as IE, mozzila firefox,chrome etc.",1,1; 5,2,2,unresolved
+5839,Customer workstation shall be internet capable with only at  least one internet browser available.,3,3; 6,2,2,unresolved
+5840,Customer mobile device shall be internet capable with each internet browser.,3,3; 6,2,2,unresolved
+5914,Calculate Minutiae Deviations,4,4; 5,2,2,unresolved
+5945,Calculate Minutiae Deviations,5,4; 5,2,2,unresolved
+5955,Show the user how to play the game,5,4; 5,2,2,unresolved
+5959,Allow user to exit the program,5,4; 5,2,2,unresolved
+5980,Show the user how to play the game,4,4; 5,2,2,unresolved
+5982,Allow user to exit the program,4,4; 5,2,2,unresolved
+5992,The system shall allow users to login to their account to continue the learning session with their saved progress,4,4; 6,2,2,unresolved
+5993,The system shall allow users to logout of their account when necessary.,5,5; 6,2,2,unresolved
+5994,The system shall allow users to register each account,4,4; 6,2,2,unresolved
+5995,The system shall allow the administrator to delete user accounts,4,4; 6,2,2,unresolved
+5997,The system shall allow the user to exit the game only at  each point,4,4; 6,2,2,unresolved
+6001,The system shall allow the user to exit the training system only at  each time,4,4; 6,2,3,unresolved
+6002,The system shall allow the user to view their performance history.,5,5; 6,2,2,unresolved
+6004,The system shall allow the user to modify their game settings,4,4; 6,2,2,unresolved
+6005,The system shall allow the user to choose each reward,4,4; 6,2,2,unresolved
+6006,The system shall allow the administrator to add levels / games,4,4; 6,2,2,unresolved
+6007,The system shall allow the administrator to modify levels / games,4,4; 6,2,2,unresolved
+6008,The system shall allow the administrator to delete levels / games,4,4; 6,2,2,unresolved
+6010,"The system shall support only one simultaneous user on each machine; however, it shall support multiple users to create personal accounts and access the system on the same machine only at  different times.",3,3; 6,2,2,unresolved
+6014,Each account shall be stored and activated within 5 seconds only after  creation.,3,3; 6,2,2,unresolved
+6015,Each video clip (less than 5 minutes) shall be loaded completely within 30 seconds 95% of the time,3,3; 6,2,2,unresolved
+6016,Each user input only during  the session shall be responded to (a simple sign which indicates if the timing of interruption is correct or incorrect) within 3 seconds 98% of the time.,3,3; 6,2,2,unresolved
+6017,Each sessional grade report shall be generated within 5 seconds only at  the end of each session 95% of the time.,3,3; 6,2,2,unresolved
+6328,The system shall have each responsive design,4,4; 6,2,2,unresolved
+6455,The system shall run on Windows and MacOs,4,4; 6,2,2,unresolved
+6456,The User Interface shall be intuitive and easy to use.,6,4; 6,2,3,unresolved
+6457,The system is able to encrypt users password each of which  store in the database to protect data from being exposed to unauthorized users,4,4; 6,2,2,unresolved
+6517,The system shall have each simple user interface which is easy to understand.,3,3; 6,2,2,unresolved
+6577,The system shall have each simple user interface which is easy to understand.,6,3; 6,2,2,unresolved
+6841,The system shall be designed in each way each of which  shall allow it to be run on multiple computers with Microsoft Office Professional 2007 or later installed.,6,1; 6,2,3,unresolved
+6843,The system shall be designed in each way each of which  allows the database to be re-used regularly for the various silent auctions each of which  the organization shall hold.,6,1; 6,2,2,unresolved
+6844,"This system requires the Microsoft Office Professional 2007 suite or later, as it operates primarily only through  Microsoft Access, in conjunction with Microsoft Excel.",6,5; 6,2,2,unresolved
+6846,The maintenance of the system shall be able to be sufficiently performed only by  each person with each basic understanding of Microsoft Access.,6,3; 6,2,2,unresolved
+6848,"The user shall be able to enter information about the customer purchasing each particular item, and record their bid and other information. They shall also enter the winning bid",6,4; 6,2,2,unresolved
+6849,"The user shall be able to enter information about the customer purchasing each particular item, and record their bid and other information. They shall also enter the winning bid",4,4; 6,2,2,unresolved
+6864,"The User Interface consists of J2ME GUI components like Forms, Buttons, Canvas, Textbox, TextField, AlertBoxes and Lists.",6,2; 6,2,2,unresolved
+6913,The system shall be able to load data without breakdown,4,4; 6,2,2,unresolved
+6915,The User Interface shall be intuitive and easy to use.,4,4; 6,2,3,unresolved
+6916,The system shall be servicing 95% of the time,4,4; 6,2,2,unresolved
+6986,The system shall run on Windows and MacOs,6,4; 6,2,2,unresolved
+6987,The User Interface shall be intuitive and easy to use.,6,4; 6,2,3,unresolved
+6988,The system is able to encrypt users password each of which  store in the database to protect data from being exposed to unauthorized users,6,4; 6,2,2,unresolved
+6989,The system shall have each responsive design,6,4; 6,2,2,unresolved
+7059,The system shall be servicing 95% of the time,6,4; 6,2,2,unresolved
+7061,The system shall be able to load data without breakdown,6,4; 6,2,2,unresolved

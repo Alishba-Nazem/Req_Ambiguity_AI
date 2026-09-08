@@ -1,0 +1,756 @@
+"Serverless: OpenFaaS should support the deployment of serverless functions, allowing developers to focus on writing code rather than managing infrastructure.",6
+"Function Deployment: OpenFaaS should allow functions to be deployed quickly and easily, using a simple CLI or web UI.",6
+"Scalability: OpenFaaS should provide automatic scaling of functions, allowing them to handle varying loads without requiring manual intervention.",6
+"Monitoring: OpenFaaS should provide monitoring and logging functionality, allowing administrators to track the performance of functions and troubleshoot issues.",6
+"Integration with Container Platforms: OpenFaaS should be integrated with popular container platforms, such as Docker and Kubernetes, allowing functions to be easily deployed and managed.",6
+"Customization: OpenFaaS should allow functions to be customized with environment variables, configuration files, and custom templates.",6
+"Security: OpenFaaS should provide security features, such as authentication and authorization, to ensure that functions are only accessible by authorized users.",6
+"Multi-Language Support: OpenFaaS should support a wide range of programming languages, including popular languages such as Python, Node.js, and Go.",6
+"Event-Driven: OpenFaaS should allow functions to be triggered by events, such as a HTTP request, a message in a message queue, or a timer.",6
+"Support for multiple languages such as C#, Python, Go, Java, and Node.js",6
+Ability to easily deploy functions as serverless applications,6
+Ability to quickly scale applications up or down based on demand,6
+"Support for popular cloud providers such as AWS, Azure, and GCP.",6
+Support for customizing functions with environment variables and secrets,2
+Support for monitoring and logging of functions,6
+Support for integration with third-party services,5
+Support for customizing the runtime environment for functions,4
+Security : Ensure that all functions are secure and protected from malicious access,6
+Availability : Ensure that functions are always available and able to respond to requests,6
+Scalability : Ensure that functions can easily scale up or down based on demand,6
+Performance : Ensure that functions are performant and respond to requests quickly,6
+Reliability : Ensure that functions are reliable and can handle unexpected errors,6
+Usability : Ensure that functions are easy to use and understand,6
+Ability to deploy and manage applications across multiple clusters,2
+Ability to scale applications based on demand,6
+Ability to monitor application health and performance,2
+Ability to manage application configuration,6
+Ability to provide secure networking between containers,6
+Ability to provide storage orchestration,6
+Ability to provide a selfhealing environment,6
+Ability to provide automated rollouts and rollbacks,2
+"Container Management: Kubernetes should be able to deploy, manage, and scale containers across multiple nodes.",2
+Resource Management: Kubernetes should be able to manage and allocate resources among containers in an efficient and fair manner.,2
+Service Discovery: Kubernetes should be able to discover and connect services to enable applications to communicate with each other.,3
+Ability to provide high availability,6
+Ability to provide automatic disaster recovery,6
+Ability to provide detailed logging and monitoring,2
+Ability to provide a costeffective solution,6
+Security: Kubernetes should be able to provide secure access control to ensure that only authenticated and authorized users can access resources and services.,5
+High Availability: Kubernetes should be able to provide high availability of services to ensure that applications remain accessible and operational even in the event of a node failure.,1
+Extensibility: Kubernetes should be able to easily integrate with existing tools and frameworks.,2
+"Ability to create, modify and delete infrastructure resources in a controlled and predictable manner.",2
+Ability to support multiple cloud platforms and providers.,2
+Automation capabilities: Terraform should be able to automate the provisioning and management of cloud infrastructure.,6
+Security: Terraform should be able to encrypt and protect sensitive data such as credentials.,6
+Ability to provide secure access to infrastructure resources with authentication and authorization.,2
+Ability to version control infrastructure configuration files.,6
+Multicloud support: Terraform should be able to provision and manage resources across multiple cloud providers.,6
+Scalability: Terraform should be able to scale quickly to manage large infrastructure deployments.,6
+Ability to import existing infrastructure resources into Terraform.,6
+Ability to provide a consistent and deterministic output for infrastructure changes.,2
+Reliability: Terraform should be able to reliably and consistently provision and manage cloud resources.,6
+"Resource Lifecycle Management: Terraform should be able to manage the full lifecycle of resources, from creation to disposal.",6
+Ability to manage and maintain infrastructure configuration in a single file.,2
+Ability to provide detailed logging and auditing of infrastructure changes.,2
+High Availability: Terraform should be able to guarantee availability of resources.,6
+Resource Orchestration: Terraform should be able to orchestrate the configuration and deployment of multiple resources in an orchestrated fashion.,6
+Ability to generate an execution plan for infrastructure changes.,2
+Ability to provide infrastructure scalability and flexibility.,2
+Cost Optimization: Terraform should be able to optimize resource usage to reduce cost.,6
+Version Control: Terraform should be able to track and store configuration changes using version control systems such as Git.,6
+Ability to provide infrastructure change tracking and reporting.,6
+Ability to simplify and automate the provisioning of infrastructure resources.,6
+Ability to define dependencies between resources and enforce their order of execution.,6
+Ability to provide an intuitive and easytouse interface for managing infrastructure.,6
+Ability to monitor and collect metrics from multiple sources.,6
+Prometheus should be able to scrape and store time series data from a variety of sources.,6
+Prometheus should have a high availability.,6
+Prometheus should be highly available and fault tolerant.,5
+Ability to define alert thresholds on metrics.,6
+Prometheus should be able to query the time series data.,6
+Prometheus should be scalable.,5
+Prometheus should scale to accommodate large amounts of data.,5
+Ability to generate alerts based on metrics exceeding thresholds.,6
+Prometheus should be able to create alerts based on the data.,6
+Prometheus should be secure.,6
+"Prometheus should be secure, with authentication and authorization capabilities.",2
+Ability to store and search metric data.,5
+Prometheus should be able to send notifications when an alert is triggered.,6
+Prometheus should have low latency.,6
+Prometheus should offer low latency for data retrieval.,6
+Ability to visualize and analyze metrics in a dashboard.,2
+Prometheus should be able to handle high volumes of data.,6
+Prometheus should offer high throughput for data ingestion.,6
+Prometheus should offer flexible query capabilities for data retrieval.,6
+Prometheus should be extensible to support additional metric sources.,6
+Connectivity: Enable communication between services using secure servicetoservice authentication and authorization.,6
+Enable scalability of distributed services.,6
+Provide a secure service mesh to connect and manage microservices applications.,6
+Scalability: Ensure that the system can scale horizontally to meet the changing demands of the services.,6
+Enable control over traffic flow between services.,6
+Reliability: Ensure that the system is resilient and robust enough to handle any unexpected failure.,6
+"Security: Secure the traffic between services with identitybased authorization, encryption and access control.",6
+Support high availability with fault tolerance and fast failovers.,6
+Control: Provide an automated policy enforcement framework to ensure the correct behavior of services.,6
+Performance: Ensure that the system is able to process requests quickly and efficiently.,2
+Provide low latency and high throughput.,2
+Provide service identity and authentication.,5
+Ensure fault tolerance with robust service discovery.,5
+Extensibility: Ensure that the system can be extended to meet the needs of new services.,6
+Observability: Collect and analyze telemetry data to gain insight into service behavior.,6
+"Provide metrics, logs and traces for observability.",5
+Ensure data privacy and security with encryption and authentication.,2
+Support resilient servicetoservice communication with retries and timeouts.,2
+Usability: Ensure that the system is easy to use and understand.,2
+Ensure reliable service communication with load balancing and redundancy.,2
+Maintainability: Ensure that the system is easy to maintain and improve.,2
+Provide rate limiting and access control.,5
+Allow configuration of security policies and traffic rules.,5
+Provide support for multiple languages and platforms.,5
+Provide flexible,5
+Provide support for dynamic routing.,5
+"Provide integration with cloudnative logging, monitoring, and tracing services.",5
+Ability to deploy applications in any environment,6
+Ability to handle large volumes of traffic,6
+Ability to integrate with existing IT infrastructure,6
+Ability to scale applications dynamically,6
+Automated failure detection and recovery,2
+Automated patching of applications,6
+Easy to use and intuitive user interface,2
+High availability and fault tolerance,2
+High scalability and flexibility,5
+Low cost of ownership,5
+Low latency and high performance,5
+"Security controls for access control, authentication, and authorization",2
+Support for a wide range of programming languages,2
+Support for automated backups,6
+Support for multiple cloud providers,6
+Support for multiple databases,5
+Support for robust security and compliance standards,2
+Support for unified logging and monitoring,2
+Ability to deploy applications in any environment,3
+Ability to handle large volumes of traffic,6
+Ability to integrate with existing IT infrastructure,6
+Ability to scale applications dynamically,6
+Automated failure detection and recovery,2
+Automated patching of applications,6
+Easy to use and intuitive user interface,2
+High availability and fault tolerance,2
+High scalability and flexibility,2
+Low cost of ownership,6
+Low latency and high performance,2
+"Security controls for access control, authentication, and authorization",2
+Support for a wide range of programming languages,6
+Support for automated backups,6
+Support for multiple cloud providers,6
+Support for multiple databases,6
+Support for robust security and compliance standards,6
+Support for unified logging and monitoring,6
+"Ability to create, store, and manage virtual machines.",2
+Ability to support multiple operating systems.,6
+Ability to use OpenStack APIs to access and manage services.,2
+Ability to store and manage data in an object store.,2
+High availability and reliability.,5
+Ability to access and manage data on the cloud with Identity and Access Management (IAM) features.,2
+Security and compliance with industry standards.,2
+"Ability to manage and access network services such as firewalls, load balancers, and virtual private networks.",2
+Low latency for data access and storage.,5
+Ability to create and manage private and public networks.,6
+Scalability to accommodate new services and workloads.,6
+Ability to create and manage resource pools.,6
+Flexibility to accommodate new services and workloads.,6
+Ability to scale and deploy applications in an automated manner.,6
+Costeffectiveness for operations and maintenance.,6
+Ability to integrate with thirdparty services and applications.,6
+Ease of use for users and administrators.,5
+Ability to monitor resource usage and performance.,2
+Ability to create and configure virtual machine instances,2
+"Availability: EC must be available , with a high degree of reliability.",6
+Scalability: Amazon EC must be able to scale up or down resources quickly and easily in order to meet changing customer needs.,2
+Ability to access the EC instance from remote locations,6
+Scalability: EC must be able to scale up and down quickly and easily to meet changing workloads.,2
+Security: Amazon EC must provide a secure environment for customers to deploy their applications and data.,6
+Ability to upload and store data on the EC instance,2
+High Availability: Amazon EC must be able to provide high availability of services to ensure business continuity.,6
+"Performance: EC must deliver consistent, highperformance computing capabilities.",6
+Ability to deploy and manage applications on the EC instance,2
+Performance: Amazon EC must be able to deliver consistent performance in order to meet customer expectations.,6
+"Security: EC must provide secure access control, authentication and authorization, and encryption of data at rest and in transit.",6
+Ability to perform scaling and autoscaling of the EC instance,6
+Costeffectiveness: Amazon EC must be costefficient in order to provide value to customers.,1
+Pricing: EC must provide competitive pricing for its services.,6
+Ability to integrate with other AWS services,6
+Flexibility: Amazon EC must be flexible enough to allow customers to customize their infrastructure to meet their specific requirements.,6
+Management: EC must provide intuitive and easytouse tools for managing cloud resources.,6
+Ability to manage access and security controls,2
+Automation: Amazon EC must provide an automated environment for customers to quickly and easily deploy their applications.,6
+Monitoring: EC must provide realtime monitoring and alerting of cloud infrastructure.,6
+Ability to monitor resource utilization,2
+Automation: EC must provide automated provisioning and configuration of cloud resources.,6
+Ability to manage costs associated with EC instances,2
+Documentation: EC must provide comprehensive and uptodate documentation for its services.,6
+Clinical Data Storage: Store patient data in a secure and compliant fashion.,2
+Clinical Data Analytics: Analyze patient data to identify trends and insights into patient health.,6
+Care Management: Manage patient health with automated care plans and protocols.,6
+Clinical Documentation: Create digital patient records and documents for remote access and sharing.,6
+"Electronic Health Records (EHRs): Create, store, and share patient medical records securely.",6
+Clinical Decision Support: Provide evidencebased medical guidance and recommendations to clinicians.,6
+Secure Messaging: Send and receive secure messages to other members of the care team.,6
+Telemedicine: Provide remote patient care via virtual visits and video conferencing.,6
+Clinical Workflow Automation: Automate routine processes to improve the efficiency of care delivery.,6
+Population Health Management: Focus on the health of larger groups of patients with preventive care and analytics.,6
+"Authentication & Authorization: Securely manage user accounts, logins, and access control.",6
+"Data Management: Store, modify, and share sensitive medical data.",6
+Privacy & Security: Protect medical data from unauthorized access.,6
+Access Control: Authorize users to access specific data sets.,6
+Digital Workflows: Streamline and automate medical processes.,6
+Analytics & Reporting: Monitor and report on medical data.,6
+Clinical Trials & Research: Support clinical trials and medical research.,6
+Mobile & Wearable Integration: Connect medical devices and wearables.,6
+Image Analysis & Processing: Analyze and process medical images.,2
+Computer Vision: Use deep learning to detect abnormalities in medical images.,6
+Wearable Monitoring: Track vital signs and other patient data.,2
+IoT Integration: Connect medical devices to the cloud.,6
+"RealTime Data Visualization: Display, analyze, and act on medical data.",2
+Natural Language Processing: Understand and interpret medical text.,6
+AI & Machine Learning: Enable predictive analytics and personalized medicine.,6
+"Compliance with HIPAA, HITECH, and other relevant healthcare regulations",2
+Support for multilanguage and multiregion deployments,2
+Robust security measures to protect patient data,6
+Ability to integrate with other healthcare systems,6
+Ability to scale to meet increasing demand,6
+Reliable and secure backups of data,2
+High availability of services with low latency,6
+Automated monitoring and alerting for performance issues,2
+Automated patching and updates for system components,2
+Logging and auditing of all activities related to patient data access and usage,3
+"Security MedStack must be secure, with strong authentication and data encryption in transit and at rest.",2
+Performance MedStack must be able to scale up and down to meet changing demands.,2
+Availability MedStack must be available .% of the time.,6
+Usability MedStack must be easy to use and intuitive for both clinicians and patients.,3
+Reliability MedStack must be reliable and have no single point of failure.,2
+Portability MedStack must be able to run on multiple platforms.,2
+Interoperability MedStack must be able to communicate with other systems and datastores.,2
+Maintainability MedStack must be maintainable and supportable for the longterm.,2
+Compliance MedStack must comply with applicable laws and regulations.,2
+Data Recovery MedStack must have data recovery capabilities in case of catastrophic failure.,6
+OpenMRS should be able to seamlessly integrate with other systems and applications.,2
+"Accessibility: OpenMRS should be accessible to users from around the world, regardless of their technical expertise or language.",5
+Security: OpenMRS must have rigorous security measures in place to protect patient data and ensure confidentiality.,2
+"Interoperability: OpenMRS should be designed to be compatible with other health information systems and software, as well as with existing standards and protocols.",2
+Reliability: OpenMRS should be designed to be reliable and highly available.,2
+Customizability: OpenMRS should allow users to customize the system to fit their specific needs.,5
+Scalability: OpenMRS should be able to scale up (or down) to meet the needs of a particular user or organization.,2
+Usability: OpenMRS should be designed with a focus on user experience and easeofuse.,2
+Maintainability: OpenMRS should be designed in such a way that it can be easily maintained and updated.,1
+Flexibility: OpenMRS should be flexible enough to be adapted to a variety of different settings and contexts.,3
+OpenMRS should be able to respond to user requests and provide data quickly.,2
+OpenMRS should be secure from unauthorized access and data breaches.,2
+OpenMRS should be able to scale up and down to meet changing user needs.,2
+OpenMRS should be dependable and consistently deliver the same quality of service.,2
+"OpenMRS should be easy to update, maintain, and modify when necessary.",2
+OpenMRS should be userfriendly and intuitive to use.,2
+OpenMRS should be accessible to all users regardless of their device or location.,3
+OpenMRS should be easily testable by developers so they can ensure quality and reliability.,5
+OpenMRS should have high uptime and be able to deliver services to users at all times.,3
+"Ability to track and record health information such as vital signs, treatments, and medications.",1
+"Usability: CareKit should be intuitive and easy to use for all users, regardless of technical proficiency.",3
+Ability to integrate with other health tracking devices.,6
+Localization: CareKit must be localized for different languages and regions.,2
+"Ability to store and track patient data including health records, medications, and other medical information.",2
+"Ability to coordinate care with other providers, caregivers, and family members.",2
+"Ability to access health information from multiple sources, including the patient's personal device, healthcare providers, and other thirdparty sources.",2
+Ability to securely share patient health information with authorized care team members.,6
+Ability to create personalized care plans tailored to the individual patient.,6
+Ability to monitor patient progress and provide feedback to the patient and care team.,2
+Ability to generate reports and provide analytics on patient data.,2
+Ability to integrate with existing healthcare IT systems.,6
+Ability to provide reminders and notifications to patients and care team members.,2
+"Ability to set reminders for medications, doctor's appointments, and other care needs.",1
+Accessibility: CareKit must be accessible to users with disabilities and special needs.,1
+Ability to provide educational resources and decisionsupport tools to both patients and care team members.,3
+Ability to capture patientgenerated data.,6
+"Ability to provide secure, HIPAAcompliant data storage and transmission.",2
+Ability to securely share health data with medical providers.,2
+Security: CareKit must be secure from cyber attacks and unauthorized access.,2
+Ability to connect with care team members.,6
+Scalability: CareKit must be able to support a large number of users and data.,1
+Ability to access educational materials and resources related to health conditions.,2
+Interoperability: CareKit must be able to integrate with existing health systems and databases.,2
+"Ability to track and record lifestyle information such as diet, exercise, and sleep.",1
+Reliability: CareKit must be reliable and available at all times.,3
+Ability to set and track goals related to health and wellness.,1
+Performance: CareKit must be able to handle large amounts of data quickly and efficiently.,2
+Ability to receive realtime notifications and alerts.,2
+Maintainability: CareKit must be able to be maintained and updated easily.,2
+Ability to connect with health and wellness apps.,2
+Documentation: CareKit must be documented and documented clearly.,2
+Robust Security Protocols : To protect patient data,6
+Secure authentication and authorization.,2
+Security: The system must be secure to protect patient data.,6
+Accessibility: The system must be accessible to users with disabilities.,6
+HIPAA Compliance : To ensure compliance with privacy regulations,6
+Secure messaging capabilities.,5
+Ability to create custom workflows.,6
+Appointment scheduling and reminders.,2
+Clinical documentation and data entry.,2
+Patient engagement tools.,6
+Ability to create patient surveys.,6
+HIPAA compliant data protection.,5
+Integration with other healthcare systems.,5
+Ability to generate custom reports.,6
+Realtime data visualization.,5
+Automated patient record storage and retrieval.,1
+Availability: The system must be available to users .,6
+Secure Access Controls : To control access to patient data,6
+Mobile access and offline access.,5
+Automated electronic health records (EHRs) generation.,6
+Scalability: The system must be able to scale to handle increased demand.,6
+Scalable Infrastructure : To enable scalability of the system,6
+Automated Data Aggregation : To enable easy access to medical records,6
+Integration of patient records with existing EHR systems.,6
+Reliability: The system must be reliable and provide consistent performance.,2
+Mobile Application Support : To enable patients to access their records from mobile devices,5
+Support for multispecialty and multidisciplinary teams.,2
+Usability: The system must be easy to use and intuitive.,2
+Clinical decision support tools.,6
+Cloud Storage : To store and back up patient data,2
+Maintainability: The system must be maintainable and updatable.,2
+Performance: The system must respond in an acceptable time frame.,6
+Records Search Capabilities : To enable easy retrieval of patient records,6
+Reporting and analytics capabilities.,2
+"Ability to capture, monitor and analyze patient health data.",2
+Interoperability: The system must be able to exchange data with other systems.,6
+Reporting and Analytics : To enable analysis of patient data,2
+Configurability: The system must be configurable to meet the needs of different users.,6
+Interoperability Standards : To enable integration with other systems,6
+Tracking and reporting of clinical outcomes.,2
+"Availability: System should be available  hours a day,  days a week.",6
+Robust security protocols to protect patient data.,6
+Automated reminders to ensure patient compliance.,6
+Online prescription ordering and refilling capabilities.,2
+Ability to integrate with thirdparty systems and applications.,2
+Patient engagement tools to improve patient experience.,6
+Mobile device compatibility for remote access.,2
+Comprehensive customer support and training.,2
+Automated administrative functions to streamline task management.,6
+Performance: System should respond within three seconds to any user request.,3
+Electronic health records integration to support patient care.,6
+Scalability: System should be able to scale up or down depending on the number of users and transactions.,1
+Scheduling and appointment management capabilities.,2
+Security: System should have appropriate security measures in place to protect data from unauthorized access.,6
+Ability to integrate with patient portals for secure communication.,2
+Reliability: System should ensure data integrity and have failover mechanisms in place to keep the system running in case of any hardware or software failure.,3
+Access to patient information for physicians and other healthcare professionals.,2
+Usability: System should be intuitive and easy to use for all users.,3
+Analytics and reporting tools to monitor patient health and trends.,2
+Compatibility: System should be compatible with any existing hardware and software.,3
+Clinical decision support tools to improve care quality.,6
+Maintainability: System should be easy to maintain and regularly updated with new features and bug fixes.,2
+Automated billing systems to ensure accurate and timely billing.,2
+"Ability to create an account with basic information, such as name and contact information.",1
+An intuitive and modern user interface design to make the appointment scheduling process simple.,2
+"Availability: The system must be available  hours a day,  days a week.",6
+Ability to integrate with existing customer databases.,6
+"Ability to integrate with other business systems, such as accounting or customer relationship management systems.",2
+Documentation: The system must provide clear and uptodate documentation.,2
+"Ability to keep track of customer history, such as appointment attendance and payments.",2
+Ability to track customer data such as appointment history.,6
+Ability to generate reports and analytics on appointment trends.,2
+Ability to generate reports and insights.,2
+"Ability to provide customer support through email, chat, or phone.",2
+Ability to provide customer support.,6
+Ability to assign staff members to appointments.,6
+Ability to set up automated workflows for recurring appointments.,6
+Ability to integrate with social media platforms.,6
+Ability to set up waiting lists for appointments.,6
+Ability to customize email and SMS notifications.,6
+Secure data storage and backups.,6
+Ability to provide customer support.,6
+Ability to provide online booking and appointment scheduling.,2
+Ability to set up automated workflows for recurring appointments.,6
+Ability to create and manage customer accounts.,6
+"Ability to create multiple appointment types, such as onetime appointments, regular recurring appointments, and special event appointments.",6
+"Ability to create, view, update and delete appointments.",6
+Ability to set up automated appointment followup.,6
+Ability to set different fees for each type of appointment.,6
+"Automated appointment reminders via email, text, or push notifications.",6
+Ability to generate invoices and payment receipts.,2
+Ability to view availability of staff and resources to easily schedule appointments.,2
+Ability to accept online payments for appointments.,2
+"Ability to set up payment plans, such as monthly or yearly subscription plans.",1
+Ability to view and manage appointment availability.,2
+"Automated appointment confirmation via email, text, or push notifications.",2
+Ability to create and customize appointment types.,2
+Ability to set appointment reminders.,1
+"Ability to customize appointment information, such as notes and special requests.",1
+Ability to customize the appointment booking process.,6
+Ability to integrate with thirdparty calendars such as Google Calendar and Outlook.,2
+Ability to manage customer profiles and contact information.,2
+Automated online bookings and payments,4
+Security: the system must ensure the safety of user data and transactions.,2
+Automated reviews and ratings,2
+Documentation: the system must include user and technical documentation.,2
+Customizable reporting and analytics,4
+Mobile friendly user interface,5
+Privacy and security features,5
+Multilanguage support,5
+Automated tax calculations,5
+Integration with customer relationship management (CRM) systems,6
+Ability to create custom rate plans,6
+Ability to customize the rental experience (e.gaddon services),6
+Support for multiple property types,2
+"Ability to set custom rental rules (e.gminimum stay, availability)",1
+Reliability: the system must be available and accessible at all times.,3
+Ability to manage multiple properties from one platform,6
+Automated rental agreement generation,6
+Scalability: the system must be able to handle an increasing number of users and transactions.,1
+Automated reminders for guests,2
+Usability: the system must be easy to use and understand.,2
+Ability to accept deposits and balance payments,3
+Accessibility: the system must be accessible to users with disabilities.,6
+Integration with popular payment gateways,6
+Performance: the system must respond quickly to user requests.,6
+Automated invoicing and billing,2
+Compatibility: the system must be compatible with existing systems and technologies.,2
+Calendar synchronization with popular thirdparty sites and services,4
+Maintainability: the system must be easy to maintain and update.,2
+Compliance: the system must comply with applicable laws and regulations.,2
+Multicurrency support,5
+Automated Room Booking System: The system should enable users to book rooms for meetings and other events with ease and efficiency.,2
+Usability: The system should be easy to learn and use.,2
+Documentation: The system should be welldocumented to ensure smooth operation and user support.,2
+"User Management : CreateEditDelete users, assign them roles and permissions, invite new users and reset passwords.",5
+Calendar Integration : Integration with OutlookGmailGoogle Calendar for viewing and booking rooms.,2
+Room Scheduling : Automated optimization of room bookings to maximize utilization.,6
+"Reporting : Generate reports on usage, resource utilization and more.",2
+Mobile App : Ability to access Roomzilla from a mobile app.,6
+Notifications : Send notifications for room bookings and schedule changes.,2
+"Resource Management : Track and manage resources such as furniture, projectors and other equipment.",2
+Security : Comprehensive security measures to protect user data and sensitive information.,2
+Customization : Ability to customize Roomzilla for the organization's specific needs.,2
+Accessibility: The system should be accessible to all users regardless of their environment or device.,3
+Room Availability Monitoring: The system should be able to monitor room availability in real time and alert users when a room is available.,2
+Reliability: The system should be reliable and resilient to external threats and failures.,2
+Room Cleaning and Maintenance Alerts: The system should be able to alert staff when a room needs cleaning or maintenance.,2
+Performance: The system should be fast and responsive.,2
+Room Utilization Reports: The system should be able to generate reports on room utilization and occupancy.,2
+Online Calendar Integration: The system should be able to integrate with popular online calendars such as Google Calendar and Office .,2
+Security: The system should be secure and protect user data.,2
+Scalability: The system should be able to scale to accommodate an increasing user base.,6
+User Access Controls: The system should be able to set user access levels and privileges to ensure data security.,1
+Maintainability: The system should be easily maintainable and upgradable.,2
+"Room Customization: The system should be able to customize room settings such as temperature, lighting, and sound.",2
+Automated Alerts: The system should be able to send automated reminders to users about upcoming events and meetings.,2
+Interoperability: The system should be able to integrate with other systems.,6
+Compliance: The system should comply with applicable laws and regulations.,2
+Room Access Control: The system should be able to control room access using biometric or other authentication methods.,2
+Ability to manage customer bookings.,6
+The system should be able to process data securely.,6
+Ability to customize user roles and access levels,2
+The system should be able to support multiple currencies.,6
+Ability to manage customer loyalty programs,6
+Ability to track customer satisfaction surveys,6
+Ability to track customer feedback,6
+Ability to create promotional campaigns,6
+Ability to manage staff availability and scheduling,2
+Ability to track customer bookings and cancellations,2
+Ability to customize customer booking rules,6
+Ability to track customer preferences and preferences,2
+Ability to track customer reviews and ratings,2
+Ability to generate customer invoices,6
+The system should have an intuitive user interface.,6
+Ability to provide customer support,6
+Ability to accept online payments,6
+The system should have an easy to use navigation system.,6
+Ability to track customer payments and billing information,2
+The system should be able to handle large volumes of data.,6
+Ability to automate email notifications for customers,2
+The system should be able to handle multiple bookings simultaneously.,6
+Ability to store customer contact information,6
+The system should be able to integrate with other thirdparty services.,6
+Ability to generate reports for customer bookings,2
+The system should provide realtime updates to users.,6
+Ability to integrate with other software systems,6
+The system should be able to detect and prevent fraudulent activities.,2
+Ability to customize user interface,6
+The system should be able to generate reports.,6
+"Usability: The system should be simple and intuitive to use, and should be easy to learn and navigate.",2
+User Registration: The system should provide a user registration process to create an account and store user profile information.,2
+Integrations: The Appointy software system must be able to integrate with other software systems.,6
+Customization: The Appointy software system must be customizable so that users can tailor it to their specific needs.,5
+Appointment Scheduling: The system should enable users to create and manage appointments with other users.,2
+Availability: The system should be available  with minimal downtime.,6
+Calendar Management: The system should enable users to view and manage their calendar of appointments.,5
+Reliability: The software should be reliable and produce consistent results.,2
+Payment Processing: The system should enable users to process payments for appointments.,2
+"Security: The system should be secure, using appropriate encryption and authentication methods to protect user data and prevent unauthorized access.",2
+"Notifications: The system should send out notifications to users about appointment reminders, rescheduled appointments, and other updates.",1
+Scalability: The system should be able to scale to meet increased demands in usage.,6
+Analytics: The system should provide analytics about user usage and appointment data.,2
+Performance: The system should be able to perform tasks quickly and efficiently.,2
+"Extensibility: The system should be extensible, allowing for future enhancements and customizations.",2
+Security: The system should have robust security measures in place to protect user data.,6
+"Accessibility: The system should be accessible to all users, regardless of their technical ability.",3
+Reminders: The Appointy software system must be able to send reminders to users about their upcoming appointments.,5
+Reporting: The Appointy software system must be able to generate reports that provide insights into user activity.,5
+Automated scheduling: Ability to automate the scheduling process with an integrated calendar system.,6
+"Availability: The Appointlet must be available for users to access at all times, with minimal service interruptions.",3
+Invoicing: Ability to generate invoices for customers.,2
+Reliability: The Appointlet must be reliable and able to handle any unexpected scenarios.,3
+Disaster Recovery: The application should be able to recover quickly from any disasters.,3
+Support: The application must have reliable customer support in case of any issues or queries.,3
+Monitoring: The application should have realtime monitoring of the system performance.,6
+Compliance: The application should be compliant with all regulatory requirements.,3
+Accessibility: The application should be accessible from any device and any browser.,3
+Backup and Recovery: The application must have a robust backup and recovery strategy in place.,2
+Appointment reminders: Ability to send automatic email and SMS reminders to customers about upcoming appointments.,2
+Scalability: The Appointlet must be able to scale up or down to accommodate changing user demand.,2
+Payment processing: Ability to process payments for services rendered.,2
+Security: The Appointlet must adhere to the highest security standards to protect customer data.,6
+Customer profiles: Ability to save customer profiles for easy access to contact information and past appointment history.,2
+Performance: The Appointlet must provide a fast and responsive user experience.,2
+Customizable booking form: Ability to customize the online booking form with fields to collect relevant customer data.,1
+Interoperability: The Appointlet must be able to integrate with other applications and services.,2
+Cost: The Appointlet must be costeffective to deploy and maintain.,2
+Scheduling reports: Ability to generate reports to track and measure the performance of the scheduling system.,2
+Documentation: The Appointlet must be accompanied by detailed documentation to ensure smooth implementation and usage.,2
+Multilocation support: Ability to manage multiple locations from a single dashboard.,6
+Calendar integration: Ability to integrate with calendar applications such as Google Calendar and Outlook.,2
+User Interface: The Appointlet must provide a userfriendly interface that is simple to use and navigate.,5
+Maintenance: The Appointlet must be easy to maintain and update as needed.,2
+Mobile support: Ability to access the system from mobile devices.,6
+"Automated customer appointment booking: Bookeo should enable customers to book appointments, classes, and other services online in a userfriendly manner.",2
+System must have an effective security system in place to protect customer data and information.,2
+"Integrations: Bookeo should integrate with thirdparty systems, such as accounting software, CRM, and marketing automation tools.",2
+System should allow for customization and personalization of features.,2
+Security: Bookeo should have an inbuilt security system to protect customer data and ensure data privacy.,2
+"Automation: Bookeo should be able to automate processes such as appointment reminders, customer followups, and payment processing.",2
+"Reporting: Bookeo should have customizable reporting features to track performance, customer data, and other metrics.",2
+Scalability: Bookeo should be able to scale up or down as businesses grow or downsize.,2
+Mobile compatibility: Bookeo should be mobilefriendly and compatible with mobile devices.,2
+Ease of use: Bookeo should be userfriendly and easy to learn and use.,2
+Support: Bookeo should provide reliable customer support and a knowledge base.,6
+Payment processing: Bookeo should have an integrated payment processing system to accept payments from customers.,6
+Payment processing: Bookeo should support integration with payment gateways to facilitate automated payment processing.,6
+System should be easy to use and understand for all types of users.,5
+"Online payment acceptance: Bookeo should allow customers to pay for their appointments, classes, and other services via credit or debit card.",5
+System must be highly available and accessible through the internet.,2
+Automated email and text reminders: Bookeo should enable customers to optin to automatic email and text reminders prior to their appointment.,5
+System should be able to scale up or down with demand.,2
+Reporting and analytics: Bookeo should provide comprehensive reporting and analytics capabilities to enable business owners to track and monitor their bookings.,5
+System must be reliable and consistent in its performance.,5
+Calendar management: Bookeo should enable business owners to manage their calendar and make changes to bookings in an efficient manner.,5
+System should be able to process requests in a timely manner.,6
+Automated customer feedback: Bookeo should enable customers to provide feedback about their experience with the business.,5
+System must have reliable backup and recovery processes in place.,2
+Customizable notifications: Bookeo should enable business owners to customize their notifications to customers.,5
+System should be able to integrate with other systems and services.,2
+Security: Bookeo should implement security measures to protect customer data and ensure secure payments.,2
+System should provide adequate technical and customer support.,2
+The Schoology system should be available to its users at least .% of the time.,3
+User Authentication: The system should provide user authentication services to ensure secure access to user accounts.,6
+Mobile App Access: The system should provide users with mobile access to Schoology so they can access their course material and manage their accounts while they are on the go.,5
+The Schoology system should provide a secure environment for user accounts and data.,2
+Security and Privacy: The system should ensure user data is kept secure and privateIt should also provide users with the ability to control who can view their data.,5
+The Schoology system should be able to scale to meet the needs of an increasing user population.,6
+"Notifications: The system should provide users with notifications for upcoming events, messages, reminders, and other notifications.",2
+The Schoology system should be able to provide a reliable service with minimal downtime.,6
+"Customization: The system should allow users to customize their learning environment by allowing them to choose colors, fonts, and other settings.",5
+The Schoology system should have a response time that is acceptable to users.,5
+Collaboration: The system should provide users with the ability to collaborate with peers and instructors in realtime.,2
+The Schoology system should be available .,6
+"Assessments: The system should provide users with the ability to create and manage assessments such as quizzes, tests, and surveys.",2
+The Schoology system should be accessible to users with disabilities.,6
+Reporting: The system should provide users with the ability to generate reports and track student progress.,2
+The Schoology system should be able to support multiple languages.,6
+"Integration: The system should provide users with the ability to integrate with other thirdparty applications such as Google Drive, Dropbox, and Zoom.",2
+The Schoology system should have an intuitive user interface.,6
+"Accessibility: The system should be designed to meet the accessibility requirements of all users, including those with disabilities.",3
+The Schoology system should be accompanied by comprehensive documentation.,6
+The Schoology system should be able to scale up and down to meet the changing needs of its users.,5
+User Profile Management: The system should enable users to create and manage their own profiles.,5
+"Course Management: The system should enable users to create, update, and manage courses within the system.",2
+The Schoology system should be secure and protect user data from unauthorized access and malicious attacks.,2
+"Assignment Management: The system should enable users to create, assign, and manage assignments for students.",2
+The Schoology system should have adequate performance levels and response times.,2
+Grade Management: The system should enable users to track and manage student grades in realtime.,2
+The Schoology system should be easy to use and intuitive for its users.,5
+"Calendar Management: The system should enable users to track and manage important dates, upcoming events, and due dates.",2
+The Schoology system should be able to integrate with other software applications.,6
+"Communication Tools: The system should provide messaging, discussion forums, andor group chat capabilities.",6
+The Schoology system should be reliable and function without any unexpected failures.,1
+Reporting Features: The system should enable users to generate reports and analytics on student performance.,2
+"The Schoology system should provide adequate support for end users, administrators, and IT personnel.",2
+"Content Management: The system should enable users to upload and manage educational content such as documents, images, and videos.",1
+The Schoology system should be able to interoperate with other systems used in the organization.,6
+Availability: The system should be available to users .,6
+Authentication and Authorization: The software should provide secure authentication and authorization mechanisms to ensure that only authorized users can access the system.,5
+Student Engagement: The system should provide tools for teachers to engage with students in the classroom,2
+"Collaboration: Students, teachers and parents should be able to collaborate in realtime using the cloudbased system.",2
+Reliability: The system should be reliable and have a high uptime rate.,2
+"Learning Management System (LMS): The system should enable teachers to create, monitor, and assess student learning activities.",2
+Scalability: The system should be able to handle an increase in the number of users and data.,1
+Content Management System (CMS): The system should enable teachers to upload and share course materials and other educational content.,2
+Security: The system should be secure from external threats and data breaches.,2
+"Gamification: The system should enable teachers to create and assign rewards, incentives, and challenges to motivate student behavior.",2
+Performance: The system should perform efficiently with minimal latency.,6
+"Personalization: The system should enable teachers to customize their content, activities, and assessments for individual students or groups of students.",5
+Usability: The system should be userfriendly and easy to use.,5
+Accessibility: The system should be accessible to users with disabilities.,6
+Reporting: The system should enable teachers to produce reports to track and monitor student performance.,2
+Analytics: The system should provide analytics and datadriven insights to help teachers improve their instruction and student learning.,5
+Interoperability: The system should be compatible with other systems.,6
+Communication: The system should enable teachers to communicate with parents about student progress.,6
+Extensibility: The system should be able to be extended with new features and functionality.,2
+Ability to accept payment and manage transactions,2
+Ability to create and manage customer profiles,4
+Ability to customize user experience based on customer preferences.,6
+Ability to integrate with external services such as travel booking systems.,6
+Ability to provide customer service and support.,2
+Ability to provide real time availability of hotel rooms.,6
+Ability to search for and book hotel rooms according to customer preferences.,2
+Compliance with industry standards and regulations.,2
+Data privacy and security,2
+"Displays hotel photos, descriptions, and reviews.",2
+Enables users to book hotels in realtime online.,6
+Fast response time,5
+High Availability and scalability,5
+Maintainability: System must be able to be updated and maintained with minimal disruption,2
+Multiplatform compatibility,5
+Performance: System must respond quickly and efficiently,2
+Provides users with a secure payment system.,6
+Provides users with an interactive map to search for hotels in their desired location.,5
+Provides users with the ability to compare rates and book rooms across multiple devices.,2
+Provides users with the ability to sort hotels by amenities and price.,2
+Reliability: System must be available ,6
+Scalability: System must be able to support large number of users,1
+Secure and reliable data storage,2
+Security: System must protect customer data and transactions,2
+Stores user contact information and preferences.,2
+Usability: System must be user friendly and intuitive,2
+Userfriendly interface,5
+Automated Room Booking: RoomKey should allow users to search and book a room from a comprehensive database.,2
+Performance: RoomKey should be able to handle large volumes of simultaneous requests with minimal latency.,6
+Payment Integration: RoomKey should enable users to pay for the booked rooms using a variety of payment options.,2
+Scalability: RoomKey should have the ability to scale up and down as needed for increased or decreased usage.,2
+"Room Management: RoomKey should provide users with a comprehensive room management system that can be used to track and manage bookings, availability, and occupancy.",5
+Usability: RoomKey should have an intuitive user interface so that users can easily find and book rooms.,5
+Mobile App: RoomKey should have a mobile app that is optimized for both iOS and Android devices.,3
+Reliability: RoomKey should be highly reliable so that bookings and payments are processed without any errors or delays.,3
+Accessibility: RoomKey should be accessible to users with disabilities so that everyone can use the platform without any difficulty.,3
+User Profiles: RoomKey should allow users to create profiles that store their booking and payment information to facilitate future bookings.,5
+Maintenance: RoomKey should have a comprehensive system of maintenance and updates in order to ensure the stability and reliability of the system.,2
+Security: RoomKey should ensure the security of user data with the use of highlevel encryption.,6
+"Analytics: RoomKey should provide users with detailed analytics and reporting capabilities to track occupancy, bookings, and revenue.",6
+Performance: The system should be able to scale and handle large volumes of data quickly.,2
+The system should provide realtime visibility into inventory levels.,6
+The system should enable users to track inventory movements in realtime.,6
+The system should provide users with the ability to customize and manage inventory levels.,2
+The system should enable users to set up inventory notifications and alerts.,1
+The system should provide users with realtime visibility into inventory levels and stock availability.,2
+"The system should enable users to track and manage inventory transactions, such as purchase orders, returns, and transfers.",2
+The system should provide users with the ability to generate comprehensive reports and analytics.,2
+The system should enable users to integrate with accounting and other business systems.,2
+The system should provide users with the ability to categorize and track inventory items.,2
+The system should provide users with the ability to track stock movements between warehouses and suppliers.,2
+The system should enable users to perform batch processing and bulk updates.,2
+"Reliability: The system should be highly reliable and available, meaning it should be able to work without interruption or downtime.",5
+The system should enable users to track inventory levels across multiple warehouses and locations.,2
+The system should provide users with secure access control and authentication.,2
+"Security: The system should be secure, with access control and encryption to ensure data is kept safe and secure.",2
+"The system should allow users to easily add, update, and delete inventory items.",2
+The system should enable users to set up automated alerts for low inventory levels.,1
+"Usability: The system should be easy to use and understand, with an intuitive user interface.",2
+Flexibility: The system should be able to be quickly adapted to changing requirements and configurations.,2
+The system should enable users to generate reports for inventory analysis.,2
+Cost Effectiveness: The system should be costeffective and provide a good return on investment.,6
+The system should enable users to easily integrate with other software systems.,6
+Integration: The system should be able to integrate with other software systems and data sources.,2
+The system should provide secure access to all inventory data.,3
+The system should enable users to track inventory costs.,6
+The system should enable users to track purchase orders and returns.,2
+Availability: The system should be available  and must have a high availability.,2
+Users should be able to authenticate and establish secure access to the file sharing system.,2
+"The system should be able to scale up or down depending on user demand, while maintaining performance and reliability.",2
+"The system should be reliable and resilient, with high availability to ensure that users can access their files at any time.",3
+"The system should be able to integrate with other cloudbased systems, such as Office , to facilitate collaboration.",6
+The system should be able to automate tasks such as backup and file synchronization.,2
+The system should provide a userfriendly interface that is easy to use and navigate.,5
+Scalability: The system must be able to handle an increasing number of users and files without any degradation in performance.,3
+The system should provide secure storage for files and documents.,2
+Security: The system must be secure and protect against unauthorized access and data breaches.,2
+Users should be able to share files with other users securely.,6
+Performance: The system must be able to respond quickly to user requests and have sufficient bandwidth.,2
+The system should support version control to enable users to track the history of changes made to files.,6
+Reliability: The system must be reliable and able to recover from unexpected errors or data loss.,2
+The system should provide the ability to control access to files based on user roles and permissions.,2
+"Compatibility: The system must be compatible with different devices, such as laptops, smartphones, and tablets.",2
+The system should provide a mechanism for data backup and recovery.,2
+Costeffectiveness: The system must provide a costeffective solution for file sharing.,2
+The system should provide a secure environment for file sharing and storage.,2
+Documentation: The system must have clear and comprehensive documentation for users to easily understand how to use the system.,2
+"The system should provide the ability to monitor user activity, including tracking the date and time of file access, user authentication, and any changes to the files.",3
+All data should be encrypted when stored on the cloud and in transitThe system should also provide access control to limit which users can access specific files and folders.,5
+Automated checkin and checkout process: The system should provide automated checkin and checkout process to save time and effort.,2
+Scalability: The system should be able to handle peak demand and provide the necessary scalability and performance for a hotel's peak periods.,2
+Payment Processing: The system should provide an integrated payment processing solution.,6
+Reservations: The system should provide a reservation system to manage bookings.,6
+Room Management: The system should provide an automated room management system.,6
+Reports: The system should provide a reporting feature to generate custom reports.,6
+Automation: The system should provide an automated workflow system to streamline processes.,6
+Notifications: The system should provide notifications for upcoming reservations and bookings.,2
+Inventory Management: The system should provide an inventory management feature.,6
+"Guest information tracking: The system should be able to track and store guest information such as contact details, preferences, etc.",2
+Robustness: The system should be able to handle and process large amounts of data without any performance degradation.,3
+"Room management: The system should allow for the easy management of room availability, maintenance, and cleaning.",2
+Security: The system should be secure and provide adequate protection against malicious attacks.,2
+Availability: The system should be available  and provide uninterrupted access to hotel staff.,2
+Payment processing: The system should provide a secure and efficient payment processing system for the processing of credit card payments and other forms of payment.,2
+Ease of Use: The system should be userfriendly and easy to use.,2
+Reporting and analytics: The system should provide detailed reports and analytics to help the hotel management make informed decisions.,2
+Customization: The system should allow for easy customization of the hotel's booking and management processes.,2
+Online booking system: The system should allow for online bookings from customers and provide them with the necessary information to make their booking.,5
+Integrations: The system should be able to integrate with other existing hotel systems.,6
+Mobile access: The system should provide mobile access to customers so they can access their account information and manage their bookings while on the go.,5
+Automation: The system should automate manual processes and reduce the time and effort required to manage the hotel.,2
+Security: The system should provide a secure environment to protect customer information and the privacy of the hotel's guests.,2
+MultiTenancy: The system should have multitenancy capabilities to manage different hotel,6
+"Availability: The system must be available to library users  hours a day,  days a week.",6
+The system must provide user authentication services to enable users to securely access the system.,6
+The system must provide regular backups of library data to ensure that data is never lost or corrupted.,5
+The system must be able to scale up as the library's needs increase.,6
+"The system must provide reports on library activities and performance, such as number of books borrowed, overdue books, etc.",1
+"The system must automate library processes, such as book borrowing, book return, and overdue fines.",2
+"The system must integrate with existing library systems and databases, such as library catalogs, payment systems, etc.",2
+The system must provide an intuitive user interface for library staff and patrons.,2
+Security: The system must provide an appropriate level of security to protect the data and information stored in the system from unauthorized access,4
+"The system must provide secure cloud based data storage for library records, including books, authors, and patrons.",2
+Scalability: The system must be able to scale to accommodate increased usage and increased data storage needs.,2
+"The system must enable library staff to add, update, and delete books in the library catalog.",2
+"Reliability: The system must be reliable, with minimal downtime and no data loss.",2
+The system must enable library staff to check out and return books to patrons.,1
+The system must provide a search functionality for library staff and patrons to quickly find items in the library catalog.,2
+"Usability: The system must be easy to use and understand, with intuitive user interfaces.",2
+"Interoperability: The system must be able to integrate with other library management systems, such as those used by public libraries.",6
+"The system must notify library staff and patrons of due dates, overdue books, and other library related events.",2
+"Cost Effectiveness: The system must be cost effective, providing value for money.",1
+"The system must generate reports for library staff to track library usage, circulation, and other library related activities.",2
+The system must provide secure user authentication and authorization to access the library resources.,2
+The system must be accessible from any device and any location with an internet connection.,3
+The system shall be able to allow the user to login via Twitter.,6
+The system shall be able to allow users to choose their followers or following to be analyze.,5
+The system shall be able to provide API endpoints for data access.,2
+The system shall be able to provide API endpoints for each classification model.,3
+The server shall be able to handle users requests concurrently.,6
+The system shall be able to filters data from Twitter API to retrieve only the selected features to be sent to the classification model.,6
+The system shall be able to save the selected features inside the database.,6
+The system shall be able to save each user result inside the database,4
+The user shall have a secure authentication that provide system privacy,4
+The system shall be easy to use.,6
+The system should be able to use with limited internet bandwidth.,6
+The web application shall be able to implement Role Based Access Control (RBAC) for system authorization.,2
+The web application shall be able to display results graphically.,6
+The system should only give authorization to the admin to manage users account.,6
+The system should generate report based on the data that had been manage by the user.,4

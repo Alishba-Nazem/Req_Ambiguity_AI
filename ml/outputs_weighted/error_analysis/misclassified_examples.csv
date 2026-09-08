@@ -1,0 +1,463 @@
+requirement,true_dataset_label,true_name,pred_dataset_label,pred_name,pred_confidence,true_class_probability,confusion_group,token_count
+"Accept credit and debit card payments only at  accounts desks, self checkout stations, and only through  the public web interface. Payments shall be visible in the patron account immediately, and related blocks shall be removed immediately.",6,clean,2,syntactic,0.41191089153289795,0.3377567529678345,clean_to_ambiguous,36
+A movie is displayed on the screen.,6,clean,5,pragmatic,0.7399475574493408,0.0775797888636589,clean_to_ambiguous,7
+"Ability to maintain inactive accounts for each user-defined period of time before purging from
+  the system.",6,clean,3,semantic,0.342355340719223,0.22532160580158234,clean_to_ambiguous,16
+"A reservation shall be valid for two days as of the date when the reserved book becomes available. only after  this period has expired, the reservation shall be cancelled. ACME University Library Information System SRS Page 11",5,pragmatic,2,syntactic,0.2785898447036743,0.19952209293842316,other,37
+Ability to conduct in-house printing of customer surveys/QA letters,6,clean,4,syntax,0.42489126324653625,0.18548791110515594,clean_to_ambiguous,9
+Content description update only through  manual adjustment,6,clean,5,pragmatic,0.38680723309516907,0.25431665778160095,clean_to_ambiguous,7
+"Allows permit, inspection, code enforcement fees to be invoiced.",6,clean,2,syntactic,0.4283124804496765,0.24812008440494537,clean_to_ambiguous,9
+"Ability to specify the order in which receipts are processed against outstanding receivables
+  with the option of overriding the order. This shall include outstanding receivables across each modules.",6,clean,3,semantic,0.5305045247077942,0.13882894814014435,clean_to_ambiguous,28
+"Ability to forgive delinquent amount only at  user defined threshold(s), and the ability to mass-apply payments to forgive values below user-defined thresholds).",6,clean,2,syntactic,0.3956620395183563,0.37062332034111023,clean_to_ambiguous,22
+"Since 54 is each professional application and the users are experts, the preparation of the information in the maps and diagrams can be made suitable to the specific subject. Nevertheless, each design guidelines must be considered.",6,clean,3,semantic,0.4604400396347046,0.06345966458320618,clean_to_ambiguous,36
+The system must allow user both to edit and modify operation runtime. (only business hours).,3,semantic,6,clean,0.5026552081108093,0.08092132210731506,ambiguous_to_clean,15
+After ordering or surfing for the product customer has to logout.,2,syntactic,5,pragmatic,0.3251416087150574,0.17730677127838135,other,11
+The tool shall use the existing editing tools provided only by  ArcGIS Desktop.,6,clean,2,syntactic,0.4641489088535309,0.22777721285820007,clean_to_ambiguous,13
+The tool shall prompt the user when each record ID in the disconnected database and enterprise database has been modified. (see comment above in Stimulus: 3),4,syntax,3,semantic,0.4624730944633484,0.019345730543136597,semantic_syntax,26
+"System shall display each visual timeline of artists, works of art, and other world events. Clicking on each artist, work of art, or world event displays additional information",6,clean,3,semantic,0.485088050365448,0.22125907242298126,clean_to_ambiguous,28
+"Ability to roll over encumbrances, reverse the rollover, and re-roll once the fiscal year has
+  closed.",6,clean,2,syntactic,0.4558020830154419,0.3469153642654419,clean_to_ambiguous,16
+"Configurability: Boundary frequencies, filing type.",6,clean,5,pragmatic,0.6915896534919739,0.1014222651720047,clean_to_ambiguous,5
+System shall not view the users who do not want to show themselves only at  search results.,5,pragmatic,6,clean,0.4394496977329254,0.04426172375679016,ambiguous_to_clean,17
+"The software must provide the ability to specify each major system variables, e.g., chart of
+  accounts, report definition, and processing parameters, only through  system administration- maintainable tables.",6,clean,3,semantic,0.35035839676856995,0.28624317049980164,clean_to_ambiguous,27
+Ability for credit memos to be applied against each open invoice.,2,syntactic,3,semantic,0.32089799642562866,0.2564900815486908,other,11
+The user shall be provided with the functionality to post each reply to each particular person who is the part of each of which  discussion thread.,6,clean,3,semantic,0.600559651851654,0.07642562687397003,clean_to_ambiguous,26
+The user shall be able to select between downloads  for the current site only or for each sites (or stations) in the current map layer  with or without Excel lookup,2,syntactic,3,semantic,0.33525145053863525,0.07329802960157394,other,30
+The system should be able to respond to every single button clicked.,6,clean,3,semantic,0.469441294670105,0.2780836522579193,clean_to_ambiguous,12
+"Ability to inactive each services only at  once when each account is being closed out rather than
+  having to close each service individually.",6,clean,3,semantic,0.5385674238204956,0.15021881461143494,clean_to_ambiguous,23
+Ability to reverse each group of journal entries in the current reporting period.,6,clean,3,semantic,0.43472686409950256,0.18741925060749054,clean_to_ambiguous,13
+"The system shall be able to provide functionality for each minute taker to manage the meeting info including add, update and delete.",6,clean,3,semantic,0.36026763916015625,0.2815723717212677,clean_to_ambiguous,22
+"The system shall allow each administrator to generate online inquiry and batch reports to
+  review access profiles and types given to the users defined to the system.",6,clean,3,semantic,0.38713887333869934,0.2914743721485138,clean_to_ambiguous,27
+The robot shall be able to identify and move past each obstacles or walls while cleaning without the need of human help.,6,clean,3,semantic,0.5994082689285278,0.16479410231113434,clean_to_ambiguous,22
+"The gamification engine shall provide services to assign gamified actions from each external application (e.g. EMIVASA virtual office), i.e. to gamify and reward points to actions from each external application.",6,clean,3,semantic,0.3643568456172943,0.15902897715568542,clean_to_ambiguous,30
+The system shall allow the portal manager to contribute each blog post,6,clean,4,syntax,0.36831918358802795,0.3210659921169281,clean_to_ambiguous,12
+System shall display each pop-up box preview of each search result item content element when the user hovers the mouse over the search or browse result item,6,clean,4,syntax,0.32451295852661133,0.32224392890930176,clean_to_ambiguous,27
+Ability to record project activity over multiple years.,6,clean,2,syntactic,0.4066351354122162,0.31920892000198364,clean_to_ambiguous,8
+Interfaces for information harvesting and metadata storing with existing similar initiatives,6,clean,5,pragmatic,0.41064727306365967,0.20861373841762543,clean_to_ambiguous,11
+"When each password is copied, it remains on memory for only 10 seconds. If in the meanwhile it is not pasted anywhere, it must be copied again. each of which  happens so each of which  if user copies each password and not paste it anywhere, the password cannot be found only by  anyone later.",6,clean,5,pragmatic,0.5009549260139465,0.045642487704753876,clean_to_ambiguous,54
+The tool shall allow the selection of Species in query/edit mode.,6,clean,2,syntactic,0.4675637483596802,0.28406545519828796,clean_to_ambiguous,11
+"Ability to uniquely identify each sub-grantee for grants and each grant financial activity
+  related to sub-grantees.",6,clean,3,semantic,0.35393911600112915,0.230444073677063,clean_to_ambiguous,16
+"All information related to the user, which he/she has entered into the GUI, shall store into the relational database.",5,pragmatic,3,semantic,0.2317037135362625,0.20020227134227753,other,19
+The system shall allow users to choose and add their favourite sign language GIFs.,2,syntactic,6,clean,0.4600999653339386,0.2512264549732208,ambiguous_to_clean,14
+Ability to review multiple versions of budget online with proper security access.,6,clean,2,syntactic,0.5134238600730896,0.2993161976337433,clean_to_ambiguous,12
+Interface for execution of specific content and showing results to end users,6,clean,2,syntactic,0.43796297907829285,0.2270413190126419,clean_to_ambiguous,12
+Fully implement US MARC 21 standards.,5,pragmatic,6,clean,0.5075786113739014,0.20015689730644226,ambiguous_to_clean,6
+Ability to void checks only by  check number or group of check numbers.,1,lexical,2,syntactic,0.37068888545036316,0.19025683403015137,lexical_syntactic,13
+"Provide the district, schools and other staff access to appropriate education data and tools only through  each flexible, easy-to-use web interface",5,pragmatic,3,semantic,0.4267072081565857,0.061799295246601105,other,21
+The software system shall provide each administration functionality via each RESTful API.,6,clean,3,semantic,0.6967728137969971,0.1306697428226471,clean_to_ambiguous,12
+KeePass is each small and light project so it does not need to be installed. each it takes is unpacking from the Zip package. It can be transferred also in each USB stick with no additional configuration needed.,6,clean,3,semantic,0.5552642941474915,0.09001491963863373,clean_to_ambiguous,38
+Ability to accommodate single payments applied against multiple invoices.,6,clean,2,syntactic,0.45930248498916626,0.3616769313812256,clean_to_ambiguous,9
+The system shall allow the portal manager to edit each page from the portal,6,clean,4,syntax,0.3646286129951477,0.3439329266548157,clean_to_ambiguous,14
+"Ability to group account numbers for internal and external reporting purposes, including
+  category levels.",6,clean,2,syntactic,0.46607914566993713,0.3132724463939667,clean_to_ambiguous,14
+"The software must print pertinent information about each employee's current pay on the payroll check
+  and check 90, including each pay types and deductions.",2,syntactic,3,semantic,0.5506308078765869,0.1089802235364914,other,24
+"Periodic inspection processing for rental properties, health inspections, business inspections.",5,pragmatic,2,syntactic,0.46164578199386597,0.21419686079025269,other,10
+The system shall allow each visitor to select the language used on the front end.,6,clean,3,semantic,0.5288098454475403,0.20613396167755127,clean_to_ambiguous,15
+Ability to bring in property description information from outside source,6,clean,4,syntax,0.7419210076332092,0.12266196310520172,clean_to_ambiguous,10
+"The software must report status of payroll checks voided, canceled, or outstanding as each aid to bank
+  statement reconciliation.",2,syntactic,3,semantic,0.47804689407348633,0.158210888504982,other,19
+"Ability to manually select libraries to receive items when partial orders are received, or when items come in multiple deliveries. Especially important for incomplete shipments of serials.",6,clean,2,syntactic,0.50542813539505,0.259204238653183,clean_to_ambiguous,27
+"User shall able to get online help, and user manual (both web-based and documented in PDF) to execute each functionalities of the Web-GIS tool.",1,lexical,3,semantic,0.4639213979244232,0.1302257776260376,other,24
+"Order log entries have these attributes: 2.4.1.Unique ID (auto generated) 2.4.2.Time transaction took place
+  2.4.3.Date transaction took place
+  2.4.4.Username of customer
+  2.4.5.Listing of the contents in customers shopping cart",5,pragmatic,6,clean,0.2792060375213623,0.23809683322906494,ambiguous_to_clean,29
+Ability to define neighborhoods geographically and/or only by  plat and property type.,6,clean,2,syntactic,0.43731409311294556,0.3502894639968872,clean_to_ambiguous,12
+Search options must work only through  each catalogue items and CMS. Search results must be prioritised based on from where the search was in- voked. Search results can also be prioritised only by  the user with the help of search options.,6,clean,3,semantic,0.47222813963890076,0.15761633217334747,clean_to_ambiguous,41
+Ability to base standard charges on work order history and specific task.,1,lexical,2,syntactic,0.5022624135017395,0.16626784205436707,lexical_syntactic,12
+All the tools used in the development of the 502 software must be available only at  least only until  the end of 2018.,3,semantic,2,syntactic,0.46750569343566895,0.09644096344709396,other,23
+Do not list each title on each pull list more times than the branch has copies on the shelf.,6,clean,3,semantic,0.49589139223098755,0.17943714559078217,clean_to_ambiguous,19
+The tool shall gather metadata information from the layers specified in the configuration file.,6,clean,2,syntactic,0.35341721773147583,0.29460111260414124,clean_to_ambiguous,14
+The system shall prompt the product manager for the part description.(This field shall be empty).,1,lexical,5,pragmatic,0.355876088142395,0.10085909813642502,other,15
+The system shall use data exported from the 27 database to create and format each variety of reports.,6,clean,3,semantic,0.5645122528076172,0.18925005197525024,clean_to_ambiguous,18
+The system shall display the endorsed information entered for the local group registration,6,clean,4,syntax,0.42761993408203125,0.39644110202789307,clean_to_ambiguous,13
+Ability to access GIS mapping data for road/street locations,2,syntactic,4,syntax,0.6075968742370605,0.11681590974330902,syntactic_syntax,9
+The software shall allow the use of arrow keys and Home and End keys to facilitate moving around reports,2,syntactic,6,clean,0.3851907253265381,0.37921419739723206,ambiguous_to_clean,19
+Allows the user to review each selected Computation Application,3,semantic,4,syntax,0.4663776457309723,0.2194342315196991,semantic_syntax,9
+Ability to notify specified users when uncontrolled factors are being used,6,clean,4,syntax,0.7863276600837708,0.08225691318511963,clean_to_ambiguous,11
+The latest release web part displays latest release publications from each 7 themes in the website.,1,lexical,3,semantic,0.4370926022529602,0.39199692010879517,other,16
+"Ability to specify when adding each regular issue, supplemental issue, index issue, etc. Ability to specify additional types of issues to picklist.",6,clean,2,syntactic,0.30619120597839355,0.30213162302970886,clean_to_ambiguous,22
+"Select water use data temporally or with geographic overlays, which can be from another layer or graphics on the page. Also be able to place it in each Excel spreadsheet.",6,clean,3,semantic,0.49611955881118774,0.14408138394355774,clean_to_ambiguous,30
+The system must have only at  least each Super-User role and each User role defined for accessing and interacting with the system,4,syntax,3,semantic,0.42346346378326416,0.10095787793397903,semantic_syntax,22
+"End-user tools provide quick response times to their end-users; describe your ability to
+  consistently provide sub-second response times.",5,pragmatic,2,syntactic,0.41651681065559387,0.05284018814563751,other,18
+Ability to analyze and adjust land valuation characteristics individually.,6,clean,2,syntactic,0.46932584047317505,0.33788201212882996,clean_to_ambiguous,9
+The system shall allow each registered visitor to save each custom filter,6,clean,4,syntax,0.3783205449581146,0.3286662697792053,clean_to_ambiguous,12
+"The software must provide the ability to input invoice due date and hold invoice payment
+  only until  the due date occurs.",6,clean,2,syntactic,0.528561532497406,0.29658904671669006,clean_to_ambiguous,21
+"Ability to enter future date for changes to employee or retiree's benefits: e.g.. age 65, end of
+  probationary period, etc.)",2,syntactic,6,clean,0.48679453134536743,0.2893752157688141,ambiguous_to_clean,20
+Ability to accommodate State of Wisconsin mandated rules and laws,6,clean,4,syntax,0.6949282884597778,0.1254606992006302,clean_to_ambiguous,10
+Admin pages shall only be accessed only by  admin.,6,clean,4,syntax,0.2846437990665436,0.22992560267448425,clean_to_ambiguous,9
+The program must be able to be executed in each simple computer or notebook or netbook.,6,clean,3,semantic,0.7247239947319031,0.10414467751979828,clean_to_ambiguous,16
+The system shall display the group leader name,6,clean,4,syntax,0.5236921310424805,0.3198595345020294,clean_to_ambiguous,8
+"The architecture and design shall provide for notification of software errors and exceptions to the server. System monitoring shall be carried out only at  user interface, application and database level.",6,clean,2,syntactic,0.42943185567855835,0.3277122676372528,clean_to_ambiguous,30
+"Given each of which  each user has registered, then the user shall be able to retrieve his/her password only by  email.",5,pragmatic,3,semantic,0.4118146300315857,0.28761693835258484,other,21
+Failure to return the book within the loan period shall entail each two-day suspension for each day of delay.,1,lexical,3,semantic,0.4082043766975403,0.2933531105518341,other,19
+"The ability to enter and compile hours worked and leave time hours with only at  least 6 numeric digits
+  (XXX.XX 4 digits plus 2 digits only after  decimal place)",2,syntactic,6,clean,0.3936541676521301,0.3236665725708008,ambiguous_to_clean,29
+The system shall relay information regarding current software version information such each of which  it can be determined whether each software update is required,6,clean,4,syntax,0.2964867055416107,0.23171186447143555,clean_to_ambiguous,24
+The system shall provide each contractual agreement with each internet service provider for T3 access with 99.9999% availability.,2,syntactic,3,semantic,0.5570842623710632,0.08572127670049667,other,18
+Ability to validate field values within the budget entry screen.,6,clean,2,syntactic,0.4239628314971924,0.36687663197517395,clean_to_ambiguous,10
+"Ability to merge other module data into budget reports (e.g., budgeted and actual
+  positions).",6,clean,2,syntactic,0.46391332149505615,0.294453889131546,clean_to_ambiguous,14
+"Allow patrons to choose 'any copy' on titles with volumes, if patron does not have volume preference",6,clean,4,syntax,0.6148722767829895,0.12367226183414459,clean_to_ambiguous,17
+"A default user identifier shall exist each of which  allows anonymous, read-only access to the system (e.g., �guest�)",6,clean,3,semantic,0.3722308874130249,0.1885935366153717,clean_to_ambiguous,18
+Organizer should be able to update the live scoreboard.,6,clean,2,syntactic,0.47642287611961365,0.35911816358566284,clean_to_ambiguous,9
+"Ability to view, export, sort, limit, format, search, and update each fields in hold records.",6,clean,3,semantic,0.4535623788833618,0.19305957853794098,clean_to_ambiguous,15
+The software shall feature each facility to recognise content on each page and omit blank pages thereby reducing file size,1,lexical,3,semantic,0.5057392716407776,0.11163642257452011,other,20
+Ability to mail merge data with Word documents or use Crystal Reports.,6,clean,2,syntactic,0.4285045266151428,0.3761006295681,clean_to_ambiguous,12
+"Ability to apply credit and debit adjustments and positive / negative consumption
+  adjustments to accounts anytime only during  the billing cycle.",6,clean,2,syntactic,0.5416547656059265,0.2811373174190521,clean_to_ambiguous,21
+The status change decision made only by  the user.,6,clean,5,pragmatic,0.7365694642066956,0.13603150844573975,clean_to_ambiguous,9
+"The software must be able to store forms or documents requiring additional supporting documents only at  the point of indexing. When such additional documents are received, they must be added to the original document to make one document on the system and then automatically routed to each in-tray.",6,clean,3,semantic,0.3116084635257721,0.25558236241340637,clean_to_ambiguous,48
+The tool shall run each process each of which  uses the configuration found in the application to gather feature metadata information from the selected feature classes and stores this metadata information into the appropriate table.,1,lexical,3,semantic,0.6053087711334229,0.19749130308628082,other,35
+Develop and maintain each metadata database each of which  provides browse and query access to formal descriptions of the database elements. Provide tools for database contributors to create and upload metadata compatible with the 91 metadata database.,2,syntactic,3,semantic,0.3863773047924042,0.17690660059452057,other,37
+"Ability to prevent transactions from being processed in closed prior years and unopened
+  future years.",6,clean,2,syntactic,0.5512607097625732,0.2557384669780731,clean_to_ambiguous,15
+The software must incorporate each license key authentication process.,4,syntax,3,semantic,0.6715415120124817,0.010252125561237335,semantic_syntax,9
+The system shall control each system field elements to device sensor level for those device sensors each of which  shall be controlled.,6,clean,3,semantic,0.6172765493392944,0.14231425523757935,clean_to_ambiguous,22
+"Ability for multiple staff members and patrons to simultaneously access and update patron and item records, including on staff check-in and check-out terminals, on self check-out stations, only through  SIP2/NCIP2 and similar protocols and APIs, and in OPAC. Depending on assigned privileges, staff can view each patron and item fields; patrons can access only selected fields.",6,clean,2,syntactic,0.3021487295627594,0.28937962651252747,clean_to_ambiguous,56
+The system shall allow user to register to the system,6,clean,4,syntax,0.930247962474823,0.030545858666300774,clean_to_ambiguous,10
+System shall mimic standard input functioning of the particular style of device.,1,lexical,6,clean,0.41216233372688293,0.13868527114391327,ambiguous_to_clean,12
+Browse and query watershed metadata only by  theme or location,2,syntactic,4,syntax,0.3619532585144043,0.12225016206502914,syntactic_syntax,10
+All code shall be fully documented. Each function shall be commented with pre- and post-conditions. each program files shall include comments concerning authorship and date of last change.,6,clean,3,semantic,0.574059009552002,0.13265526294708252,clean_to_ambiguous,28
+The publication web parts are the most web important web parts in SCAD website as they provides the core information users are interested in; two web parts shall be created to cater the publications functionality:,6,clean,1,lexical,0.35254791378974915,0.15907122194766998,clean_to_ambiguous,35
+The user shall have the ability to postpone each reminder.,6,clean,3,semantic,0.6744531989097595,0.11947127431631088,clean_to_ambiguous,10
+"Ability to set up ""uncontrolled"" or tracked budgets (i.e., salary).",6,clean,2,syntactic,0.4790300726890564,0.3201066851615906,clean_to_ambiguous,10
+"The software must have the option to store financial transactions in each temporary hold status
+  only until  approved for posting to the general ledger only by  accounting personnel.",6,clean,3,semantic,0.35336315631866455,0.247964009642601,clean_to_ambiguous,28
+The system shall display the description of each category ranking,4,syntax,3,semantic,0.3901280164718628,0.10171124339103699,semantic_syntax,10
+"Download, update and upload Excel files for each media covered only by  DIS (water quality, hydrology, meteorology, etc.)",6,clean,3,semantic,0.6258102059364319,0.15288110077381134,clean_to_ambiguous,18
+"Ability to establish and adjust budgets for each grant, with budget amendment.",6,clean,3,semantic,0.32866325974464417,0.2827680706977844,clean_to_ambiguous,12
+"The software must provide comprehensive inquiry option with drill down capabilities for the
+  user to access summary information or detail information as needed.",6,clean,2,syntactic,0.5377512574195862,0.28507229685783386,clean_to_ambiguous,23
+Allow real time collaboration on each draft across multiple users,6,clean,3,semantic,0.33862563967704773,0.29408204555511475,clean_to_ambiguous,10
+"Preview option in search results list, which is defined only by  Content Pro- vider. Preview shall be textual information or each reduced version of the functional service or tool.",5,pragmatic,3,semantic,0.48125988245010376,0.08350072801113129,other,29
+Customer workstation shall have only at  minimum 128 MB of RAM.,6,clean,2,syntactic,0.3560634255409241,0.3249872028827667,clean_to_ambiguous,11
+"Ability to monitor who is currently online, who is in the virtual classrooms.",5,pragmatic,2,syntactic,0.6051101684570312,0.017901381477713585,other,13
+Know how much water has been permitted and how much has been used based on land use over time.,6,clean,5,pragmatic,0.44821101427078247,0.16495998203754425,clean_to_ambiguous,19
+The user shall be provided with the functionality to post each reply to each particular discussion thread which can be read only by  entire group.,6,clean,3,semantic,0.6113125085830688,0.11948627233505249,clean_to_ambiguous,25
+"All data related to the word must be shown. For example if user types �abc� and abc is part of each password and of each username, both entries must be shown",6,clean,3,semantic,0.4007323086261749,0.1053181141614914,clean_to_ambiguous,31
+"Duplicates each existing permit application and each associated information to each new application only at  each different location. Another example shall be each ""standard plan"" type of
+  application each of which  is being built repeatedly only by  each contractor",4,syntax,3,semantic,0.586644172668457,0.01485802885144949,semantic_syntax,39
+"The software must allow for easy access to transaction inquiry, such as retrieval only by  check
+  number, dollar amount, description or other variables.",6,clean,2,syntactic,0.5003352761268616,0.2988753914833069,clean_to_ambiguous,23
+"This shall be done via Drupal, with Drupal storing the username and password in the MySQL database with encryption. each other information about specific users, tasks, and money shall also be stored in the MySQL database.",3,semantic,1,lexical,0.5905049443244934,0.13404902815818787,other,36
+"Ability to accommodate online cancellation and one step automatic reversals of invoice
+  entries.",6,clean,2,syntactic,0.5581668019294739,0.27873897552490234,clean_to_ambiguous,13
+System shall generate citation links back to specific points in each given text content objects,6,clean,3,semantic,0.4216637909412384,0.3000507652759552,clean_to_ambiguous,15
+"Ability to follow organization history of the position (list of employees who filled each position
+  over each user-specified period of time).",1,lexical,3,semantic,0.3307986855506897,0.2539919912815094,other,21
+View report for each harvesting jobs,5,pragmatic,3,semantic,0.37847474217414856,0.36499032378196716,other,6
+"System must have conflict resolution features so each of which  two different users shall not
+  update each record differently only at  the same time.",1,lexical,3,semantic,0.5773530602455139,0.14361141622066498,other,24
+Provides extensive documentation and online help functions,5,pragmatic,4,syntax,0.6443231701850891,0.18044422566890717,other,7
+"All 54 services each of which  collect data shall provide each availability of 98% only at  minimum (measured based on the 7 days, 24 hours, 365 day) service provision. Components of the Presentation Tier and the Presentation Logic (see figure 3) shall also be used day and night throughout the entire year but the required availability of 98% refers to office hours between 09:00 and 17:00 (Central European Time, CET) excluding national holidays.",3,semantic,1,lexical,0.4047037661075592,0.31404733657836914,other,73
+Ability to produce each Cash Requirements report for each pay cycle,2,syntactic,3,semantic,0.4286736249923706,0.04516056552529335,other,11
+Ability to back out divisions in case of incomplete recording or data entry errors,6,clean,4,syntax,0.7010135054588318,0.11564861983060837,clean_to_ambiguous,14
+Summary of average and median staff time for permit types for completed projects,4,syntax,2,syntactic,0.2806518077850342,0.24507741630077362,syntactic_syntax,13
+The statistical page layout is as follows. Each page in Statistics section shall be based on this layout.,5,pragmatic,1,lexical,0.47206854820251465,0.15090589225292206,other,18
+Ability to list date employment ended if they did not return to work,1,lexical,4,syntax,0.867545485496521,0.01326221413910389,other,13
+Ability to convert lines of requisitions to multiple purchase orders and different vendors.,6,clean,2,syntactic,0.49854162335395813,0.30364376306533813,clean_to_ambiguous,13
+The software shall provide code each of which  emulates each parallel communications (LPT) port,6,clean,3,semantic,0.620880126953125,0.14732158184051514,clean_to_ambiguous,14
+"Ability to record and display each parts issues, receipts, transfers and audits.",1,lexical,3,semantic,0.31339186429977417,0.16071507334709167,other,12
+"Provision of error checking and permit validation routines each of which  verify each of which  each required fees have been paid, contractor licenses are valid, permit has not expired, etc. before an
+  inspection is scheduled.",4,syntax,3,semantic,0.44083917140960693,0.034053586423397064,semantic_syntax,35
+"The system shall reflect each new and changed product description
+  within x minutes of the database being updated only by  the product
+  owner. This shall reduce the number of incidents of incorrectly
+  displayed information only. This eliminates the current
+  redundant update of information, saving $y dollars annually.",6,clean,1,lexical,0.5055617690086365,0.13679692149162292,clean_to_ambiguous,47
+"Ability to summarize individual line-item accounts into groups of accounts for use in
+  financial reporting based on user-defined criteria.",6,clean,2,syntactic,0.490619033575058,0.2825136184692383,clean_to_ambiguous,19
+Users shall not be able to reserve reference works.,1,lexical,5,pragmatic,0.34951478242874146,0.0752423107624054,other,9
+Prepare files to be submitted to EEA and Eionet,2,syntactic,5,pragmatic,0.6411243081092834,0.05791623890399933,other,9
+Whether the editing shall take place directly in the control or inside each popup dialog is only up to  the developer. In each case each pair of Save and Undo (or Cancel) options shall exist. Undo could just be each click outside each dialog without hitting Save. each errors only during  updates on the server shall be shown to the user.,2,syntactic,1,lexical,0.5039089918136597,0.04156545549631119,lexical_syntactic,61
+Library staff shall be able to access and cancel user suspensions.,2,syntactic,6,clean,0.401792049407959,0.3771156072616577,ambiguous_to_clean,11
+Ability to track funding source to the position.,1,lexical,6,clean,0.4291032552719116,0.10648541152477264,ambiguous_to_clean,8
+"System provides each configurable schedule of overdue notifications, including the number of notifications and the number of days delay before and between notices.",6,clean,3,semantic,0.43550705909729004,0.1903759390115738,clean_to_ambiguous,23
+"Ability to set up soft and hard stops for processing transactions with insufficient funds
+  appropriations.",1,lexical,2,syntactic,0.5335670113563538,0.11901256442070007,lexical_syntactic,15
+"Full compatibility with OCLC Connexion for searching bibliographic and authority records, creating and editing bibliographic records, and importing records to system (with or without overlaying) via OCLC's Gateway Interface.",6,clean,2,syntactic,0.4449312686920166,0.35475796461105347,clean_to_ambiguous,29
+The system is able to work with either shapefiles or each geo database.,6,clean,3,semantic,0.6721111536026001,0.14201486110687256,clean_to_ambiguous,13
+"The software must consolidate vendor payments onto one check, detailing invoice numbers
+  and dates or selectively produce individual checks.",6,clean,2,syntactic,0.39535006880760193,0.33480262756347656,clean_to_ambiguous,19
+The system shall allow the coordinator to only edit projects each of which  have been approved but unassigned to students.,6,clean,3,semantic,0.4861031472682953,0.24543198943138123,clean_to_ambiguous,20
+The meeting inviter and minute taker shall be able to view the meeting attendee invitation confirmation status.,6,clean,2,syntactic,0.4415287375450134,0.340780645608902,clean_to_ambiguous,17
+The system shall allow each administrator to suspend each user ID from further use.,6,clean,3,semantic,0.5788591504096985,0.19639337062835693,clean_to_ambiguous,14
+"Ability to report on each encumbered position and easily identify when each position is
+  eliminated.",1,lexical,3,semantic,0.4747328758239746,0.1602003276348114,other,15
+The working in the system shall be well planned and organized. The image shall be stored properly and shall help in implementing the secrecy,6,clean,4,syntax,0.5973167419433594,0.10772989690303802,clean_to_ambiguous,24
+Ability to have new parcel number values only by  classification balance back to old parcel number and balance to tax entities and/or interface with our new ELAM Accela system.,6,clean,2,syntactic,0.3933970332145691,0.3611510992050171,clean_to_ambiguous,29
+Ability to prohibit multiple users from updating the same record simultaneously.,6,clean,2,syntactic,0.3661215007305145,0.3295573890209198,clean_to_ambiguous,11
+"The logo shall be positioned right in the header, floating right.",5,pragmatic,1,lexical,0.29150235652923584,0.2846836447715759,other,11
+Ability to accommodate military and foreign mailing addresses.,6,clean,2,syntactic,0.4467261731624603,0.36401984095573425,clean_to_ambiguous,8
+User shall Enable or Disable each fare and set $ amounts,5,pragmatic,4,syntax,0.7767799496650696,0.025514492765069008,other,11
+The administrator shall have the ability to edit each users system access properties,6,clean,3,semantic,0.5170403122901917,0.28361937403678894,clean_to_ambiguous,13
+User defined fields,6,clean,5,pragmatic,0.9642799496650696,0.011347007006406784,clean_to_ambiguous,3
+The system is able to display inspection requests in the map,6,clean,4,syntax,0.441834032535553,0.38275882601737976,clean_to_ambiguous,11
+"This application accesses the users social media sites. While using the application, the user shall not provide each information each of which  they do not want to be available to the public, since everything given is pushed to the users linked social media account. Take the same precautions each of which  shall be used normally on each of these sites.",6,clean,5,pragmatic,0.4579811990261078,0.04242813587188721,clean_to_ambiguous,60
+Clicking on parent menu items in the top navigation shall reveal child menu items and clicking on each of these shall take to their respective page in the website.,3,semantic,1,lexical,0.502857506275177,0.33016711473464966,other,29
+The system shall provide each read-only informational view each of which  shall be utilized only by  Department employees (non-discipline) each of which  are outside of the scope of the ROW Certification process,6,clean,3,semantic,0.4197249710559845,0.2567412853240967,clean_to_ambiguous,32
+"Log transactional data about check-outs: date, time, location, patron type, zipcode, title, type",6,clean,5,pragmatic,0.30308759212493896,0.20223581790924072,clean_to_ambiguous,13
+"System queries Sales person for information on customer such as customer ID, customers name, telephone, fax and address.",6,clean,2,syntactic,0.4408341646194458,0.35987696051597595,clean_to_ambiguous,18
+"Implementation includes safeguards for each efficient, accurate and easily verifiable data conversion",6,clean,3,semantic,0.5708611607551575,0.1950833797454834,clean_to_ambiguous,12
+"The system shall have each average run time of 15 to 20 min per session depending on the user, although the user shall use the system longer.",6,clean,3,semantic,0.4695168733596802,0.19931884109973907,clean_to_ambiguous,27
+"If the internet service gets disrupted while sending information to the server, the information can be send again for verification.",6,clean,2,syntactic,0.4451245367527008,0.16276004910469055,clean_to_ambiguous,20
+Link the parcel data with appointment schedule.,6,clean,5,pragmatic,0.47908616065979004,0.26799607276916504,clean_to_ambiguous,7
+The HTML to be displayed on the client,4,syntax,5,pragmatic,0.6351601481437683,0.2368011325597763,other,8
+The time take to export requirements shall be less than 2 seconds.,6,clean,2,syntactic,0.3101038336753845,0.2987281382083893,clean_to_ambiguous,12
+"Allows the addition and reassignment of cycles and routes without affecting the customer or
+  location identification numbers.",6,clean,2,syntactic,0.5384916663169861,0.26334425806999207,clean_to_ambiguous,17
+"Users shall be able to cancel or extend the term of their reservations, if they so wish.",5,pragmatic,2,syntactic,0.2905804514884949,0.20599383115768433,other,17
+Color of the Key Indicators theme shall be fetched from color codes SharePoint list. For example in the figure above Agriculture and Environment text and the left border of the container is being displayed in its respective RGB color code,4,syntax,1,lexical,0.43455806374549866,0.038471467792987823,other,40
+"Capability to print previous period/last year's comparative period consumption and current
+  period consumption on each bill.",6,clean,3,semantic,0.3352946639060974,0.21951332688331604,clean_to_ambiguous,16
+"Ability to accept both standard and recurring journal entries, with both the amount and
+  account recurring.",6,clean,2,syntactic,0.42112746834754944,0.3497912883758545,clean_to_ambiguous,16
+Ability to bypass re-assessment and do special selection for physical re-appraisals. This needs to be customizable on each annual basis.,6,clean,2,syntactic,0.3239201009273529,0.23196005821228027,clean_to_ambiguous,20
+Entities shall submit online requests to have their profile added to the clearinghouse,6,clean,4,syntax,0.8238052725791931,0.09741762280464172,clean_to_ambiguous,13
+Generates standard or custom inspection failure/correction notices.,1,lexical,2,syntactic,0.5544992089271545,0.09920260310173035,lexical_syntactic,7
+"The system shall operate with the two latest major releases of the following Web browsers: Firefox, Opera, Chrome, Internet Explorer and Safari.",6,clean,2,syntactic,0.4202289283275604,0.25947144627571106,clean_to_ambiguous,22
+Tracking of requisition status,6,clean,5,pragmatic,0.9588218927383423,0.012897639535367489,clean_to_ambiguous,4
+MARC formats are supported in each way each of which  allows timely implementation of new rules or changes.,5,pragmatic,3,semantic,0.6050420999526978,0.11360936611890793,other,18
+Inventory Costing method is FIFO but shall have flexibility to alter method.,2,syntactic,6,clean,0.41156288981437683,0.305149108171463,ambiguous_to_clean,12
+"Possibility to see the content usage statistics in the chosen period of time. The statistics shown shall depend on the content type (number of downloads, time or amount of usage, etc.).",1,lexical,2,syntactic,0.36790698766708374,0.2988549470901489,lexical_syntactic,31
+Ability to create PO user defined fields each of which  are available only during  PO entry process.,2,syntactic,3,semantic,0.5884994864463806,0.08324846625328064,other,17
+"System provides each offline utility for recording check-in and check-out transactions, in case the system is unavailable.",6,clean,3,semantic,0.2998539209365845,0.2956775724887848,clean_to_ambiguous,17
+"Ability to produce graphical representations in the form of each chart, graph, etc. from accounts
+  payable data.",1,lexical,3,semantic,0.4142460227012634,0.15940725803375244,other,17
+"Ability to track vendor filing of E-Verify affidavit (Indiana specific form), and attach
+  affidavit.",6,clean,2,syntactic,0.6150988936424255,0.17865657806396484,clean_to_ambiguous,14
+The software must include only at  least one scanner with the ability to cope with carbon copies or other poor image quality documents,3,semantic,6,clean,0.383348286151886,0.07702135294675827,ambiguous_to_clean,23
+Personnel Action Reports,4,syntax,5,pragmatic,0.9627306461334229,0.010122507810592651,other,3
+The program is completely portable. There is no need for installation for this software.,6,clean,5,pragmatic,0.2978261113166809,0.25893813371658325,clean_to_ambiguous,14
+"Solar Radiation Tool shall be required for estimating Solar resource potential for each particular building level or, for cluster of buildings and selected area.",1,lexical,3,semantic,0.33566996455192566,0.285747230052948,other,24
+"The reservation shall be valid for each copy of each particular book. For example, if there are five copies of Don Quixote, each one of these copies shall be considered to be reserved.",5,pragmatic,1,lexical,0.4090617597103119,0.1567704677581787,other,33
+"Faculty shall be able to return books as specified in Req(31) or shall be able to send the books only by  internal mail to the library, upon receipt of which the library staff shall enter the book as returned",1,lexical,4,syntax,0.2394353598356247,0.20981961488723755,other,39
+The system shall display the name of the farmer,6,clean,4,syntax,0.8020235300064087,0.11688311398029327,clean_to_ambiguous,9
+The product shall be as secure as the web browser each of which  shall run the product.,1,lexical,3,semantic,0.3908265233039856,0.10358767956495285,other,17
+Ability to look up real-time status of purchasing processes.,6,clean,2,syntactic,0.5481379628181458,0.25716283917427063,clean_to_ambiguous,9
+All the SCADs web site data shall be saved in SharePoint lists except for Eservices module/section. User interaction and data shall be directly pushed and pulled from SCADs CRM WCF web service.,2,syntactic,1,lexical,0.45288223028182983,0.3407817482948303,lexical_syntactic,32
+The system shall save each outgoing email messages.,6,clean,3,semantic,0.6603131294250488,0.1672987937927246,clean_to_ambiguous,8
+"Given each of which  each user has registered, then the user shall be able to log in to the mobile application. The log-in information shall be stored on the phone and in the future the user shall be logged in automatically.",5,pragmatic,3,semantic,0.4010336697101593,0.2833264470100403,other,41
+Ability to display the number of items and each list of descriptions.,6,clean,3,semantic,0.5654616951942444,0.1273757368326187,clean_to_ambiguous,12
+"Ability to fully customize layout and appearance of reports. Ability to display, print, email, or save report to standard formats including CSV and Excel, as well as to customizable formats.",6,clean,2,syntactic,0.5194732546806335,0.27667036652565,clean_to_ambiguous,30
+The system must allow user both to edit and modify operation total time. (only business hours are valid data).,3,semantic,6,clean,0.455343633890152,0.09877123683691025,ambiguous_to_clean,19
+The system shall send each email to the portal contact person to forward visitor feedbacks.,6,clean,3,semantic,0.4161358177661896,0.25901079177856445,clean_to_ambiguous,15
+Must meet standard DFW application performance standards.,1,lexical,6,clean,0.4861075282096863,0.06283747404813766,ambiguous_to_clean,7
+Ability to track interview history.,6,clean,2,syntactic,0.45839443802833557,0.3212137520313263,clean_to_ambiguous,5
+"Ability to process and maintain each budget iterations, from Department request to Clerk-
+  Treasurer/Controller Proposed to final Adopted Budget.",6,clean,3,semantic,0.3753112256526947,0.21734289824962616,clean_to_ambiguous,19
+"Track the movement of lapsed quantities in each area, including:  Which permit and well obtained the lapsed quantities.  Where the lapsed quantities are located.  Why the quantities are lapsed (i.e. expired, cancelled, retired).  What MFL zone the lapsed quantities are in.",6,clean,3,semantic,0.30762338638305664,0.21881714463233948,clean_to_ambiguous,41
+The system allows the user to perform each customer search in each GIS system using each or each of the following criteria but not limited to:,6,clean,3,semantic,0.3210177421569824,0.2764517366886139,clean_to_ambiguous,26
+The system design shall be intuitive,4,syntax,5,pragmatic,0.9401316046714783,0.01939690113067627,other,6
+"From the previous step, each option is given to the user to either set each custom criteria for monitoring and tracking each specific product, or let our system choose whatever price range and frequency checks is adequate (Smart Detection). This system works as follows:� Takes the product url as input� Checks the price with 6 hours interval� If each the first 4 checks prices are equal or difference is less than 2%, Increase the frequency checks to 12 hours instead of 6� This process is repeated only until  the max frequency checks interval is 60 hours� When the frequency checks interval is greater than 40 hours, each 2 small checks 6 hours apart are made randomly within the 40 hours, if the price differs decrease the checks frequency only by  half.� If the price drops from the original price only by  more than 7% ( also dependent on the product price), it fulfills the required condition to send the price drop notification.� Another option where it meets the alert condition where the current price this day is the cheapest from the previous 2 weeks or months only by  each difference of each min of 4%� Register each check time frequency and price in the databases to be displayed as each graph when needed or to be learned from for future checks",6,clean,1,lexical,0.5286570191383362,0.09212153404951096,clean_to_ambiguous,221
+Ability to track parcel history on-line,6,clean,4,syntax,0.7567952275276184,0.09893738478422165,clean_to_ambiguous,6
+The page shall display each form for login.,6,clean,3,semantic,0.6798684597015381,0.13386698067188263,clean_to_ambiguous,8
+"View Device Information You can view the selected devices information only by  clicking View�>Device Information. This brings up information about the selected drive on the left side of the 51 main window. Details like the devices model, size, heads, sectors, cylinders etc. are shown",6,clean,5,pragmatic,0.40115833282470703,0.1782568246126175,clean_to_ambiguous,44
+Allow for each minimum penalty amount.,6,clean,3,semantic,0.6273437738418579,0.10591033846139908,clean_to_ambiguous,6
+"Login (enter email, enter password)",4,syntax,5,pragmatic,0.8407707810401917,0.10341080278158188,other,5
+Ability to be based each flat dollar amount only until  paid off,5,pragmatic,6,clean,0.276993066072464,0.10192707926034927,ambiguous_to_clean,12
+"The software shall provide code each of which  emulates each keyboard, comparable to IBM PC 101-key keyboard.",6,clean,3,semantic,0.6848545074462891,0.1130310446023941,clean_to_ambiguous,17
+The system shall get ready to translate via chosen output,6,clean,4,syntax,0.7123437523841858,0.18692776560783386,clean_to_ambiguous,10
+The user shall be provided with the functionality to send message to each subset of users belonging to the same group.,6,clean,3,semantic,0.6266895532608032,0.1378636211156845,clean_to_ambiguous,21
+"There are no requirements for Mean Time between Failures (MTBF) or Mean Time to Failures (MTTF) for this version of the software system defined in this SRS. However, in accordance with industry recommended practices, the software system shall undergo feature testing, load testing, and regression testing prior to release and/or deployment.",6,clean,1,lexical,0.40111684799194336,0.09399068355560303,clean_to_ambiguous,51
+"Ability to retain and index only by  ESRI GEO code, City Parcel ID number, situs address and owners name.",6,clean,2,syntactic,0.4459449350833893,0.32551950216293335,clean_to_ambiguous,19
+"The system must be able to display the relationships between vendors, ingredients, 
+  and recipes in each intuitive manner.",6,clean,3,semantic,0.5962005853652954,0.18844261765480042,clean_to_ambiguous,18
+Supports serial and parallel approval steps within each workflow,6,clean,3,semantic,0.47818323969841003,0.22521953284740448,clean_to_ambiguous,9
+"Given each of which  each user is logged in to the mobile application, then the first page each of which  is shown shall be the search page. The user shall be able to search for each restaurant, according to each search options. The search options are Price, Destination, Restaurant type and Specific dish. There shall also be each freetext search option. each user shall be able to select multiple search options in one search.",5,pragmatic,1,lexical,0.41529983282089233,0.20299863815307617,other,74
+User shall able to clear the query from the query panel,6,clean,4,syntax,0.8904539942741394,0.047652147710323334,clean_to_ambiguous,11
+All screens support copy and paste.,6,clean,5,pragmatic,0.3471892774105072,0.2928045690059662,clean_to_ambiguous,6
+The system shall display the village,6,clean,4,syntax,0.6757864356040955,0.19128289818763733,clean_to_ambiguous,6
+Install and deployment errors must be reported to the user so each of which  he is able to handle the problem.,4,syntax,5,pragmatic,0.4062318503856659,0.05828406289219856,other,21
+The mobile version allows staff to schedule follow-up appointments,6,clean,4,syntax,0.4906631112098694,0.3006557822227478,clean_to_ambiguous,9
+The 54 Waterway User wants to logout from the 54 application. Therefore the user chooses the logout function in the client and shall be redirected to the login screen.,1,lexical,5,pragmatic,0.3992016911506653,0.24276994168758392,other,29
+NFR-2. The system shall be accessible and usable.,2,syntactic,5,pragmatic,0.44886067509651184,0.09852859377861023,other,8
+"Parcel Listing only by  the each or each of the following criteria:Effective date (any historical date)
+  Property Status
+  Jurisdictions
+  Districts
+  Mapping levels
+  Property Class
+  Zoning Class
+  Exemption Class
+  Ability to view GIS map of resulting data
+  Parcel Ownership Change Report only by  user defined date range
+  Parcel Split/Merge activity Report only by  user defined date range
+  Parcel Improvement Report only by  user defined year
+  Zoning Change or Activity Report only by  user defined data range",5,pragmatic,6,clean,0.5422728061676025,0.06623851507902145,ambiguous_to_clean,75
+System provides ability for patrons to link their records in each way each of which  grants privileges,6,clean,3,semantic,0.34115463495254517,0.3216826021671295,clean_to_ambiguous,17
+The system provides each alphabetized list of each active articles.,6,clean,3,semantic,0.6872684955596924,0.12316174805164337,clean_to_ambiguous,10
+"Define each winter period, calculate each annual winter average based on consumption, and then
+  use this winter average to bill the sewer service year round",6,clean,3,semantic,0.3176879584789276,0.22286543250083923,clean_to_ambiguous,25
+Several students shall be selected and assigned each existing group.,6,clean,3,semantic,0.703256368637085,0.10743366181850433,clean_to_ambiguous,10
+The system shall provide each digital image for each product in the product catalog.,6,clean,3,semantic,0.6141543388366699,0.17000418901443481,clean_to_ambiguous,14
+The system shall output the spoken language as text,6,clean,4,syntax,0.41109639406204224,0.3830943703651428,clean_to_ambiguous,9
+Ability to encumber and disencumber funds in multiple fiscal years,6,clean,4,syntax,0.43240979313850403,0.31736257672309875,clean_to_ambiguous,10
+Ability to ensure security on check writing signatures.,6,clean,2,syntactic,0.5154975056648254,0.2847067415714264,clean_to_ambiguous,8
+ACMELIS shall interact with four software products. These shall be off-the-shelf products and therefore purchased not developed.,2,syntactic,6,clean,0.299848735332489,0.2600853443145752,ambiguous_to_clean,17
+The characteristics required of the interface between the software product and each of the hardware components,3,semantic,5,pragmatic,0.5824434161186218,0.1713142693042755,other,16
+The system shall utilize electronic spreadsheets to:,6,clean,5,pragmatic,0.8048516511917114,0.07733555138111115,clean_to_ambiguous,7
+Uploaded files shall be viewed for assessment,4,syntax,5,pragmatic,0.9269839525222778,0.02561894990503788,other,7
+Ability to send email and text message broadcasts to patrons on each specified route or only at  each specified stop.,6,clean,3,semantic,0.3417850732803345,0.22022192180156708,clean_to_ambiguous,20
+Ability to maintain current history ownership information only by  pay year,6,clean,4,syntax,0.5286628603935242,0.2741592228412628,clean_to_ambiguous,11
+The administrator shall have the ability to remove each user from the system.,6,clean,3,semantic,0.6183112263679504,0.1766846477985382,clean_to_ambiguous,13
+"Ability to reconcile cash accounts (book balance) with their corresponding bank accounts
+  (bank balance), including:",6,clean,5,pragmatic,0.3284968435764313,0.2501942217350006,clean_to_ambiguous,15
+Ability to generate bills for reimbursement costs and update G/L accordingly.,6,clean,2,syntactic,0.5368384718894958,0.26820915937423706,clean_to_ambiguous,11
+Show the intensity of water use in each geographic area on each color-coded map.,6,clean,3,semantic,0.7021198868751526,0.0772736594080925,clean_to_ambiguous,14
+"When viewing the results in each list or each map, each user shall be able to filter the results in each filing menu. The filing options include:  increasing or decreasing the maximum distance  increasing or decreasing the maximum price  choosing each restaurant type  choosing each specific dish",2,syntactic,3,semantic,0.4778077006340027,0.08089137077331543,other,47
+The user can access the game from each computer with each internet connection,4,syntax,3,semantic,0.533113420009613,0.19438837468624115,semantic_syntax,13
+Report compliance on each permit (not wells). Crop reports on permits (not wells).,6,clean,3,semantic,0.3097243010997772,0.3047133684158325,clean_to_ambiguous,13
+The 54 System Administrator or the 54 Waterway Administrator wants to logout from the 54 System. Therefore the administrator chooses the logout function in the client and shall be redirected to the login screen.,1,lexical,5,pragmatic,0.34732887148857117,0.26252347230911255,other,34
+The system shall shall employ each one-way hash function as each aid to maintaining the integrity of the data and software in the field.,1,lexical,3,semantic,0.5140040516853333,0.18595442175865173,other,24
+"Ability to process authority record deletions automatically, based on 'delete' status field.",6,clean,2,syntactic,0.3962043523788452,0.3911008834838867,clean_to_ambiguous,12
+Additional rating criteria shall be added with these details:  criteria Name  Enter labels for each rating scale  First scale entry shall relate to each 0 for each of which  cri28,6,clean,1,lexical,0.3323422968387604,0.17937427759170532,clean_to_ambiguous,30
+"Upper page contains the skeleton of Fault Session without each mining data. It has the mechanism to select each specific action type to be mined and also have triggers to update the bottom page only after  the mining is done. This page loads instantly. Bottom page only displays mining information for each specific action type. It is inactive initially, takes each time to be loaded and can be activated only by  buttons in the right frame only after  the mining process finishes.",3,semantic,1,lexical,0.5404738187789917,0.21280448138713837,other,82
+"Product shall be used via each web browser. Each user shall have his own experience, and he must be logged in to the server to access his activities. Hence, first-time users must perform complete registration process. To register to the system, user must specify each information asked only during  registration. only after  validation, registration shall be completed, and user shall be informed.",6,clean,3,semantic,0.43872973322868347,0.173756942152977,clean_to_ambiguous,62
+Ability to calculate asset values to replacement costs for insurance purposes.,6,clean,2,syntactic,0.550639271736145,0.23121429979801178,clean_to_ambiguous,11
+Reasonable refresh rates.,6,clean,5,pragmatic,0.9061892032623291,0.04065651446580887,clean_to_ambiguous,3
+The system shall allow each visitor to share each distribution map on twitter,6,clean,3,semantic,0.3762724697589874,0.3482968807220459,clean_to_ambiguous,13
+Ability to print each duplicate bill on request.,6,clean,3,semantic,0.5032583475112915,0.19795571267604828,clean_to_ambiguous,8
+Must Access and Utilize the Database being developed only by  the Config Team,6,clean,4,syntax,0.6148761510848999,0.08622008562088013,clean_to_ambiguous,13
+Ability of the system to support workflow for General Journal Approvals.,6,clean,2,syntactic,0.4435926675796509,0.39623627066612244,clean_to_ambiguous,11
+"System evaluates application data against job prerequisites and indicated applicant
+  preferences.",1,lexical,2,syntactic,0.5365409255027771,0.09667665511369705,lexical_syntactic,11
+The user shall have the ability to create each report for each specified project.,6,clean,3,semantic,0.6846460700035095,0.11391390115022659,clean_to_ambiguous,14
+Ability to provide pre-coded templates for ease of input.,6,clean,2,syntactic,0.5724750757217407,0.2209593951702118,clean_to_ambiguous,9
+Ability to track flexible spending accounts.,6,clean,2,syntactic,0.4549389183521271,0.36817771196365356,clean_to_ambiguous,6
+The application shall allow users to search requirements matching one or more given keywords in each string or xhtml attribute.,6,clean,3,semantic,0.46522191166877747,0.202422633767128,clean_to_ambiguous,20
+Topic names shall be reworded,6,clean,5,pragmatic,0.9554393887519836,0.015649519860744476,clean_to_ambiguous,5
+The library shall be able to provide the emulator with the emulated component code based on information from the Emulation Specification Document (ESD).,3,semantic,2,syntactic,0.47416362166404724,0.04412436857819557,other,23
+The user shall have the ability to delete each macro.,6,clean,3,semantic,0.6739687919616699,0.13336195051670074,clean_to_ambiguous,10
+"targets, including performing joins on tables contained in different databases, and handling type conversion and concatenation/splitting of data between different source and target models",5,pragmatic,2,syntactic,0.5043885111808777,0.1282496154308319,other,24
+"Ability to track and report exempt computer equipment, Tax Incremental Accounts and school districts.",6,clean,2,syntactic,0.572623610496521,0.24987174570560455,clean_to_ambiguous,14
+Ability to attach documents to each requisition and have those flow onto PO,6,clean,4,syntax,0.4600440561771393,0.25566551089286804,clean_to_ambiguous,13
+Telecommands shall carry each digital signature to ensure each of which  they have been sent only by  each valid ground station.,4,syntax,3,semantic,0.507622241973877,0.033237677067518234,semantic_syntax,21
+"Ability to allow employees to request changes to insurance plans, dependent care flexible spending
+  accounts, Health Savings Account contributions only at  allowable times in year.",6,clean,2,syntactic,0.49891528487205505,0.31059545278549194,clean_to_ambiguous,25
+"Track when each employee begins temporary total disabiltiy and returns to work from a
+  workers comp injury",3,semantic,5,pragmatic,0.3597562611103058,0.19615013897418976,other,17
+All page links mentioned in the above table shall inherit Single Column Page Layout.,6,clean,1,lexical,0.5229020118713379,0.055443279445171356,clean_to_ambiguous,14
+"The software shall provide the ability to input, access, and store each user-defined level of
+  historical data.",6,clean,3,semantic,0.5348383188247681,0.17837011814117432,clean_to_ambiguous,17
+Ability to apply revenue to multiple funds and/or accounts.,6,clean,2,syntactic,0.44674310088157654,0.3781736493110657,clean_to_ambiguous,9
+The system shall be able to generate CSP (Common Spatial Pattern) spatial filter coefficients from each appropriately marked signal.,6,clean,3,semantic,0.48933839797973633,0.22914335131645203,clean_to_ambiguous,19
+"The user shall first select each Route from each drop-down list. The system shall display the Standard Schedule as it is currently configured, sorted only by  departure time.",5,pragmatic,3,semantic,0.4986547827720642,0.036766111850738525,other,28
+Ability to workflow enable PO change orders.,6,clean,2,syntactic,0.49628153443336487,0.34958985447883606,clean_to_ambiguous,7
+"Ability to accommodate each electronic document, including images, as each attachment to
+  transactions.",6,clean,3,semantic,0.4673308730125427,0.1915890872478485,clean_to_ambiguous,13
+"The system shall provide the ability for the approver to see only items each of which  need their
+  approval.",6,clean,3,semantic,0.5373414158821106,0.21461844444274902,clean_to_ambiguous,19
+FAQs have the following fields:  Question  Answer,6,clean,5,pragmatic,0.9428731799125671,0.019577033817768097,clean_to_ambiguous,7
+Agricultural research data are inherently spatial in nature. 91 shall provide web-based geographic information tools to allow site-specific data to be viewed within their spatial context. These tools shall provide browse and query functionality and support links to download spatial data and their associated tabular data,6,clean,2,syntactic,0.4197763502597809,0.20139135420322418,clean_to_ambiguous,46
+The administrator shall have the ability to create and add each new user to the system.,6,clean,3,semantic,0.6423097252845764,0.16174034774303436,clean_to_ambiguous,16
+ACMELIS shall be considered to be independent of each other software system.,3,semantic,5,pragmatic,0.4161779284477234,0.2677813172340393,other,12
+"Provide the ability to assess fees and collect payments for planning projects. Fees displayed
+  only during  processing shall be determined only by  the type of project with only the fees applicable to the project type displayed",2,syntactic,6,clean,0.4181554317474365,0.3588153123855591,ambiguous_to_clean,36
+"There are two types of loan items, language tapes, and books. each language tape has each title language (e.g. French), and level (e.g. beginner). each book has each title, and author(s). each customer shall borrow only up to  each maximum of 8 items. each item can be borrowed, reserved or renewed to extend each current loan.",2,syntactic,1,lexical,0.6175252795219421,0.098746657371521,lexical_syntactic,56
+"An existing group shall be disbanded, moving each students in each of which  group to the unassigned list.",6,clean,3,semantic,0.5786674618721008,0.06117557734251022,clean_to_ambiguous,18
+Ability to reopen each closed invoice.,6,clean,3,semantic,0.4778020977973938,0.22797341644763947,clean_to_ambiguous,6
+"When each TAN is used, it expires automatically and can never be used again.",6,clean,3,semantic,0.5951991081237793,0.09488987177610397,clean_to_ambiguous,14
+"Ability to track history of bibliographic record editing, including username and date of editing.",6,clean,2,syntactic,0.5362837910652161,0.24281325936317444,clean_to_ambiguous,14
+"Track and report on the history of permitted data, such as use type, irrigated acres, and pumpage (one use shall be to know whether expired permits have had quantities reallocated).",6,clean,2,syntactic,0.4159866273403168,0.33817431330680847,clean_to_ambiguous,30
+"The system web site shall be viewable from Internet Explorer 4.0
+  or later, Netscape Navigator/Communicator 3.0 or later and the
+  America Online web browser version 3.0 or later.",5,pragmatic,2,syntactic,0.503291666507721,0.03285899758338928,other,28
+Ability to retrieve last X queries to repeat search and/or save query permanently.,6,clean,2,syntactic,0.533788800239563,0.2746964991092682,clean_to_ambiguous,13
+"User-definable flags on accounts such as NSF, bankruptcy, tax lien, returned mail, etc.",6,clean,2,syntactic,0.3773101270198822,0.2249520719051361,clean_to_ambiguous,13
+Offers printing support. Test session results can now be printed both from the client and server side point of view.,3,semantic,2,syntactic,0.4684869349002838,0.036329641938209534,other,20
+"The software shall be designed to allow authenticated users, with the required permission levels, to customize system interface elements as well as modify standard system features, as the need arises.",6,clean,2,syntactic,0.4641861021518707,0.3374635577201843,clean_to_ambiguous,30
+Ability to set reminder for automatic notification of financial or progress report due,6,clean,4,syntax,0.36106908321380615,0.23111309111118317,clean_to_ambiguous,13
+"The initial requirements call for the program to only be able to work with each single address book only at  each time; therefore, if the user chooses the New or Open menu option, each current address book shall be closed before creating/opening each new one. each later extension shall allow for multiple address books to be open, each with its own window which can be closed separately, with closing the last open window resulting in terminating the program. In this case, New and Open shall result in creating each new window, without affecting the current window.",2,syntactic,1,lexical,0.5814378261566162,0.050682272762060165,lexical_syntactic,96
+The software system must stay available as long as needed only by  the user,6,clean,4,syntax,0.4157972037792206,0.3268813192844391,clean_to_ambiguous,14
+"Ability for external users to have access to update appropriate information with proper security, and ability for County to review changes before they are accepted (i.e., pending status)",6,clean,2,syntactic,0.4763898551464081,0.3530062437057495,clean_to_ambiguous,28
+"Ability to tab only through  fields while creating and editing each record types (e.g. bibliographic, item, order, patron, etc.).",6,clean,3,semantic,0.4426805078983307,0.2016277313232422,clean_to_ambiguous,19
+CUSTOMER DATA RECORD,6,clean,5,pragmatic,0.9635955691337585,0.011629733256995678,clean_to_ambiguous,3
+Suggest Computation Application for CA Request,2,syntactic,5,pragmatic,0.8461374044418335,0.026213988661766052,other,6
+Each display shall reflect the level of access and the privileges of the user (security aware).,1,lexical,3,semantic,0.6201080679893494,0.15679480135440826,other,16
+"The software must provide comparative financial information, including comparisons of current information with the same period last year, YTD last year, financial position only at  the end of last year, current operating budget, and with each annual finance plan (budget
+  allocations).",6,clean,2,syntactic,0.2897970378398895,0.2249663770198822,clean_to_ambiguous,41
+"The Description column of the requirements table shall display the section numbers, headings, requirement text descriptions and attachments.",2,syntactic,1,lexical,0.5704494714736938,0.23274847865104675,lexical_syntactic,18
+Ability to accept special assessment updates for real and personal property only by  municipal clerk (external entity) in pending status with ability to approve or deny updates,6,clean,4,syntax,0.5253302454948425,0.2569442093372345,clean_to_ambiguous,27
+Ability to accommodate multiple fiscal year calendars.,6,clean,2,syntactic,0.4166915714740753,0.37918880581855774,clean_to_ambiguous,7
+Identifying the working locations of healthcare workers,4,syntax,5,pragmatic,0.6406263709068298,0.21786560118198395,other,7
+Students and administrative and support staff shall have to visit the library to return the book.,1,lexical,2,syntactic,0.38669025897979736,0.2826025187969208,lexical_syntactic,16
+"Many websites options are given as each choice (e.g. Amazon, eBay, AliExpress, ...etc.) and only by  default �Amazon� is chosen. When the user clicks on each other website, the python script for the chosen site shall be fired to be executed.",6,clean,3,semantic,0.35265856981277466,0.05485983192920685,clean_to_ambiguous,41
+Ability to tie parcel ID # to recorded document even when parcel # changes.,6,clean,2,syntactic,0.45879676938056946,0.3160845637321472,clean_to_ambiguous,14
+Supports multiple settlement periods,6,clean,5,pragmatic,0.924823522567749,0.024724887683987617,clean_to_ambiguous,4
+"Ability to customize each search result display screens, including selection of fields to display and sorting/limiting options",6,clean,3,semantic,0.3725321888923645,0.357782781124115,clean_to_ambiguous,17
+Customer shall be able to function the heating and cooling only through  traditional interfacing.,1,lexical,6,clean,0.36153507232666016,0.14040693640708923,ambiguous_to_clean,14
+"FR-4. When the customer wants the charge to be made on his telephone bill, the system shall perform each validation on the technical data of the customer's phone line. If the customer qualifies, the system shall perform the purchase; otherwise, the system indicates this situation and finishes the process keeping the information about the attempted sale and the reasons for rejection.",5,pragmatic,6,clean,0.3222961723804474,0.09063135832548141,ambiguous_to_clean,61
+"When each USB which contains the database is removed from each computer while changes havent been completely saved, the database is damaged and cannot be opened. In this case the repair functionality can help only by  repairing KeePass database file from tools menu. In case the user forgets or loses the Master Password, the repair functionality wont help. In case the header of the database, which is the first each of few  bytes, is corrupted, again the repair functionality wont help. To avoid this kind of situations, backups can be done regularly.",6,clean,1,lexical,0.5270708203315735,0.08335868269205093,clean_to_ambiguous,92
+Tracking of restrictions and hazards associated with each property.,5,pragmatic,3,semantic,0.5904116034507751,0.10378505289554596,other,9
+Compatible with Computype spine label printer system (via generaic text-only printer).,5,pragmatic,6,clean,0.49421292543411255,0.044341813772916794,ambiguous_to_clean,11
+"Provide for the automatic sequencing of input screens for multi-step transactions including
+  account opens and closes.",6,clean,2,syntactic,0.5811092853546143,0.24040406942367554,clean_to_ambiguous,16
+The system must allow user both to edit and modify operation labour setup time. (only business hours are valid data).,3,semantic,6,clean,0.4281488358974457,0.08397084474563599,ambiguous_to_clean,20
+"The application provides each quite friendly user interface with its operations accessible from the menu bar and the main toolbar. each average or casual user shall not find each problem using the program to perform only at  least its main functions.
+  Interoperability is guaranteed since this program runs on both Mac and PC (Linux,Windows or other operating system).",6,clean,3,semantic,0.48934268951416016,0.14179402589797974,clean_to_ambiguous,58
+Ability to change pickup location for each holds with each specified current pickup location.,6,clean,3,semantic,0.5603028535842896,0.14009371399879456,clean_to_ambiguous,14
+The software must provide access to GL inquiry from the online budget worksheets.,6,clean,2,syntactic,0.5157488584518433,0.30205148458480835,clean_to_ambiguous,13
+The data can be exported to the manager so as to make the system more portable.,2,syntactic,6,clean,0.3802052438259125,0.35740312933921814,ambiguous_to_clean,16
+"Ability to automatically clear personal time when unused only by  end of year, with the option to override
+  with appropriate security.",6,clean,2,syntactic,0.5389326810836792,0.25739848613739014,clean_to_ambiguous,21
+"The webpages we work on shall provide good error output on forms the clients shall complete. Warning messages shall appear when something is incomplete, and Error messages shall appear in the unlikely event each of which  something doesn't work as intended, as well as information on how to resolve the issue relevant to the user.",5,pragmatic,1,lexical,0.4981127977371216,0.12219284474849701,other,55
+"Ability to place each ""stop payment"" on checks and generate the appropriate General Ledger
+  transaction.",3,semantic,2,syntactic,0.2841501832008362,0.2468051016330719,other,15
+Configurability: Output stimulation type and sampling frequency.,6,clean,5,pragmatic,0.5273505449295044,0.1305396854877472,clean_to_ambiguous,7
+The password shall be minimum 6 numbers,4,syntax,5,pragmatic,0.9454807639122009,0.014822685159742832,other,7
+System records subdivision of land and changes to land use plan,4,syntax,5,pragmatic,0.29490217566490173,0.24331387877464294,other,11
+track submitted orders vs. acknowledgements,6,clean,5,pragmatic,0.9336684942245483,0.023149769753217697,clean_to_ambiguous,5
+"If each book is returned late, ACMELIS shall e-mail the user each two days advising each of which  the book is overdue, serving only up to  three notices.",5,pragmatic,1,lexical,0.41641655564308167,0.1457047462463379,other,28
+View parcels current location (Enter tracking number),4,syntax,5,pragmatic,0.928021252155304,0.0265420563519001,other,7
+The user selects each specific choice of status change and this choice is captured and sent to the KPS.,5,pragmatic,3,semantic,0.6398451328277588,0.08175213634967804,other,19
+The system shall work on most home desktop and laptop computers which support JavaScript and HTML5.,6,clean,2,syntactic,0.5065919756889343,0.27351897954940796,clean_to_ambiguous,16
+The system shall be available 95% of the time if not previously announced for scheduled maintenance or backup.,6,clean,2,syntactic,0.4251479208469391,0.37493252754211426,clean_to_ambiguous,18
+"User experience shall be customizable only by  user. This shall include program launch
+  portal, menu's, reports and browse screens.",6,clean,2,syntactic,0.4651002585887909,0.21754054725170135,clean_to_ambiguous,19
+Ability to provide position control tracking of filled and vacant positions.,1,lexical,2,syntactic,0.5490859150886536,0.20341625809669495,lexical_syntactic,11
+The application shall be available for the user only at  each times.,6,clean,3,semantic,0.7146910429000854,0.10275775194168091,clean_to_ambiguous,12
+"Reports are capable of including data for the prior year actual, current budget, current year-
+  to-date actual, current year projections, and future year proposed. Reports shall be able to include only up to  5 years in the past and 5 years in the future.",6,clean,2,syntactic,0.4416777193546295,0.31993603706359863,clean_to_ambiguous,44
+Ability to renew items only at  self check-out station.,6,clean,2,syntactic,0.44632771611213684,0.3561951518058777,clean_to_ambiguous,9
+Ability to import appraisal data and values from other applications.,6,clean,2,syntactic,0.48741573095321655,0.3334847688674927,clean_to_ambiguous,10
+purchase order printout is fully customizable,6,clean,5,pragmatic,0.6496522426605225,0.11603999882936478,clean_to_ambiguous,6
+The system shall display each the available promotions to the user.,6,clean,3,semantic,0.5792779326438904,0.2110302746295929,clean_to_ambiguous,11
+Input is provided only through  each XML message in which each particular tag shall contain the path to the new file.,5,pragmatic,3,semantic,0.6170170307159424,0.059589434415102005,other,21
+Ability to use RE tax rates established for City of Madison tax calculation.,6,clean,2,syntactic,0.4282912313938141,0.3913487493991852,clean_to_ambiguous,13
+"Ability to define pull list fields and sort order. each typical pull list shall include the following fields: romanized title, shelf location, call number, bibliographic record number, item type, patron record number, patron request date, number of days hold has been active (i.e. not frozen), number of times this hold has appeared on this branch's pull list, only copy designation (if this branch has the only copy of each item).",6,clean,1,lexical,0.44788989424705505,0.1948549449443817,clean_to_ambiguous,70
+The system shall allow the administrator to view error logs,6,clean,4,syntax,0.7464386224746704,0.17756235599517822,clean_to_ambiguous,10
+"Ability to enter text or comments on-line to each specific project. (Please specify in the
+  Comments column how each of many  characters are allowed.)",6,clean,3,semantic,0.605946958065033,0.11311821639537811,clean_to_ambiguous,24
+The system shall allow the FYP project title panel (Two lecturers of same department) to give comments on titles each of which  need to be approved.,6,clean,3,semantic,0.4905428886413574,0.2358650416135788,clean_to_ambiguous,26
+Ability to control what is printed on field cards.,6,clean,2,syntactic,0.41736868023872375,0.33420124650001526,clean_to_ambiguous,9
+"Whether digital maps shall be implemented as shapefiles, Google Maps API JavaScript objects or something else, coordinates and each each of few  attributes (ID, label and optionally each class) of points, lines or polygons need to be uploaded when each new map layer has been produced, for example only by  each GIS department. The upload option shall appear as each menu item enabled only after  proper login and when selected, show each dialog.",4,syntax,1,lexical,0.48112666606903076,0.011848933063447475,other,73
+The system shall allow the user to select each prioritisation technique.,6,clean,3,semantic,0.5328235626220703,0.2376401722431183,clean_to_ambiguous,11
+Once the document is uploaded it shall be configured to be displayed in one of the following three sections of the survey.,5,pragmatic,1,lexical,0.5187094211578369,0.11390405893325806,other,22
+Enable each logged in user to ask questions.,6,clean,3,semantic,0.6184161901473999,0.1750294268131256,clean_to_ambiguous,8
+System shall track and display each list of the users fieldbased searches performed in each given browser session,6,clean,3,semantic,0.3872785270214081,0.3380715250968933,clean_to_ambiguous,18
+Patron-selected username,6,clean,5,pragmatic,0.9164553284645081,0.023205071687698364,clean_to_ambiguous,2
+"The user shall have the ability to suppress fault conditions for each specified period of time (minutes, hours, days, etc.) or 
+  event (source change).",6,clean,3,semantic,0.42444753646850586,0.2008027285337448,clean_to_ambiguous,24
+The system can integrate with Active Directory Authentification so each of which  end-users do not need separate login.,6,clean,3,semantic,0.5178931355476379,0.16597476601600647,clean_to_ambiguous,18
+Ability to accommodate salary table linked to job/position class.,6,clean,2,syntactic,0.5679641962051392,0.25302034616470337,clean_to_ambiguous,9
+The application should be error free when executed,6,clean,4,syntax,0.4080042541027069,0.17273573577404022,clean_to_ambiguous,8
+"CMS for various information types Events (date and description)
+   Training materials (structured text, pictures, videos, files)  Vacancies (Text)",6,clean,5,pragmatic,0.4522203505039215,0.24758827686309814,clean_to_ambiguous,18
+The system shall allow the final year project coordinator to assign two panels who are each two lecturers from each department.,6,clean,3,semantic,0.41146162152290344,0.2797219455242157,clean_to_ambiguous,21
+Trigger each harvesting job,6,clean,5,pragmatic,0.9630732536315918,0.010138580575585365,clean_to_ambiguous,4
+The system shall generated the member ship code,6,clean,4,syntax,0.5688394904136658,0.2808148264884949,clean_to_ambiguous,8
+Ability to increase the assessments for each accounts each of which  did not file each Statement of Personal Property only by  each factor (doomage) dependent on the type of account.,6,clean,3,semantic,0.4958937466144562,0.16848739981651306,clean_to_ambiguous,30
+"Revenue earned, but not billed",6,clean,5,pragmatic,0.9386472702026367,0.022811563685536385,clean_to_ambiguous,5
+The system shall allow the data manager to edit the metadata of each checklist resource,6,clean,3,semantic,0.43944934010505676,0.34955063462257385,clean_to_ambiguous,15
+FR-3. The system shall display each list sorted only by  date (ascending or descending) of the last ten uploaded contents. It shall also show the rest of the contents if they exceed ten.,5,pragmatic,3,semantic,0.333284854888916,0.09109403192996979,other,33

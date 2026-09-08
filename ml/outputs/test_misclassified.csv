@@ -1,0 +1,290 @@
+requirement,true_dataset_label,true_name,pred_dataset_label,pred_name,syntactic_syntax_confusion
+A movie is displayed on the screen.,6,clean,5,pragmatic,0
+"After executing the Ship Side Linkage Infrastructure, the new file shall be part of the linkage infrastructure. It shall be copied to the content directory and new links shall be created for this file only through  new entries in the corresponding tables (Figures, Documents and Smart Table). Also, and nodes are added for each text block each of which  has each new file link. This component checks if the input is in the right format. The input is ignored if it is incorrectly formatted.",1,lexical,6,clean,0
+"A reservation shall be valid for two days as of the date when the reserved book becomes available. only after  this period has expired, the reservation shall be cancelled. ACME University Library Information System SRS Page 11",5,pragmatic,6,clean,0
+The user can view each tasks in the middle of the screen.,3,semantic,6,clean,0
+Allows for browsing of verified Computation Applications in the CApp (Computation Application) Store.,2,syntactic,6,clean,0
+Ability to automatically generate each on-line bill when billable work order is completed.,3,semantic,6,clean,0
+The system must allow user both to edit and modify operation runtime. (only business hours).,3,semantic,6,clean,0
+After ordering or surfing for the product customer has to logout.,2,syntactic,6,clean,0
+The tool shall prompt the user when each record ID in the disconnected database and enterprise database has been modified. (see comment above in Stimulus: 3),4,syntax,6,clean,0
+The system shall provide the field for user to update their budget and expenses,4,syntax,6,clean,0
+"The interfaces with other software components or products, including other systems, utility software, databases, and operating systems",2,syntactic,6,clean,0
+"Stakeholder 2: Operations Manager
+ On receipt of each phone call reporting each incident, the nearest available ambulance shall be despatched to the scene.",1,lexical,6,clean,0
+System shall not view the users who do not want to show themselves only at  search results.,5,pragmatic,6,clean,0
+Ability for credit memos to be applied against each open invoice.,2,syntactic,6,clean,0
+The system shall display the current status for each requirement.,3,semantic,6,clean,0
+The user shall be able to select between downloads  for the current site only or for each sites (or stations) in the current map layer  with or without Excel lookup,2,syntactic,6,clean,0
+"Ability to manage workforce planning only by  development of future positions and association of comp
+  structures for financial forecasting.",2,syntactic,6,clean,0
+Allows the administrator to delete each game,4,syntax,6,clean,0
+The 54 Waterway User wants to analyse the Riverbed Changes only by  intersecting two bathymetric surveys from different points in time. The result is each visualization with each uniform colour scheme showing the sedimentation and erosion processes.,3,semantic,6,clean,0
+"When each password is copied, it remains on memory for only 10 seconds. If in the meanwhile it is not pasted anywhere, it must be copied again. each of which  happens so each of which  if user copies each password and not paste it anywhere, the password cannot be found only by  anyone later.",6,clean,3,semantic,0
+The survey also has documents attached to it. The documents shall be uploaded in each separate SharePoint document library.,3,semantic,6,clean,0
+"All information related to the user, which he/she has entered into the GUI, shall store into the relational database.",5,pragmatic,6,clean,0
+The system shall allow users to choose and add their favourite sign language GIFs.,2,syntactic,6,clean,0
+"All the above information is produced as part of viewing each old session, and is produced while executing each new session. In the latter case, since the session is in action, the data mining component can suggest skipping each event to another. The skipping suggestion is based on the history of the current fault.",1,lexical,6,clean,0
+Fully implement US MARC 21 standards.,5,pragmatic,6,clean,0
+"Ability to determine the coverage and deduction amounts for the employee using the
+  parameters stored in the benefit plan structure tables.",2,syntactic,6,clean,0
+Ability to void checks only by  check number or group of check numbers.,1,lexical,6,clean,0
+"Emulated components shall be organised in each library, associating emulated component code with Module Specification Files",3,semantic,6,clean,0
+"Provide the district, schools and other staff access to appropriate education data and tools only through  each flexible, easy-to-use web interface",5,pragmatic,6,clean,0
+"Ability to cap compensation time only at  each user-defined level, which can be different only by  department.",3,semantic,6,clean,0
+KeePass is each small and light project so it does not need to be installed. each it takes is unpacking from the Zip package. It can be transferred also in each USB stick with no additional configuration needed.,6,clean,3,semantic,0
+"The software must print pertinent information about each employee's current pay on the payroll check
+  and check 90, including each pay types and deductions.",2,syntactic,6,clean,0
+"Periodic inspection processing for rental properties, health inspections, business inspections.",5,pragmatic,6,clean,0
+"The software must report status of payroll checks voided, canceled, or outstanding as each aid to bank
+  statement reconciliation.",2,syntactic,6,clean,0
+"User shall able to get online help, and user manual (both web-based and documented in PDF) to execute each functionalities of the Web-GIS tool.",1,lexical,6,clean,0
+"Order log entries have these attributes: 2.4.1.Unique ID (auto generated) 2.4.2.Time transaction took place
+  2.4.3.Date transaction took place
+  2.4.4.Username of customer
+  2.4.5.Listing of the contents in customers shopping cart",5,pragmatic,6,clean,0
+Ability to base standard charges on work order history and specific task.,1,lexical,6,clean,0
+All the tools used in the development of the 502 software must be available only at  least only until  the end of 2018.,3,semantic,6,clean,0
+The system shall prompt the product manager for the part description.(This field shall be empty).,1,lexical,6,clean,0
+"The tool shall allow the creation of point, line or polygon features.",2,syntactic,6,clean,0
+Ability to access GIS mapping data for road/street locations,2,syntactic,6,clean,0
+The software shall allow the use of arrow keys and Home and End keys to facilitate moving around reports,2,syntactic,6,clean,0
+The tool shall allow the user to link multiple spatial features with each single species habitat.,3,semantic,6,clean,0
+Allows the user to review each selected Computation Application,3,semantic,6,clean,0
+The latest release web part displays latest release publications from each 7 themes in the website.,1,lexical,3,semantic,0
+A list of objects. Each object contains the name of the TSS file and each list of attachment made only through  this TSSession.,3,semantic,6,clean,0
+"The system must let the system user to remove each customer, only if there is no transaction associated with him or her.",3,semantic,6,clean,0
+The system must have only at  least each Super-User role and each User role defined for accessing and interacting with the system,4,syntax,6,clean,0
+"Books borrowed only by  each faculty member according to the specifications in Req(21) shall be sent to the faculty members office only by  internal mail. For this purpose, the following shall be generated on each daily basis:  � each list of book loans requested only by  each faculty member;  � each list of labels with the name of the faculty member and his or her office.",1,lexical,6,clean,0
+"End-user tools provide quick response times to their end-users; describe your ability to
+  consistently provide sub-second response times.",5,pragmatic,6,clean,0
+By default current Surveys tab shall be the default view. each survey can be linked to each theme.,3,semantic,6,clean,0
+"Ability to enter future date for changes to employee or retiree's benefits: e.g.. age 65, end of
+  probationary period, etc.)",2,syntactic,6,clean,0
+System provides requisition tracking of each vacant positions.,3,semantic,6,clean,0
+The system shall allow User to view events and details,4,syntax,6,clean,0
+"Given each of which  each user has registered, then the user shall be able to retrieve his/her password only by  email.",5,pragmatic,6,clean,0
+Failure to return the book within the loan period shall entail each two-day suspension for each day of delay.,1,lexical,6,clean,0
+"The ability to enter and compile hours worked and leave time hours with only at  least 6 numeric digits
+  (XXX.XX 4 digits plus 2 digits only after  decimal place)",2,syntactic,6,clean,0
+The system shall provide each contractual agreement with each internet service provider for T3 access with 99.9999% availability.,2,syntactic,6,clean,0
+"Ability to support one master vendor file for each modules in the system, with security on the
+  ability to change and/or update vendor records.",3,semantic,6,clean,0
+"Ordinances for Code Enforcement associated with the code enforcement master only at  the time
+  of violation with historical ordinances maintained over time.",2,syntactic,6,clean,0
+The Problem Work Order data shall be editable and exportable to ASCII delimited files only by  the user.,2,syntactic,6,clean,0
+The system shall generate the receipt only after  the payment made,4,syntax,6,clean,0
+"Ability to have multiple line items per purchase order with capability for one/multiple
+  delivery schedules per line printed on purchase order.",2,syntactic,6,clean,0
+The software shall feature each facility to recognise content on each page and omit blank pages thereby reducing file size,1,lexical,6,clean,0
+The system shall allow the admin to assign each interview date for the learner.,3,semantic,6,clean,0
+The tool shall run each process each of which  uses the configuration found in the application to gather feature metadata information from the selected feature classes and stores this metadata information into the appropriate table.,1,lexical,6,clean,0
+Develop and maintain each metadata database each of which  provides browse and query access to formal descriptions of the database elements. Provide tools for database contributors to create and upload metadata compatible with the 91 metadata database.,2,syntactic,6,clean,0
+The software must incorporate each license key authentication process.,4,syntax,6,clean,0
+"Faculty shall be able to use ACMELIS to borrow books without having to visit the library in person. To do this, and respecting the constraints set out in Req(16), Req(17), Req(18) and Req(19), they shall enter the loan data in ACMELIS.",1,lexical,6,clean,0
+The system shall allow user to register to the system,6,clean,4,syntax,0
+System shall mimic standard input functioning of the particular style of device.,1,lexical,6,clean,0
+Browse and query watershed metadata only by  theme or location,2,syntactic,6,clean,0
+The tool shall auto-populate the Modification Date field in the species habitat tabular records and feature class. This shall be the same as the Creation Date field value when each feature is created.,1,lexical,6,clean,0
+The system shall display the description of each category ranking,4,syntax,6,clean,0
+"Preview option in search results list, which is defined only by  Content Pro- vider. Preview shall be textual information or each reduced version of the functional service or tool.",5,pragmatic,6,clean,0
+The interface shall be developed to work on each minimum screen resolution of 1280x1024.,3,semantic,6,clean,0
+System allows the information to be updated,4,syntax,6,clean,0
+"Ability to monitor who is currently online, who is in the virtual classrooms.",5,pragmatic,6,clean,0
+All scanned documents must have each archive and delete attribute to allow automatic handling of archiving and weeding,3,semantic,6,clean,0
+"All data related to the word must be shown. For example if user types �abc� and abc is part of each password and of each username, both entries must be shown",6,clean,3,semantic,0
+"Duplicates each existing permit application and each associated information to each new application only at  each different location. Another example shall be each ""standard plan"" type of
+  application each of which  is being built repeatedly only by  each contractor",4,syntax,3,semantic,0
+"This shall be done via Drupal, with Drupal storing the username and password in the MySQL database with encryption. each other information about specific users, tasks, and money shall also be stored in the MySQL database.",3,semantic,6,clean,0
+"Ability to follow organization history of the position (list of employees who filled each position
+  over each user-specified period of time).",1,lexical,6,clean,0
+"System must have conflict resolution features so each of which  two different users shall not
+  update each record differently only at  the same time.",1,lexical,6,clean,0
+Provides extensive documentation and online help functions,5,pragmatic,6,clean,0
+"All 54 services each of which  collect data shall provide each availability of 98% only at  minimum (measured based on the 7 days, 24 hours, 365 day) service provision. Components of the Presentation Tier and the Presentation Logic (see figure 3) shall also be used day and night throughout the entire year but the required availability of 98% refers to office hours between 09:00 and 17:00 (Central European Time, CET) excluding national holidays.",3,semantic,6,clean,0
+Ability to produce each Cash Requirements report for each pay cycle,2,syntactic,3,semantic,0
+Summary of average and median staff time for permit types for completed projects,4,syntax,6,clean,0
+The statistical page layout is as follows. Each page in Statistics section shall be based on this layout.,5,pragmatic,3,semantic,0
+Ability to list date employment ended if they did not return to work,1,lexical,4,syntax,0
+"The tool shall query the database for instances of the lookup value in use. If found, the obsolete request shall not be allowed.",1,lexical,6,clean,0
+Ability to track maintenance activity and costs related to facilities and equipment.,2,syntactic,6,clean,0
+"Ability to record and display each parts issues, receipts, transfers and audits.",1,lexical,6,clean,0
+"Provision of error checking and permit validation routines each of which  verify each of which  each required fees have been paid, contractor licenses are valid, permit has not expired, etc. before an
+  inspection is scheduled.",4,syntax,6,clean,0
+Users shall not be able to reserve reference works.,1,lexical,6,clean,0
+Prepare files to be submitted to EEA and Eionet,2,syntactic,6,clean,0
+Whether the editing shall take place directly in the control or inside each popup dialog is only up to  the developer. In each case each pair of Save and Undo (or Cancel) options shall exist. Undo could just be each click outside each dialog without hitting Save. each errors only during  updates on the server shall be shown to the user.,2,syntactic,3,semantic,0
+Library staff shall be able to access and cancel user suspensions.,2,syntactic,6,clean,0
+Ability to track funding source to the position.,1,lexical,6,clean,0
+"Ability to set up soft and hard stops for processing transactions with insufficient funds
+  appropriations.",1,lexical,6,clean,0
+The gamification engine shall enable each external application (e.g. EMIVASA virtual office) to authenticate users,3,semantic,6,clean,0
+"Ability to report on each encumbered position and easily identify when each position is
+  eliminated.",1,lexical,6,clean,0
+"Ability to generate bill to and ship to information automatically with secondary or internal
+  delivery to location.",2,syntactic,6,clean,0
+A manager shall increase the stock of each item using the managers account,3,semantic,6,clean,0
+The following project details shall be displayed:  each items listed in Enter Project Details  List of scheduled tasks and associated dates (ordered ascending only by  date)  Status of tasks (completed/not completed),3,semantic,6,clean,0
+"The logo shall be positioned right in the header, floating right.",5,pragmatic,6,clean,0
+User shall Enable or Disable each fare and set $ amounts,5,pragmatic,4,syntax,0
+User defined fields,6,clean,5,pragmatic,0
+This web part shall be similar to Services Data Request Web Part and shall be added on the Services Subscribe page along with Services Generic Information Web Part which shall configured to display descriptive text for Subscribe page.,1,lexical,3,semantic,0
+"The tool shall set the edit environment to the appropriate Species Habitat tabular record specified in the users query, while displaying the form with the current selected record. In the event when more than one feature or record is selected, the form must provide each mechanism to navigate between records. The application shall also navigate to the WLA specified in the query. If no WLA is selected, the map shall not navigate to this location. User is prompted to update verification source information.",1,lexical,6,clean,0
+The top navigation menu shall be created dynamically from each SharePoint list containing approved items and shall be each 1 level child menu only. If Content Manager adds or deletes items from the list; it shall automatically be reflected in the top navigation menu. Child menus shall render only by  clicking on the parent menu item,1,lexical,6,clean,0
+"Users shall be able to cancel or extend the term of their reservations, if they so wish.",5,pragmatic,6,clean,0
+Color of the Key Indicators theme shall be fetched from color codes SharePoint list. For example in the figure above Agriculture and Environment text and the left border of the container is being displayed in its respective RGB color code,4,syntax,6,clean,0
+The system shall generate each common password �!Abc1234� for each new user to access the system.,3,semantic,6,clean,0
+Generates standard or custom inspection failure/correction notices.,1,lexical,6,clean,0
+This web part shall be added on the Data Request page along with Services Generic Information Web Part which shall be configured to display descriptive text for Data Request page.,1,lexical,3,semantic,0
+Tracking of requisition status,6,clean,5,pragmatic,0
+MARC formats are supported in each way each of which  allows timely implementation of new rules or changes.,5,pragmatic,6,clean,0
+Inventory Costing method is FIFO but shall have flexibility to alter method.,2,syntactic,6,clean,0
+"Possibility to see the content usage statistics in the chosen period of time. The statistics shown shall depend on the content type (number of downloads, time or amount of usage, etc.).",1,lexical,6,clean,0
+Conform to USDA web site style guide,5,pragmatic,6,clean,0
+Ability to create PO user defined fields each of which  are available only during  PO entry process.,2,syntactic,6,clean,0
+Add or change document status including changing to pending,5,pragmatic,6,clean,0
+"Ability to produce graphical representations in the form of each chart, graph, etc. from accounts
+  payable data.",1,lexical,6,clean,0
+The software must include only at  least one scanner with the ability to cope with carbon copies or other poor image quality documents,3,semantic,6,clean,0
+Personnel Action Reports,4,syntax,5,pragmatic,0
+"Solar Radiation Tool shall be required for estimating Solar resource potential for each particular building level or, for cluster of buildings and selected area.",1,lexical,6,clean,0
+Public users should be able to view tournament list and tournament details.,2,syntactic,6,clean,0
+"The reservation shall be valid for each copy of each particular book. For example, if there are five copies of Don Quixote, each one of these copies shall be considered to be reserved.",5,pragmatic,3,semantic,0
+"Faculty shall be able to return books as specified in Req(31) or shall be able to send the books only by  internal mail to the library, upon receipt of which the library staff shall enter the book as returned",1,lexical,6,clean,0
+The product shall be as secure as the web browser each of which  shall run the product.,1,lexical,6,clean,0
+All the SCADs web site data shall be saved in SharePoint lists except for Eservices module/section. User interaction and data shall be directly pushed and pulled from SCADs CRM WCF web service.,2,syntactic,6,clean,0
+Entry field for the Users Login Password,5,pragmatic,6,clean,0
+"Given each of which  each user has registered, then the user shall be able to log in to the mobile application. The log-in information shall be stored on the phone and in the future the user shall be logged in automatically.",5,pragmatic,3,semantic,0
+The system must allow user both to edit and modify operation total time. (only business hours are valid data).,3,semantic,6,clean,0
+Must meet standard DFW application performance standards.,1,lexical,6,clean,0
+The system shall update the progress for each group.,3,semantic,6,clean,0
+The system design shall be intuitive,4,syntax,5,pragmatic,0
+Services shall have child menu items and upon clicking it shall display the child menu items for Services section in the website. Services section is discussed in detailed in Services Components section.,2,syntactic,6,clean,0
+Allow for each minimum penalty amount.,6,clean,3,semantic,0
+"Login (enter email, enter password)",4,syntax,5,pragmatic,0
+Ability to be based each flat dollar amount only until  paid off,5,pragmatic,6,clean,0
+"Ability to accommodate in-field or remote data entry capabilities only by  inspector only through  the
+  use of notebook computers independently of wireless connection. Inspectors can update results on returning to the office.",2,syntactic,6,clean,0
+This web part shall be added to the default page in Statistics section and shall display the latest 5 or must read 5 releases from the current theme in each subthemes in two tabs.,1,lexical,3,semantic,0
+"System supports pre-employment criminal background screening for required positions and designated sensitive positions only by  establishing workflow processes to track each applicant's progress only through  the background screening, recording the information
+  regarding the background, medical and psychological check.",2,syntactic,6,clean,0
+"Given each of which  each user is logged in to the mobile application, then the first page each of which  is shown shall be the search page. The user shall be able to search for each restaurant, according to each search options. The search options are Price, Destination, Restaurant type and Specific dish. There shall also be each freetext search option. each user shall be able to select multiple search options in one search.",5,pragmatic,3,semantic,0
+The app shall be able to run on both Android and Ios and shall be able to run in most browsers,4,syntax,6,clean,0
+Install and deployment errors must be reported to the user so each of which  he is able to handle the problem.,4,syntax,6,clean,0
+The 54 Waterway User wants to logout from the 54 application. Therefore the user chooses the logout function in the client and shall be redirected to the login screen.,1,lexical,6,clean,0
+NFR-2. The system shall be accessible and usable.,2,syntactic,6,clean,0
+"Parcel Listing only by  the each or each of the following criteria:Effective date (any historical date)
+  Property Status
+  Jurisdictions
+  Districts
+  Mapping levels
+  Property Class
+  Zoning Class
+  Exemption Class
+  Ability to view GIS map of resulting data
+  Parcel Ownership Change Report only by  user defined date range
+  Parcel Split/Merge activity Report only by  user defined date range
+  Parcel Improvement Report only by  user defined year
+  Zoning Change or Activity Report only by  user defined data range",5,pragmatic,6,clean,0
+"Ability to perform edits to previous pay periods and recalculate pay and leave accruals from
+  previous pay period forward.",2,syntactic,6,clean,0
+The system shall provide RAID V Disk Stripping on each database storage disks.,3,semantic,6,clean,0
+"Various vector layers such as, Area Boundary, Building Foot-prints etc. shall have also integrated into the map control.",2,syntactic,6,clean,0
+"This product requires each web browser capable of running the Flash plug-in, which has the system requirements specified here under the section ""Playback."" Otherwise, this product has no software interaction.",3,semantic,6,clean,0
+ACMELIS shall interact with four software products. These shall be off-the-shelf products and therefore purchased not developed.,2,syntactic,6,clean,0
+The characteristics required of the interface between the software product and each of the hardware components,3,semantic,6,clean,0
+The services submit CV page shall just have each Services Generic Information web part which shall be configured to display Submit CV information to users along-with link to SCADs job portal.,1,lexical,6,clean,0
+Uploaded files shall be viewed for assessment,4,syntax,5,pragmatic,0
+"Ability to track and/or query work orders only by  each of the elements on the work order (listed
+  above).",3,semantic,6,clean,0
+Document templates shall store structure of document sections and definition and values of requirement attributes.,2,syntactic,6,clean,0
+"Provide for multiple, unique preventative maintenance schedules to be established for
+  stationary equipment, facilities, or piece of equipment based on user-defined criteria.",2,syntactic,6,clean,0
+"When viewing the results in each list or each map, each user shall be able to filter the results in each filing menu. The filing options include:  increasing or decreasing the maximum distance  increasing or decreasing the maximum price  choosing each restaurant type  choosing each specific dish",2,syntactic,3,semantic,0
+This page shall work in each similar fashion as other pages in About Us but shall have another web part to submit the data in each SharePoint list via each form.,1,lexical,3,semantic,0
+"The software must permit the presentation of each history for each items linked to person, case, family, account or property",3,semantic,6,clean,0
+The 54 System Administrator or the 54 Waterway Administrator wants to logout from the 54 System. Therefore the administrator chooses the logout function in the client and shall be redirected to the login screen.,1,lexical,6,clean,0
+The system shall shall employ each one-way hash function as each aid to maintaining the integrity of the data and software in the field.,1,lexical,6,clean,0
+"The software must be able to automatically calculate retroactive pay for unlimited # of pay periods &
+  update G/L correctly.",2,syntactic,6,clean,0
+"Upper page contains the skeleton of Fault Session without each mining data. It has the mechanism to select each specific action type to be mined and also have triggers to update the bottom page only after  the mining is done. This page loads instantly. Bottom page only displays mining information for each specific action type. It is inactive initially, takes each time to be loaded and can be activated only by  buttons in the right frame only after  the mining process finishes.",3,semantic,6,clean,0
+The system shall alert the customer each of which  medications need to be reloaded if 4-days worth or less of medication is remaining.,3,semantic,6,clean,0
+The system shall allow user to create/delete links between requirements,4,syntax,6,clean,0
+"System evaluates application data against job prerequisites and indicated applicant
+  preferences.",1,lexical,6,clean,0
+Allows the administrator to modify each existing game,4,syntax,6,clean,0
+The system shall integrate each email client to display only through  the unified interface.,3,semantic,6,clean,0
+"Ability to track requisitions and automatically date and time stamp (received, accepted,
+  returned, re-received) with notes and comments.",2,syntactic,6,clean,0
+Topic names shall be reworded,6,clean,5,pragmatic,0
+The library shall be able to provide the emulator with the emulated component code based on information from the Emulation Specification Document (ESD).,3,semantic,6,clean,0
+It shall generate alerts via SMS.,5,pragmatic,6,clean,0
+"targets, including performing joins on tables contained in different databases, and handling type conversion and concatenation/splitting of data between different source and target models",5,pragmatic,6,clean,0
+Ability to adjust or reverse previous hours (hours worked and accruals).,2,syntactic,6,clean,0
+Ability to attach documents to each requisition and have those flow onto PO,6,clean,3,semantic,0
+Telecommands shall carry each digital signature to ensure each of which  they have been sent only by  each valid ground station.,4,syntax,6,clean,0
+Interactive Tools shall have child menu items and upon clicking it shall display the child menu items for Interactive Tools section in the website. Interactive Tools section is discussed in detailed in Interactive Tools Components section,2,syntactic,3,semantic,0
+"If the user(s) does not commit each change in each of the associate parts, the system must let continue.",3,semantic,6,clean,0
+"Track when each employee begins temporary total disabiltiy and returns to work from a
+  workers comp injury",3,semantic,5,pragmatic,0
+The software must tie back payroll to the budget appropriation for budgetary control.,2,syntactic,6,clean,0
+The MDT shall overlay associated minutiae to fingerprint in each graphical user interface (GUI).,3,semantic,6,clean,0
+"The user shall first select each Route from each drop-down list. The system shall display the Standard Schedule as it is currently configured, sorted only by  departure time.",5,pragmatic,6,clean,0
+"Messages input from each user as well as messages sent from the other party. The messages can be in the format of text (chatting style), email, graphics, and video.",3,semantic,6,clean,0
+Media shall have child menu items and upon clicking it shall display the child menu items for Media section in the website. Media section is discussed in detailed in Media Components section.,2,syntactic,3,semantic,0
+Teacher shall be able to display list of warning letters generated,4,syntax,6,clean,0
+ACMELIS shall be considered to be independent of each other software system.,3,semantic,6,clean,0
+"Provide the ability to assess fees and collect payments for planning projects. Fees displayed
+  only during  processing shall be determined only by  the type of project with only the fees applicable to the project type displayed",2,syntactic,6,clean,0
+"There are two types of loan items, language tapes, and books. each language tape has each title language (e.g. French), and level (e.g. beginner). each book has each title, and author(s). each customer shall borrow only up to  each maximum of 8 items. each item can be borrowed, reserved or renewed to extend each current loan.",2,syntactic,6,clean,0
+Ability for the manager to approve or reject the timesheet.,2,syntactic,6,clean,0
+Permit expiration reports with option to print letters for expiring,4,syntax,6,clean,0
+"The system web site shall be viewable from Internet Explorer 4.0
+  or later, Netscape Navigator/Communicator 3.0 or later and the
+  America Online web browser version 3.0 or later.",5,pragmatic,6,clean,0
+Offers printing support. Test session results can now be printed both from the client and server side point of view.,3,semantic,6,clean,0
+"The initial requirements call for the program to only be able to work with each single address book only at  each time; therefore, if the user chooses the New or Open menu option, each current address book shall be closed before creating/opening each new one. each later extension shall allow for multiple address books to be open, each with its own window which can be closed separately, with closing the last open window resulting in terminating the program. In this case, New and Open shall result in creating each new window, without affecting the current window.",2,syntactic,6,clean,0
+CUSTOMER DATA RECORD,6,clean,5,pragmatic,0
+Suggest Computation Application for CA Request,2,syntactic,5,pragmatic,0
+"This shall explain how TAA employees can manage, assign, create, and approve tasks.",2,syntactic,6,clean,0
+Each display shall reflect the level of access and the privileges of the user (security aware).,1,lexical,6,clean,0
+"The software must automatically transfer reports and notifications from each servers and interfacing systems daily, weekly, monthly or less frequent basis as required",3,semantic,6,clean,0
+"The Description column of the requirements table shall display the section numbers, headings, requirement text descriptions and attachments.",2,syntactic,6,clean,0
+Identifying the working locations of healthcare workers,4,syntax,5,pragmatic,0
+Students and administrative and support staff shall have to visit the library to return the book.,1,lexical,6,clean,0
+"Many websites options are given as each choice (e.g. Amazon, eBay, AliExpress, ...etc.) and only by  default �Amazon� is chosen. When the user clicks on each other website, the python script for the chosen site shall be fired to be executed.",6,clean,3,semantic,0
+Customer shall be able to function the heating and cooling only through  traditional interfacing.,1,lexical,6,clean,0
+"FR-4. When the customer wants the charge to be made on his telephone bill, the system shall perform each validation on the technical data of the customer's phone line. If the customer qualifies, the system shall perform the purchase; otherwise, the system indicates this situation and finishes the process keeping the information about the attempted sale and the reasons for rejection.",5,pragmatic,6,clean,0
+Tracking of restrictions and hazards associated with each property.,5,pragmatic,6,clean,0
+Compatible with Computype spine label printer system (via generaic text-only printer).,5,pragmatic,6,clean,0
+The system must allow user both to edit and modify operation labour setup time. (only business hours are valid data).,3,semantic,6,clean,0
+"System shall save each edits to species habitat data table and end edit session, or user continues to create spatial feature.",3,semantic,6,clean,0
+Ability to link from page to page (generally drilling functions) only by  clicking on displayed data,4,syntax,6,clean,0
+The data can be exported to the manager so as to make the system more portable.,2,syntactic,6,clean,0
+"The webpages we work on shall provide good error output on forms the clients shall complete. Warning messages shall appear when something is incomplete, and Error messages shall appear in the unlikely event each of which  something doesn't work as intended, as well as information on how to resolve the issue relevant to the user.",5,pragmatic,6,clean,0
+"Ability to place each ""stop payment"" on checks and generate the appropriate General Ledger
+  transaction.",3,semantic,6,clean,0
+The password shall be minimum 6 numbers,4,syntax,5,pragmatic,0
+System shall confirm each of which  the changes are to be made permanent,4,syntax,6,clean,0
+System records subdivision of land and changes to land use plan,4,syntax,6,clean,0
+track submitted orders vs. acknowledgements,6,clean,5,pragmatic,0
+"If each book is returned late, ACMELIS shall e-mail the user each two days advising each of which  the book is overdue, serving only up to  three notices.",5,pragmatic,3,semantic,0
+View parcels current location (Enter tracking number),4,syntax,5,pragmatic,0
+The user selects each specific choice of status change and this choice is captured and sent to the KPS.,5,pragmatic,6,clean,0
+Ability to provide position control tracking of filled and vacant positions.,1,lexical,6,clean,0
+Input is provided only through  each XML message in which each particular tag shall contain the path to the new file.,5,pragmatic,6,clean,0
+Prepare the executable form of each computation module (meant for future versions).,3,semantic,6,clean,0
+The system shall display the progress for each group to the user.,3,semantic,6,clean,0
+"Whether digital maps shall be implemented as shapefiles, Google Maps API JavaScript objects or something else, coordinates and each each of few  attributes (ID, label and optionally each class) of points, lines or polygons need to be uploaded when each new map layer has been produced, for example only by  each GIS department. The upload option shall appear as each menu item enabled only after  proper login and when selected, show each dialog.",4,syntax,6,clean,0
+Ability to import existing training tracking data,4,syntax,6,clean,0
+Once the document is uploaded it shall be configured to be displayed in one of the following three sections of the survey.,5,pragmatic,6,clean,0
+Privacy policy web part shall be created and added on Privacy Policy page. This shall just be each text content similar to FAQs and Content Manager could update the privacy policy anytime and it shall reflect in ER and AR cultures of the site.,1,lexical,3,semantic,0
+"Ability to do each monthly accumulation of insurance premiums for reconciliation to insurance
+  providers' invoice file. Provide for method of comparison.",2,syntactic,6,clean,0
+Patron-selected username,6,clean,5,pragmatic,0
+The system shall display each the details of the project.,3,semantic,6,clean,0
+The software must calculate each employer-paid benefits.,3,semantic,6,clean,0
+The list view shall include each header with different selectable sorting options,3,semantic,6,clean,0
+Trigger each harvesting job,6,clean,5,pragmatic,0
+Allow user to delete idea,4,syntax,6,clean,0
+FR-3. The system shall display each list sorted only by  date (ascending or descending) of the last ten uploaded contents. It shall also show the rest of the contents if they exceed ten.,5,pragmatic,6,clean,0

@@ -1,0 +1,34 @@
+requirement,true_dataset_label,true_name,pred_dataset_label,pred_name,pred_confidence,true_class_probability,confusion_group,token_count
+This web part shall be added to the default page in Statistics section and shall display the latest 5 or must read 5 releases from the current theme in each subthemes in two tabs.,1,lexical,1,lexical,0.703417181968689,0.703417181968689,other,34
+The tool shall auto-populate the Modification Date field in the species habitat tabular records and feature class. This shall be the same as the Creation Date field value when each feature is created.,1,lexical,1,lexical,0.7001184821128845,0.7001184821128845,other,33
+The services submit CV page shall just have each Services Generic Information web part which shall be configured to display Submit CV information to users along-with link to SCADs job portal.,1,lexical,1,lexical,0.6427539587020874,0.6427539587020874,other,31
+"Books borrowed only by  each faculty member according to the specifications in Req(21) shall be sent to the faculty members office only by  internal mail. For this purpose, the following shall be generated on each daily basis:  � each list of book loans requested only by  each faculty member;  � each list of labels with the name of the faculty member and his or her office.",1,lexical,1,lexical,0.6317962408065796,0.6317962408065796,other,66
+This web part shall be similar to Services Data Request Web Part and shall be added on the Services Subscribe page along with Services Generic Information Web Part which shall configured to display descriptive text for Subscribe page.,1,lexical,1,lexical,0.5940099358558655,0.5940099358558655,other,38
+"Ability to perform edits to previous pay periods and recalculate pay and leave accruals from
+  previous pay period forward.",2,syntactic,2,syntactic,0.5857784748077393,0.5857784748077393,other,19
+"Ability to manage workforce planning only by  development of future positions and association of comp
+  structures for financial forecasting.",2,syntactic,2,syntactic,0.5787373185157776,0.5787373185157776,other,19
+Ability to prioritize work orders based on user-defined parameters or assignments.,2,syntactic,2,syntactic,0.5705844759941101,0.5705844759941101,other,11
+"Provide for multiple, unique preventative maintenance schedules to be established for
+  stationary equipment, facilities, or piece of equipment based on user-defined criteria.",2,syntactic,2,syntactic,0.5690119862556458,0.5690119862556458,other,22
+Ability to automatically post pre-approved leave only during  effective pay period.,2,syntactic,2,syntactic,0.5662161111831665,0.5662161111831665,other,11
+The user can view each tasks in the middle of the screen.,3,semantic,3,semantic,0.7482420802116394,0.7482420802116394,other,12
+The survey also has documents attached to it. The documents shall be uploaded in each separate SharePoint document library.,3,semantic,3,semantic,0.7189235687255859,0.7189235687255859,other,19
+Show details about each selected Machine.,3,semantic,3,semantic,0.711540162563324,0.711540162563324,other,6
+The MDT shall overlay associated minutiae to fingerprint in each graphical user interface (GUI).,3,semantic,3,semantic,0.702897310256958,0.702897310256958,other,14
+View information about machines assigned to each Operation in the Work Order Operation.,3,semantic,3,semantic,0.7020171284675598,0.7020171284675598,other,13
+Teacher shall be able to update attendance record,4,syntax,4,syntax,0.9272872805595398,0.9272872805595398,other,8
+The system shall allow User to view events and details,4,syntax,4,syntax,0.914141833782196,0.914141833782196,other,10
+Teacher shall be able to display list of warning letters generated,4,syntax,4,syntax,0.8985887169837952,0.8985887169837952,other,11
+The system shall allow the users to make changes to the password if the user not remember the password,4,syntax,4,syntax,0.8902738690376282,0.8902738690376282,other,19
+Able to update status of the task,4,syntax,4,syntax,0.8868911266326904,0.8868911266326904,other,7
+Download Project File,5,pragmatic,5,pragmatic,0.9668157696723938,0.9668157696723938,other,3
+Add Rating Criteria,5,pragmatic,5,pragmatic,0.9664974212646484,0.9664974212646484,other,3
+Search option,5,pragmatic,5,pragmatic,0.9664918184280396,0.9664918184280396,other,2
+Date range,5,pragmatic,5,pragmatic,0.9657536745071411,0.9657536745071411,other,2
+User Accounts,5,pragmatic,5,pragmatic,0.9655411243438721,0.9655411243438721,other,2
+The system shall allow the data manager to search bibliographic resources only by  keywords,6,clean,6,clean,0.6143003106117249,0.6143003106117249,other,14
+The software shall record the history of version-controlled documents,6,clean,6,clean,0.5791226625442505,0.5791226625442505,other,9
+The system shall allow the data manager to search expert resources only by  keywords,6,clean,6,clean,0.5663922429084778,0.5663922429084778,other,14
+The system shall support Internet Explore.,6,clean,6,clean,0.5480878949165344,0.5480878949165344,other,6
+System shall provide necessary validation for input data,6,clean,6,clean,0.539315938949585,0.539315938949585,other,8

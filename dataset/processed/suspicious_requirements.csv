@@ -1,0 +1,153 @@
+source_row_index,requirement,label,token_count,char_length,source_row_count,still_in_training_set,review_status
+420,Retrieve password,5,2,17,1,yes,held_for_review_not_deleted
+529,Editing coefficients,5,2,20,1,yes,held_for_review_not_deleted
+722,Quality audio,5,2,13,1,yes,held_for_review_not_deleted
+723,Text chat,5,2,9,1,yes,held_for_review_not_deleted
+724,Screen share,5,2,12,1,yes,held_for_review_not_deleted
+725,Whiteboard functionality,5,2,24,1,yes,held_for_review_not_deleted
+727,Login,5,1,5,3,yes,held_for_review_not_deleted
+730,Payment system,5,2,14,1,yes,held_for_review_not_deleted
+741,System log.,5,2,11,1,yes,held_for_review_not_deleted
+742,User page,5,2,9,1,yes,held_for_review_not_deleted
+743,Student profiles,5,2,16,1,yes,held_for_review_not_deleted
+744,Teacher profiles,5,2,16,1,yes,held_for_review_not_deleted
+755,24X7 availability.,5,2,18,1,yes,held_for_review_not_deleted
+761,Login Page,5,2,10,1,yes,held_for_review_not_deleted
+762,Registration Form,5,2,17,1,yes,held_for_review_not_deleted
+1330,Logged In,5,2,9,1,yes,held_for_review_not_deleted
+1930,SQL-based database,6,2,18,1,yes,held_for_review_not_deleted
+1933,Patron-selected username,6,2,24,1,yes,held_for_review_not_deleted
+1986,wildcard searches,6,2,17,1,yes,held_for_review_not_deleted
+2011,receiving/cataloging process,5,2,28,1,yes,held_for_review_not_deleted
+2393,Create Task,5,2,11,1,yes,held_for_review_not_deleted
+2395,Delete Task,5,2,11,1,yes,held_for_review_not_deleted
+2401,Brainstorm Details,5,2,18,1,yes,held_for_review_not_deleted
+2403,Add Topic,5,2,9,1,yes,held_for_review_not_deleted
+2405,Edit Topic,5,2,10,1,yes,held_for_review_not_deleted
+2407,Delete Topic,5,2,12,1,yes,held_for_review_not_deleted
+2409,View Topics,5,2,11,2,yes,held_for_review_not_deleted
+2411,Signup,5,1,6,1,yes,held_for_review_not_deleted
+2416,Create Groups,5,2,13,1,yes,held_for_review_not_deleted
+2418,Select Topic,5,2,12,1,yes,held_for_review_not_deleted
+2420,Vote Topic,5,2,10,1,yes,held_for_review_not_deleted
+2422,Allocate Topics,5,2,15,1,yes,held_for_review_not_deleted
+2423,Assign Topics,5,2,13,1,yes,held_for_review_not_deleted
+2425,Unassign Topic,5,2,14,1,yes,held_for_review_not_deleted
+2429,Disband Groups,5,2,14,1,yes,held_for_review_not_deleted
+2447,Upload File,5,2,11,1,yes,held_for_review_not_deleted
+2457,Add Session,5,2,11,1,yes,held_for_review_not_deleted
+2459,Schedule Booking,5,2,16,1,yes,held_for_review_not_deleted
+2463,Remove Booking,5,2,14,1,yes,held_for_review_not_deleted
+2467,View Booking,5,2,12,1,yes,held_for_review_not_deleted
+2473,Assessment Details,5,2,18,1,yes,held_for_review_not_deleted
+2479,Comment File/Presentation,5,2,25,1,yes,held_for_review_not_deleted
+2481,Rate File/Presentation,5,2,22,1,yes,held_for_review_not_deleted
+2491,View Ratings,5,2,12,1,yes,held_for_review_not_deleted
+2493,View Comments,5,2,13,1,yes,held_for_review_not_deleted
+2497,Publish File(s),5,2,15,1,yes,held_for_review_not_deleted
+2518,Database organized,5,2,18,1,yes,held_for_review_not_deleted
+2524,Time management,5,2,15,1,yes,held_for_review_not_deleted
+2550,Paste Partition,5,2,15,1,yes,held_for_review_not_deleted
+2555,Label Partition,5,2,15,1,yes,held_for_review_not_deleted
+3004,Administration Login,5,2,20,1,yes,held_for_review_not_deleted
+3006,Administration Logout,5,2,21,1,yes,held_for_review_not_deleted
+3008,Manage Users,5,2,12,1,yes,held_for_review_not_deleted
+3012,Import Data,5,2,11,1,yes,held_for_review_not_deleted
+3020,System Notification,5,2,19,1,yes,held_for_review_not_deleted
+3026,Logout,5,1,6,1,yes,held_for_review_not_deleted
+3028,Reset Password,5,2,14,1,yes,held_for_review_not_deleted
+3030,Choose Language,5,2,15,1,yes,held_for_review_not_deleted
+3038,Identify Tool,5,2,13,1,yes,held_for_review_not_deleted
+3042,Search Features,5,2,15,1,yes,held_for_review_not_deleted
+3044,Map Content,5,2,11,1,yes,held_for_review_not_deleted
+3285,Graphical report-writer,6,2,23,1,yes,held_for_review_not_deleted
+3333,Estimated revenue,6,2,17,1,yes,held_for_review_not_deleted
+3413,Bank Reconciliation,6,2,19,1,yes,held_for_review_not_deleted
+3587,Phonetic search,5,2,15,1,yes,held_for_review_not_deleted
+3633,Flat charge,5,2,11,1,yes,held_for_review_not_deleted
+3668,Transaction Code,5,2,16,1,yes,held_for_review_not_deleted
+3669,Utility Type,5,2,12,1,yes,held_for_review_not_deleted
+3676,Equalization billing,5,2,20,1,yes,held_for_review_not_deleted
+3718,Date range,5,2,10,1,yes,held_for_review_not_deleted
+3723,Billing History,6,2,15,1,yes,held_for_review_not_deleted
+3724,Consumption history,6,2,19,1,yes,held_for_review_not_deleted
+3726,Current bill,6,2,12,1,yes,held_for_review_not_deleted
+3940,Assets Transferred,5,2,18,1,yes,held_for_review_not_deleted
+3941,Assets Idled,5,2,12,1,yes,held_for_review_not_deleted
+3942,Financial Adjustments,5,2,21,1,yes,held_for_review_not_deleted
+3943,Grant Funding,5,2,13,1,yes,held_for_review_not_deleted
+3947,Table Listings,5,2,14,1,yes,held_for_review_not_deleted
+4411,Flat amount,5,2,11,1,yes,held_for_review_not_deleted
+4458,Multiple banks,5,2,14,1,yes,held_for_review_not_deleted
+4608,Notice employees,4,2,16,2,yes,held_for_review_not_deleted
+4724,facility name,5,2,13,1,yes,held_for_review_not_deleted
+4725,facility type,5,2,13,1,yes,held_for_review_not_deleted
+4726,description,5,1,11,1,yes,held_for_review_not_deleted
+4729,area,5,1,4,1,yes,held_for_review_not_deleted
+4730,year built,5,2,10,1,yes,held_for_review_not_deleted
+4732,user-defined fields,5,2,19,1,yes,held_for_review_not_deleted
+4773,Transaction register,5,2,20,1,yes,held_for_review_not_deleted
+4789,Split/Merge History,5,2,19,1,yes,held_for_review_not_deleted
+4909,Prints license/permits/certifications,5,2,37,1,yes,held_for_review_not_deleted
+5339,Security,5,1,8,1,yes,held_for_review_not_deleted
+5340,Reliability,5,1,11,1,yes,held_for_review_not_deleted
+5341,Maintainability,5,1,15,1,yes,held_for_review_not_deleted
+5342,Portability,5,1,11,1,yes,held_for_review_not_deleted
+5343,Extensibility,5,1,13,1,yes,held_for_review_not_deleted
+5344,Reusability,5,1,11,1,yes,held_for_review_not_deleted
+5345,Compatibility,5,1,13,1,yes,held_for_review_not_deleted
+5346,Resource Utilization,5,2,20,1,yes,held_for_review_not_deleted
+5606,Rate Application,5,2,16,1,yes,held_for_review_not_deleted
+5689,Computation Packages,5,2,20,1,yes,held_for_review_not_deleted
+5693,Crash Handling,5,2,14,1,yes,held_for_review_not_deleted
+5695,Action Logging,5,2,14,1,yes,held_for_review_not_deleted
+5697,Computational Gauging,5,2,21,1,yes,held_for_review_not_deleted
+5701,Computation security,5,2,20,1,yes,held_for_review_not_deleted
+5703,Computation reliability,5,2,23,1,yes,held_for_review_not_deleted
+5705,Easy access,5,2,11,1,yes,held_for_review_not_deleted
+5729,Registration/Login/Logout UI,5,2,28,1,yes,held_for_review_not_deleted
+5819,Online translation,5,2,18,1,yes,held_for_review_not_deleted
+5829,Upload photos,5,2,13,1,yes,held_for_review_not_deleted
+5947,EBTS Files,5,2,10,1,yes,held_for_review_not_deleted
+5949,Session File,5,2,12,1,yes,held_for_review_not_deleted
+5954,Demonstration,5,1,13,1,yes,held_for_review_not_deleted
+5956,Advanced,5,1,8,1,yes,held_for_review_not_deleted
+5958,Exit,5,1,4,1,yes,held_for_review_not_deleted
+5962,Password Field,5,2,14,1,yes,held_for_review_not_deleted
+5964,Submit,5,1,6,1,yes,held_for_review_not_deleted
+5966,Cancel,5,1,6,1,yes,held_for_review_not_deleted
+6153,Browse Deals,5,2,12,1,yes,held_for_review_not_deleted
+6156,User Authentication,5,2,19,1,yes,held_for_review_not_deleted
+6207,Start game,5,2,10,1,yes,held_for_review_not_deleted
+6208,Send moves/bets,5,2,15,1,yes,held_for_review_not_deleted
+6209,Send chat,5,2,9,1,yes,held_for_review_not_deleted
+6210,Send gamestate,5,2,14,1,yes,held_for_review_not_deleted
+6212,Join game,5,2,9,1,yes,held_for_review_not_deleted
+6215,Determine bet,5,2,13,1,yes,held_for_review_not_deleted
+6216,Display rules,5,2,13,1,yes,held_for_review_not_deleted
+6217,Display game,5,2,12,1,yes,held_for_review_not_deleted
+6220,Validate bets/moves,5,2,19,1,yes,held_for_review_not_deleted
+6221,Shuffle deck,5,2,12,1,yes,held_for_review_not_deleted
+6225,Select games,5,2,12,1,yes,held_for_review_not_deleted
+6582,Data Accessibility,5,2,18,1,yes,held_for_review_not_deleted
+6591,User Accounts,5,2,13,1,yes,held_for_review_not_deleted
+6595,Data Integrity,5,2,14,1,yes,held_for_review_not_deleted
+6606,System Security,5,2,15,1,yes,held_for_review_not_deleted
+6620,Personal Profile,5,2,16,1,yes,held_for_review_not_deleted
+6621,Student Address,5,2,15,1,yes,held_for_review_not_deleted
+6623,Email/Fax Address,5,2,17,1,yes,held_for_review_not_deleted
+6624,Registration,5,1,12,1,yes,held_for_review_not_deleted
+6625,Registration Status,5,2,19,1,yes,held_for_review_not_deleted
+6626,Course Status,5,2,13,1,yes,held_for_review_not_deleted
+6631,Registration Schedule,5,2,21,1,yes,held_for_review_not_deleted
+6632,Grades,5,1,6,1,yes,held_for_review_not_deleted
+6637,Registration Assistance,5,2,23,1,yes,held_for_review_not_deleted
+6739,Mini profile,5,2,12,1,yes,held_for_review_not_deleted
+6741,About,5,1,5,1,yes,held_for_review_not_deleted
+6742,Search option,5,2,13,1,yes,held_for_review_not_deleted
+6743,Push notification,5,2,17,1,yes,held_for_review_not_deleted
+6788,Database design,5,2,15,1,yes,held_for_review_not_deleted
+6790,Modeling support,5,2,16,1,yes,held_for_review_not_deleted
+6851,Register locations,5,2,18,1,yes,held_for_review_not_deleted
+6853,Health Survey,5,2,13,1,yes,held_for_review_not_deleted
+6854,Offline survey,5,2,14,1,yes,held_for_review_not_deleted

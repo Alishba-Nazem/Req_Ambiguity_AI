@@ -1,0 +1,7 @@
+true_label,pred_lexical,pred_syntactic,pred_semantic,pred_syntax,pred_pragmatic,pred_clean
+lexical,15,8,14,2,4,4
+syntactic,5,31,9,2,4,9
+semantic,4,4,44,1,3,4
+syntax,2,1,8,27,10,0
+pragmatic,7,7,12,2,47,7
+clean,8,83,98,35,29,129

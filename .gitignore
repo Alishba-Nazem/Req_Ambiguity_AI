@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Jupyter / OS
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Hugging Face / PyTorch weights (too large for GitHub; keep metrics and configs)
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.onnx
+
+# Local editor
+.cursor/
+.vscode/
