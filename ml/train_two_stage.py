@@ -53,6 +53,7 @@ from train import (
     find_latest_checkpoint,
     resolve_model_source,
     set_seed,
+    use_local_files,
 )
 
 
@@ -142,7 +143,10 @@ def train_stage(
     model_source = resolve_model_source()
     print(f"Model source: {model_source}")
 
-    tokenizer = AutoTokenizer.from_pretrained(model_source, local_files_only=True)
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_source,
+        local_files_only=use_local_files(model_source),
+    )
     train_encodings = tokenizer(
         [row[TEXT_COLUMN] for row in train_rows],
         truncation=True,
@@ -170,7 +174,7 @@ def train_stage(
         num_labels=num_labels,
         id2label=id2label,
         label2id=label2id,
-        local_files_only=True,
+        local_files_only=use_local_files(model_source),
     )
 
     output_dir.mkdir(parents=True, exist_ok=True)

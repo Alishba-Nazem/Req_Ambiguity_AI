@@ -1,0 +1,271 @@
+import { useState } from "react"
+import { HighlightedRequirement } from "./HighlightedRequirement"
+import { SuggestionEditor } from "./SuggestionEditor"
+import { useAnalysis } from "../state/useAnalysis"
+import { MODEL_TYPE_LABELS } from "../types"
+
+function scoreTone(score: number | null | undefined) {
+  if (score == null) return "text-muted"
+  if (score < 4) return "text-success"
+  if (score < 6) return "text-warning"
+  return "text-danger"
+}
+
+function renderWithPlaceholders(text: string) {
+  const parts = text.split(/(\[[^\]]+\])/g)
+  return parts.map((part, index) =>
+    part.startsWith("[") && part.endsWith("]") ? (
+      <mark
+        key={`${part}-${index}`}
+        className="bg-warning-bg px-0.5 font-medium text-ink"
+      >
+        {part}
+      </mark>
+    ) : (
+      <span key={`${part}-${index}`}>{part}</span>
+    ),
+  )
+}
+
+export function ModelResultPanel() {
+  const {
+    result,
+    revisedText,
+    selectedIssueId,
+    selectIssue,
+    setIssueStatus,
+    setEditing,
+    editingIssueId,
+    revertAll,
+  } = useAnalysis()
+  const [showDetails, setShowDetails] = useState(false)
+  if (!result) return null
+
+  const user = result.userAssessment
+  const needsWork =
+    user?.status === "needs_improvement" ||
+    (user?.status !== "clear" && result.overallStatus === "ambiguous")
+  const phrases = user?.phrases ?? []
+  const primary = result.issues.find((issue) => issue.status === "open") ?? result.issues[0] ?? null
+  const editing = primary !== null && editingIssueId === primary.id
+  const accepted = result.issues.some(
+    (issue) => issue.status === "accepted" || issue.status === "edited",
+  )
+  const allDismissed =
+    result.issues.length > 0 && result.issues.every((issue) => issue.status === "dismissed")
+  const suggestion =
+    user?.suggested_requirement ?? result.suggestedRequirement ?? primary?.suggestion ?? null
+  const score = user?.score ?? result.finalScore
+  const reqType = user?.requirement_type_label ?? "Functional"
+  const ambType = user?.type_label ?? (result.ambiguityType ? MODEL_TYPE_LABELS[result.ambiguityType] : "—")
+  const missing = user?.missing_information ?? result.missingInformation ?? []
+  const why = phrases[0]?.why ?? user?.why ?? null
+  const specify = phrases[0]?.specify ?? missing[0] ?? null
+  const showIssueCopy = needsWork && !accepted && !allDismissed
+  const highlightIssues = accepted || allDismissed ? [] : result.issues
+
+  return (
+    <article>
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h1 className="text-[22px] font-semibold">Requirement analysis</h1>
+          <p className="mt-1 text-[13px] text-muted">{result.requirementId}</p>
+        </div>
+        <p
+          className={`text-[13px] font-semibold ${
+            needsWork && !accepted ? "text-warning" : "text-success"
+          }`}
+        >
+          {accepted
+            ? "Updated"
+            : allDismissed
+              ? "Suggestion dismissed"
+              : user?.title ?? (needsWork ? "Needs improvement" : "Clear")}
+        </p>
+      </div>
+
+      <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 text-[13px] sm:grid-cols-4">
+        <div>
+          <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+            Ambiguity score
+          </dt>
+          <dd className={`mt-1 text-[22px] font-semibold ${scoreTone(score)}`}>
+            {score != null ? `${score.toFixed(1)} / 10` : "—"}
+          </dd>
+          <dd className="text-[12px] text-muted">{user?.score_label ?? ""}</dd>
+          {score != null ? (
+            <div
+              className="mt-2 h-1.5 w-full bg-line"
+              role="meter"
+              aria-label="Ambiguity score"
+              aria-valuemin={0}
+              aria-valuemax={10}
+              aria-valuenow={Number(score.toFixed(1))}
+            >
+              <div
+                className={`h-full ${score < 4 ? "bg-success" : score < 6 ? "bg-warning" : "bg-danger"}`}
+                style={{ width: `${Math.min(100, Math.max(0, score * 10))}%` }}
+              />
+            </div>
+          ) : null}
+        </div>
+        <div>
+          <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+            Requirement type
+          </dt>
+          <dd className="mt-1 font-medium">{reqType}</dd>
+        </div>
+        <div>
+          <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+            Ambiguity type
+          </dt>
+          <dd className="mt-1 font-medium">{needsWork && !accepted ? ambType : "None"}</dd>
+        </div>
+        <div>
+          <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+            Status
+          </dt>
+          <dd className="mt-1 font-medium">
+            {accepted ? "Accepted" : allDismissed ? "Dismissed" : needsWork ? "Needs improvement" : "Clear"}
+          </dd>
+        </div>
+      </dl>
+
+      <section className="mt-6">
+        <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+          Original requirement
+        </h2>
+        <div className="mt-1">
+          <HighlightedRequirement
+            text={result.originalText}
+            issues={highlightIssues}
+            selectedIssueId={selectedIssueId}
+            onSelect={selectIssue}
+          />
+        </div>
+      </section>
+
+      {showIssueCopy && phrases.length > 0 ? (
+        <section className="mt-5">
+          <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+            {phrases.length === 1 ? "Issue" : "Issues"}
+          </h2>
+          <ul className="mt-1 space-y-2 text-[14px] leading-6">
+            {phrases.map((phrase) => (
+              <li key={`${phrase.text}-${phrase.start}`}>
+                <p>
+                  “{phrase.text}”
+                  {phrase.type_label ? (
+                    <span className="ml-2 text-[12px] text-muted">· {phrase.type_label}</span>
+                  ) : null}
+                </p>
+                {phrases.length > 1 ? (
+                  <p className="mt-0.5 text-[13px] text-muted">{phrase.why}</p>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      {showIssueCopy && why && phrases.length <= 1 ? (
+        <section className="mt-5">
+          <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+            Why it is ambiguous
+          </h2>
+          <p className="mt-1 text-[14px] leading-6">{why}</p>
+        </section>
+      ) : null}
+
+      {showIssueCopy && specify ? (
+        <section className="mt-5">
+          <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+            What to specify
+          </h2>
+          <p className="mt-1 text-[14px] leading-6">{specify}</p>
+        </section>
+      ) : null}
+
+      {suggestion && needsWork ? (
+        <section className="mt-5">
+          <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+            Suggested rewrite
+          </h2>
+          {editing && primary ? (
+            <SuggestionEditor
+              key={primary.id}
+              issue={primary}
+              initialText={primary.editedText ?? suggestion}
+            />
+          ) : (
+            <p className="mt-1 text-[15px] leading-7">
+              {renderWithPlaceholders(primary?.editedText ?? suggestion)}
+            </p>
+          )}
+          {primary && !editing ? (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {primary.status === "open" ? (
+                <>
+                  <button
+                    type="button"
+                    className="bg-primary px-2.5 py-1.5 text-[13px] text-white hover:bg-primary-hover"
+                    onClick={() => setIssueStatus(primary.id, "accepted")}
+                  >
+                    Accept suggestion
+                  </button>
+                  <button
+                    type="button"
+                    className="border border-line bg-surface px-2.5 py-1.5 text-[13px]"
+                    onClick={() => setEditing(primary.id)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    type="button"
+                    className="px-2.5 py-1.5 text-[13px] text-muted hover:text-ink"
+                    onClick={() => setIssueStatus(primary.id, "dismissed")}
+                  >
+                    Dismiss
+                  </button>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  className="text-[13px] text-primary hover:underline"
+                  onClick={() => revertAll()}
+                >
+                  Undo
+                </button>
+              )}
+            </div>
+          ) : null}
+        </section>
+      ) : null}
+
+      {accepted && revisedText !== result.originalText ? (
+        <section className="mt-5 border-t border-line pt-4">
+          <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+            Current requirement
+          </h2>
+          <p className="mt-1 text-[15px] leading-7">{revisedText}</p>
+        </section>
+      ) : null}
+
+      <button
+        type="button"
+        className="mt-6 text-[12px] text-muted hover:text-ink hover:underline"
+        aria-expanded={showDetails}
+        onClick={() => setShowDetails((value) => !value)}
+      >
+        {showDetails ? "Hide technical details" : "Technical details"}
+      </button>
+      {showDetails ? (
+        <div className="mt-2 border border-line bg-background px-3 py-2 text-[12px] leading-5 text-muted">
+          <p>Final status: {result.overallStatus}</p>
+          <p>Fused score: {result.finalScore ?? "—"} / 10</p>
+          <p>Flagged phrases: {result.issues.map((issue) => issue.phrase).join(", ") || "none"}</p>
+        </div>
+      ) : null}
+    </article>
+  )
+}

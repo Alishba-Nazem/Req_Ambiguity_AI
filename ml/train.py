@@ -37,17 +37,28 @@ from config import (
 
 
 def find_latest_checkpoint(output_dir: Path) -> str | None:
-    """Resume from the highest-step checkpoint under output_dir, if any."""
+    """Resume from the highest-step checkpoint that actually has weights.
+
+    GitHub copies may contain checkpoint folders with only config/trainer
+    JSON (weights are gitignored). Those must not be used for resume.
+    """
     if not output_dir.exists():
         return None
 
     checkpoints = []
     for entry in output_dir.iterdir():
-        if entry.is_dir() and entry.name.startswith("checkpoint-"):
-            try:
-                step = int(entry.name.split("-")[-1])
-            except ValueError:
-                continue
+        if not (entry.is_dir() and entry.name.startswith("checkpoint-")):
+            continue
+        try:
+            step = int(entry.name.split("-")[-1])
+        except ValueError:
+            continue
+        has_weights = (
+            (entry / "model.safetensors").exists()
+            or (entry / "pytorch_model.bin").exists()
+            or (entry / "model.pt").exists()
+        )
+        if has_weights:
             checkpoints.append((step, entry))
 
     if not checkpoints:
@@ -58,19 +69,30 @@ def find_latest_checkpoint(output_dir: Path) -> str | None:
 
 
 def resolve_model_source() -> str:
-    """Prefer a complete local snapshot so training does not wait on the Hub."""
-    local = (
+    """Prefer a complete local snapshot so training does not wait on the Hub.
+
+    On a machine with no cached weights (e.g. Google Colab), return the Hub
+    model id so Transformers can download bert-base-uncased.
+    """
+    snapshots = (
         Path.home()
         / ".cache"
         / "huggingface"
         / "hub"
         / "models--google-bert--bert-base-uncased"
         / "snapshots"
-        / "86b5e0934494bd15c9632b12f734a8a67f723594"
     )
-    if (local / "model.safetensors").exists() and (local / "config.json").exists():
-        return str(local)
+    if snapshots.is_dir():
+        for local in sorted(snapshots.iterdir(), reverse=True):
+            if (local / "model.safetensors").exists() and (local / "config.json").exists():
+                return str(local)
     return MODEL_NAME
+
+
+def use_local_files(model_source: str) -> bool:
+    """Only force offline load when the source is an existing local directory."""
+    path = Path(model_source)
+    return path.is_dir() and (path / "config.json").exists()
 
 
 def set_seed(seed: int) -> None:
@@ -181,7 +203,10 @@ def main() -> None:
     model_source = resolve_model_source()
     print(f"Model source: {model_source}")
 
-    tokenizer = AutoTokenizer.from_pretrained(model_source, local_files_only=True)
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_source,
+        local_files_only=use_local_files(model_source),
+    )
 
     train_texts = [row[TEXT_COLUMN] for row in train_rows]
     train_labels = [row[LABEL_COLUMN] for row in train_rows]
@@ -218,7 +243,7 @@ def main() -> None:
         num_labels=NUM_LABELS,
         id2label=ID2LABEL,
         label2id={name: index for index, name in ID2LABEL.items()},
-        local_files_only=True,
+        local_files_only=use_local_files(model_source),
     )
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

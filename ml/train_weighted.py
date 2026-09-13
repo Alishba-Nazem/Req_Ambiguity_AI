@@ -48,6 +48,7 @@ from train import (
     load_split,
     resolve_model_source,
     set_seed,
+    use_local_files,
 )
 
 
@@ -113,7 +114,10 @@ def main() -> None:
     model_source = resolve_model_source()
     print(f"\nModel source: {model_source}")
 
-    tokenizer = AutoTokenizer.from_pretrained(model_source, local_files_only=True)
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_source,
+        local_files_only=use_local_files(model_source),
+    )
 
     train_texts = [row[TEXT_COLUMN] for row in train_rows]
     validation_texts = [row[TEXT_COLUMN] for row in validation_rows]
@@ -140,7 +144,7 @@ def main() -> None:
         num_labels=NUM_LABELS,
         id2label=ID2LABEL,
         label2id={name: index for index, name in ID2LABEL.items()},
-        local_files_only=True,
+        local_files_only=use_local_files(model_source),
     )
 
     WEIGHTED_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
