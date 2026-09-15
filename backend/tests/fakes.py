@@ -30,7 +30,7 @@ class FakeLlmAnalyzer:
     """Injected LLM layer for tests. Does not call a provider."""
 
     def __init__(self, result: LlmReasoningResult | None = None) -> None:
-        self.result = result or LlmReasoningResult.unavailable("LLM disabled")
+        self.result = result or LlmReasoningResult.unavailable("Optional review skipped")
         self.calls = 0
 
     def analyze(self, *args, **kwargs) -> LlmReasoningResult:

@@ -16,6 +16,8 @@ copy .env.example .env
 
 On macOS/Linux use `cp .env.example .env`. Set `LLM_API_KEY` only if you want LLM rewrites. The API starts without it.
 
+Hugging Face **ZeroGPU Gradio** Space layout and env vars: [docs/huggingface-space.md](../docs/huggingface-space.md). Local development still uses this FastAPI app. The Gradio entry point is root `app.py` and does not replace these routes.
+
 Weights must exist at:
 
 - `ml/outputs_two_stage/stage_a/best_model/model.safetensors`

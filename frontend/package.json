@@ -11,6 +11,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@gradio/client": "^2.6.0",
     "@tailwindcss/vite": "^4.3.3",
     "mammoth": "^1.12.2",
     "pdfjs-dist": "^6.3.289",

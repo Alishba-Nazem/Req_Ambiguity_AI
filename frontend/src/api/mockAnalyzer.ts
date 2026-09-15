@@ -1,33 +1,27 @@
-export const SAMPLE_REQUIREMENTS = `4.1 Performance
-The system should respond quickly to user requests.
-
-4.2 Export
-The application shall allow users to export data as needed.
-
-4.3 Presentation
-The dashboard must be user-friendly and display relevant information in real time.
-
-4.4 Authentication
-The system shall lock the account after 5 failed login attempts.
-
-4.5 Ingestion
-The module shall process files efficiently and notify the appropriate team if necessary.
-
-4.6 Reporting
-Users can view reports.
-
-4.7 Availability
-The service shall be highly available and recover soon after a failure.`
+export const SAMPLE_REQUIREMENTS = `The system should respond quickly to user requests.`
 
 interface DetectionRule {
   pattern: RegExp
-  category: "vague_term" | "missing_quantifier" | "undefined_actor" | "missing_edge_case" | "conflicting_statement"
+  category:
+    | "vague_term"
+    | "missing_quantifier"
+    | "undefined_actor"
+    | "missing_edge_case"
+    | "conflicting_statement"
   modelType: "lexical" | "syntactic" | "semantic" | "syntax" | "pragmatic"
   severity: "critical" | "medium" | "low"
   explanation: string
   rewrite: (sentence: string, phrase: string) => string
   confidence: number
 }
+
+const TYPE_LABELS = {
+  lexical: "Lexical",
+  syntactic: "Syntactic",
+  semantic: "Semantic",
+  syntax: "Syntax",
+  pragmatic: "Pragmatic",
+} as const
 
 const RULES: DetectionRule[] = [
   {
@@ -40,7 +34,7 @@ const RULES: DetectionRule[] = [
     rewrite: (sentence) =>
       sentence
         .replace(/\bshould\b/i, "shall")
-        .replace(/\bquickly\b/i, "within 2 seconds"),
+        .replace(/\bquickly\b/i, "within [maximum response time]"),
     confidence: 0.86,
   },
   {
@@ -51,10 +45,7 @@ const RULES: DetectionRule[] = [
     explanation:
       "“As needed” leaves frequency and trigger undefined. The export behavior cannot be tested as written.",
     rewrite: (sentence) =>
-      sentence.replace(
-        /\bas needed\b/i,
-        "on demand, in CSV or JSON, within 10 seconds for up to 10,000 rows",
-      ),
+      sentence.replace(/\bas needed\b/i, "on demand, in [format], within [time limit]"),
     confidence: 0.81,
   },
   {
@@ -67,7 +58,7 @@ const RULES: DetectionRule[] = [
     rewrite: (sentence) =>
       sentence.replace(
         /\buser-friendly\b/i,
-        "usable without training: primary actions reachable within 3 clicks",
+        "usable without training: primary actions reachable within [N] clicks",
       ),
     confidence: 0.78,
   },
@@ -79,10 +70,7 @@ const RULES: DetectionRule[] = [
     explanation:
       "“Relevant information” does not say which fields, for which role, or who decides relevance.",
     rewrite: (sentence) =>
-      sentence.replace(
-        /\brelevant information\b/i,
-        "status, last-updated timestamp, and assigned owner for the signed-in role",
-      ),
+      sentence.replace(/\brelevant information\b/i, "[specific fields for the signed-in role]"),
     confidence: 0.74,
   },
   {
@@ -93,7 +81,10 @@ const RULES: DetectionRule[] = [
     explanation:
       "“Real time” is not a latency bound. State the maximum delay after the source changes.",
     rewrite: (sentence) =>
-      sentence.replace(/\bin real[ -]?time\b/i, "within 1 second of the source update"),
+      sentence.replace(
+        /\bin real[ -]?time\b/i,
+        "within [maximum delay] of the source update",
+      ),
     confidence: 0.8,
   },
   {
@@ -104,7 +95,7 @@ const RULES: DetectionRule[] = [
     explanation:
       "“Efficiently” is not testable. Throughput, file size, or a time limit is missing.",
     rewrite: (sentence) =>
-      sentence.replace(/\befficiently\b/i, "within 30 seconds for files up to 10 MB"),
+      sentence.replace(/\befficiently\b/i, "within [time limit] for files up to [size]"),
     confidence: 0.88,
   },
   {
@@ -115,7 +106,7 @@ const RULES: DetectionRule[] = [
     explanation:
       "The actor is unnamed. “Appropriate team” does not identify a role, queue, or channel.",
     rewrite: (sentence) =>
-      sentence.replace(/\bthe appropriate team\b/i, "the on-call operations group"),
+      sentence.replace(/\bthe appropriate team\b/i, "[named role or team]"),
     confidence: 0.77,
   },
   {
@@ -126,10 +117,7 @@ const RULES: DetectionRule[] = [
     explanation:
       "The condition is unstated. Say which failure, threshold, or event triggers the notification.",
     rewrite: (sentence) =>
-      sentence.replace(
-        /\bif necessary\b/i,
-        "when validation fails or processing exceeds 30 seconds",
-      ),
+      sentence.replace(/\bif necessary\b/i, "when [specific failure condition occurs]"),
     confidence: 0.83,
   },
   {
@@ -139,8 +127,7 @@ const RULES: DetectionRule[] = [
     severity: "low",
     explanation:
       "“Users” is not a defined role, and the sentence is not written as a testable system requirement.",
-    rewrite: () =>
-      "The system shall allow authenticated users with the Reporter role to view reports they are assigned.",
+    rewrite: () => "The system shall allow [named role] to [specific action].",
     confidence: 0.7,
   },
   {
@@ -151,7 +138,10 @@ const RULES: DetectionRule[] = [
     explanation:
       "Availability is not quantified. State an uptime target and the window it is measured over.",
     rewrite: (sentence) =>
-      sentence.replace(/\bhighly available\b/i, "available 99.9% of each calendar month"),
+      sentence.replace(
+        /\bhighly available\b/i,
+        "available [uptime target] of each calendar month",
+      ),
     confidence: 0.9,
   },
   {
@@ -162,18 +152,11 @@ const RULES: DetectionRule[] = [
     explanation:
       "“Soon” is not a recovery time objective. Name the maximum downtime after a detected failure.",
     rewrite: (sentence) =>
-      sentence.replace(/\bsoon after a failure\b/i, "within 15 minutes of a detected failure"),
+      sentence.replace(
+        /\bsoon after a failure\b/i,
+        "within [recovery time] of a detected failure",
+      ),
     confidence: 0.85,
-  },
-  {
-    pattern: /\bmust\b.+\band\b.+\bmust\b/i,
-    category: "conflicting_statement",
-    modelType: "syntactic",
-    severity: "critical",
-    explanation:
-      "The sentence stacks obligations without priority, which can produce conflicting implementations.",
-    rewrite: (sentence) => sentence,
-    confidence: 0.66,
   },
 ]
 
@@ -193,6 +176,12 @@ function splitSentences(text: string): { text: string; start: number; end: numbe
     }
   }
   return parts
+}
+
+function scoreFromSeverity(severity: "critical" | "medium" | "low"): number {
+  if (severity === "critical") return 8.2
+  if (severity === "medium") return 5.5
+  return 3.2
 }
 
 export function mockAnalyze(originalText: string) {
@@ -232,26 +221,158 @@ export function mockAnalyze(originalText: string) {
     }
   }
 
+  const primary = issues[0] ?? null
+  const ambiguous = issues.length > 0
+  const score = primary ? scoreFromSeverity(primary.severity) : 1.2
+  const suggested = primary?.suggestion ?? null
+
   return {
     originalText,
     issues,
     source: "mock" as const,
-    classification: issues.length > 0 ? ("ambiguous" as const) : ("clean" as const),
-    ambiguityType: null,
-    ambiguityScore: 0,
-    confidence: 0,
-    explanation: "",
-    suggestedRequirement: null,
-    typeSource: null,
-    overallStatus: issues.length > 0 ? ("ambiguous" as const) : ("clean" as const),
-    linguisticSeverity: null,
+    classification: ambiguous ? ("ambiguous" as const) : ("clean" as const),
+    ambiguityType: primary?.modelType ?? null,
+    ambiguityScore: ambiguous ? Math.round(score * 10) : 8,
+    confidence: primary?.confidence ?? 0.9,
+    explanation:
+      primary?.explanation ?? "The requirement looks specific and measurable as written.",
+    suggestedRequirement: suggested,
+    typeSource: primary ? ("linguistic" as const) : null,
+    overallStatus: ambiguous ? ("ambiguous" as const) : ("clean" as const),
+    linguisticSeverity:
+      primary?.severity === "critical"
+        ? ("high" as const)
+        : primary?.severity === "low"
+          ? ("low" as const)
+          : primary
+            ? ("medium" as const)
+            : null,
     mlPrediction: null,
-    finalAssessment: null,
-    finalScore: null,
+    finalAssessment: {
+      status: ambiguous ? ("ambiguous" as const) : ("clean" as const),
+      score,
+      severity:
+        primary?.severity === "critical"
+          ? ("high" as const)
+          : primary?.severity === "low"
+            ? ("low" as const)
+            : primary
+              ? ("medium" as const)
+              : null,
+      ambiguity_type: primary?.modelType ?? null,
+      type: primary?.modelType ?? null,
+      source: "linguistic" as const,
+    },
+    finalScore: score,
     llmAnalysis: null,
-    userAssessment: null,
-    missingInformation: [],
+    userAssessment: {
+      status: ambiguous ? ("needs_improvement" as const) : ("clear" as const),
+      title: ambiguous ? "Needs improvement" : "Clear",
+      ambiguity_type: primary?.modelType ?? null,
+      type_label: primary ? TYPE_LABELS[primary.modelType] : null,
+      why: primary?.explanation ?? "The wording looks testable as written.",
+      suggested_requirement: suggested,
+      missing_information: suggested?.includes("[")
+        ? ["Replace bracketed placeholders with measurable values."]
+        : [],
+      phrases: issues.map((issue) => ({
+        text: issue.phrase,
+        start: issue.start,
+        end: issue.end,
+        ambiguity_type: issue.modelType,
+        type_label: TYPE_LABELS[issue.modelType],
+        severity:
+          issue.severity === "critical"
+            ? ("high" as const)
+            : issue.severity === "low"
+              ? ("low" as const)
+              : ("medium" as const),
+        why: issue.explanation,
+        suggestion: issue.suggestion,
+        specify: issue.suggestion.includes("[")
+          ? "Replace the placeholder with a concrete, measurable value."
+          : null,
+      })),
+      requirement_type: "functional" as const,
+      requirement_type_label: "Functional",
+      score,
+      score_label:
+        score >= 7 ? "High ambiguity" : score >= 4 ? "Moderate ambiguity" : "Low ambiguity",
+    },
+    missingInformation: suggested?.includes("[")
+      ? ["Replace bracketed placeholders with measurable values."]
+      : [],
     displayText: originalText,
     requirementId: "REQ-000",
+  }
+}
+
+export function mockGenerate(
+  idea: string,
+  requirementType?: string | "",
+  details?: string,
+) {
+  const cleaned = idea
+    .replace(/^\s*(i want|i need|please)\s+/i, "")
+    .replace(/\s+/g, " ")
+    .trim()
+  const action = cleaned.replace(/\.$/, "")
+  const kind =
+    (requirementType as
+      | "functional"
+      | "performance"
+      | "security"
+      | "usability"
+      | "availability"
+      | "compatibility"
+      | "other"
+      | undefined) ||
+    (/\brespond|latency|fast|quick/i.test(idea)
+      ? "performance"
+      : /\bnavigate|interface|usable/i.test(idea)
+        ? "usability"
+        : "functional")
+  let suggested = `The system shall ${action}.`
+  if (/\bquickly\b/i.test(suggested)) {
+    suggested = suggested.replace(/\bquickly\b/i, "within [maximum response time]")
+  }
+  if (details?.trim()) {
+    suggested = suggested.replace(/\.$/, ` (${details.trim()}).`)
+  }
+  const analysis = mockAnalyze(suggested)
+  return {
+    idea,
+    requirementType: kind,
+    suggestedRequirement: suggested,
+    explanation:
+      "Rewrote the idea as a single shall-statement and flagged any remaining vague wording.",
+    missingInformation: analysis.missingInformation,
+    questions: suggested.includes("[")
+      ? ["What measurable limit should replace the placeholder?"]
+      : [],
+    readyToUse: !suggested.includes("["),
+    qualityChecks: [
+      {
+        id: "actor",
+        label: "Names the system as the actor",
+        passed: true,
+        detail: null,
+      },
+      {
+        id: "shall",
+        label: "Uses shall wording",
+        passed: true,
+        detail: null,
+      },
+      {
+        id: "measurable",
+        label: "Avoids vague wording",
+        passed: !suggested.includes("["),
+        detail: suggested.includes("[")
+          ? "A measurable placeholder still needs a concrete value."
+          : null,
+      },
+    ],
+    analysis,
   }
 }

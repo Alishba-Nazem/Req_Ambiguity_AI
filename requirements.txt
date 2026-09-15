@@ -1,0 +1,10 @@
+# Hugging Face Gradio / ZeroGPU Space.
+# FastAPI local installs keep using backend/requirements.txt.
+# Do not pin torch here: ZeroGPU supplies a CUDA build.
+# Do not pin spaces: the Space platform injects it.
+gradio==5.20.0
+fastapi>=0.115.0
+pydantic-settings>=2.4.0
+python-dotenv>=1.0.0
+httpx>=0.27.0
+transformers==5.16.1

@@ -31,7 +31,7 @@ def test_unavailable_llm_matches_bert_linguistic_fusion():
     with_llm = fuse_evidence(
         prediction,
         issues,
-        LlmReasoningResult.unavailable("LLM unavailable"),
+        LlmReasoningResult.unavailable("Optional review unavailable"),
     )
     assert with_llm == without
     assert without.score == 8.0

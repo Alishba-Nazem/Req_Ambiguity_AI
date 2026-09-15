@@ -67,6 +67,14 @@ def test_predict_clean_skips_stage_b():
     assert model._probabilities.call_count == 1
 
 
+def test_to_device_skips_move_when_already_on_target():
+    model = _model_with_mocked_forward()
+    model.to_device(torch.device("cpu"))
+    model._stage_a.to.assert_not_called()
+    model._stage_b.to.assert_not_called()
+    assert model.device.type == "cpu"
+
+
 def test_predict_ambiguous_runs_stage_b():
     model = _model_with_mocked_forward()
     model._probabilities = MagicMock(

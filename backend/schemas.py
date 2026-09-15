@@ -172,7 +172,7 @@ class LlmAnalysis(BaseModel):
     available: bool
     reason: str | None = Field(
         default=None,
-        description="Safe unavailable reason such as 'LLM unavailable' or 'LLM disabled'.",
+        description="Safe unavailable reason such as 'Optional review unavailable'.",
     )
     is_ambiguous: bool | None = None
     score: float | None = Field(default=None, ge=0.0, le=10.0)

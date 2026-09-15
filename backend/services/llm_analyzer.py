@@ -23,8 +23,8 @@ from backend.services.llm_client import complete_chat
 
 logger = logging.getLogger(__name__)
 
-LLM_DISABLED = "LLM disabled"
-LLM_UNAVAILABLE = "LLM unavailable"
+LLM_DISABLED = "Optional review skipped"
+LLM_UNAVAILABLE = "Optional review unavailable"
 
 _ALLOWED_TYPES = frozenset(
     {"lexical", "syntactic", "semantic", "syntax", "pragmatic"}

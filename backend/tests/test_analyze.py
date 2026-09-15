@@ -126,7 +126,8 @@ def test_valid_requirement_clean_response_structure():
     assert body["ambiguity_score"] == 8
     assert body["confidence"] == 0.94
     assert isinstance(body["explanation"], str) and body["explanation"]
-    assert "stage a" in body["explanation"].lower()
+    assert "specific and measurable" in body["explanation"].lower()
+    assert "bert" not in body["explanation"].lower()
     assert body["suggested_requirement"] == (
         "The system shall respond within [specify maximum response time]."
     )
@@ -168,8 +169,10 @@ def test_clean_with_vague_term_gets_heuristic_type():
     assert issue["source"] == "linguistic"
     assert issue["severity"] == "high"
     assert "[X]" in issue["suggestion"]
-    assert "linguistic" in body["explanation"].lower()
     assert "quickly" in body["explanation"].lower()
+    assert "pragmatic" in body["explanation"].lower()
+    assert "bert" not in body["explanation"].lower()
+    assert "llm" not in body["explanation"].lower()
 
 
 def test_quantity_and_subjective_api_overlay():

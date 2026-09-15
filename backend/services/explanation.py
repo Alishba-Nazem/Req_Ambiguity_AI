@@ -22,8 +22,7 @@ TYPE_EXPLANATIONS = {
         "This requirement depends on unstated context, assumptions, or expectations."
     ),
     "clean": (
-        "Stage A classified this requirement as clean, so Stage B did not assign "
-        "an ambiguity type."
+        "The requirement looks specific and measurable as written."
     ),
 }
 
@@ -43,39 +42,16 @@ def explain(
     llm_note = _llm_note(llm)
 
     if primary is not None:
-        ml_note = (
-            f"BERT Stage A predicted {classification}; that label is preserved. "
-            if classification != "unavailable"
-            else "BERT was unavailable. "
-        )
-        stage_b_note = ""
-        if type_source == "hybrid":
-            stage_b_note = (
-                "Stage B produced a sentence-level type, but the phrase-specific "
-                "linguistic finding is used for the final type. "
-            )
-        elif type_source == "linguistic" and classification != "ambiguous":
-            stage_b_note = "Stage B did not run because Stage A did not predict Ambiguous. "
         return (
-            f"{ml_note}{stage_b_note}"
-            f"A linguistic check flagged '{primary.phrase}' as "
+            f"The phrase '{primary.phrase}' is flagged as "
             f"{primary.ambiguity_type} ambiguity. {primary.reason}{llm_note}"
         )
 
     if llm and llm.available and llm.is_ambiguous and llm.explanation:
-        ml_note = (
-            f"BERT Stage A predicted {classification}; that label is preserved. "
-            if classification != "unavailable"
-            else "BERT was unavailable. "
-        )
-        return f"{ml_note}An LLM reasoning layer identified contextual ambiguity. {llm.explanation}"
+        return f"{llm.explanation}{llm_note}"
 
     if classification == "clean" or overall_status == "clean":
-        return (
-            f"{TYPE_EXPLANATIONS['clean']} The wording looks testable as written. "
-            "A conservative rewrite is still offered if you want tighter phrasing."
-            f"{llm_note}"
-        )
+        return f"{TYPE_EXPLANATIONS['clean']}{llm_note}"
 
     key = type_name or "semantic"
     return TYPE_EXPLANATIONS.get(key, TYPE_EXPLANATIONS["semantic"]) + llm_note
@@ -85,7 +61,7 @@ def _llm_note(llm: LlmReasoningResult | None) -> str:
     if llm is None or not llm.available:
         return ""
     if llm.is_ambiguous and llm.explanation:
-        return f" The LLM reasoning layer independently agreed there is ambiguity. {llm.explanation}"
+        return f" An independent review also found ambiguity: {llm.explanation}"
     if llm.is_ambiguous is False:
-        return " The LLM reasoning layer did not find additional ambiguity."
+        return " An independent review did not find additional ambiguity."
     return ""

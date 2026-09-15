@@ -69,6 +69,28 @@ class TwoStageAmbiguityModel:
         self._lock = threading.Lock()
         self.loaded = True
 
+    @property
+    def device(self) -> torch.device:
+        return self._device
+
+    @property
+    def stage_a_loaded(self) -> bool:
+        return self._stage_a is not None and self._tokenizer_a is not None
+
+    @property
+    def stage_b_loaded(self) -> bool:
+        return self._stage_b is not None and self._tokenizer_b is not None
+
+    def to_device(self, device: torch.device | str) -> None:
+        """Move both BERT stages onto the given device. Safe to call repeatedly."""
+        target = torch.device(device)
+        with self._lock:
+            if target == self._device:
+                return
+            self._stage_a = self._stage_a.to(target)
+            self._stage_b = self._stage_b.to(target)
+            self._device = target
+
     @classmethod
     def from_disk(cls, settings: Settings | None = None) -> TwoStageAmbiguityModel:
         settings = settings or get_settings()
@@ -141,7 +163,15 @@ class TwoStageAmbiguityModel:
                     requirement,
                 )
                 stage_a_index = int(torch.argmax(stage_a_probs).item())
-                p_ambiguous = float(stage_a_probs[1].item())
+                ambiguous_index = next(
+                    (
+                        int(key)
+                        for key, value in self._stage_a_id2label.items()
+                        if str(value) == "ambiguous"
+                    ),
+                    1,
+                )
+                p_ambiguous = float(stage_a_probs[ambiguous_index].item())
                 score = ambiguity_score_from_probability(p_ambiguous)
                 stage_a_label = _label_name(self._stage_a_id2label, stage_a_index)
 

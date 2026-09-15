@@ -331,7 +331,7 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
     } catch {
       dispatch({
         type: "analyze-error",
-        error: "The requirement could not be analyzed. Check that the API is running and try again.",
+        error: "The requirement could not be analyzed right now. Please try again.",
       })
     }
   }, [state.draftText])

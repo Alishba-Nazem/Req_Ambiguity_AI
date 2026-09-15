@@ -15,14 +15,16 @@ def test_linguistic_explanation_mentions_quickly():
         issues=issues,
     )
     assert "quickly" in message.lower()
-    assert "linguistic" in message.lower()
-    assert "stage b" in message.lower()
+    assert "pragmatic" in message.lower()
+    assert "bert" not in message.lower()
+    assert "llm" not in message.lower()
 
 
 def test_clean_measurable_explanation():
     text = "The system shall lock the account after 5 failed login attempts."
     message = explain(text, "clean", None, None, overall_status="clean", issues=[])
-    assert "stage a" in message.lower()
+    assert "specific and measurable" in message.lower()
+    assert "stage a" not in message.lower()
 
 
 def test_fallback_rewrite_quickly_is_only_the_requirement():

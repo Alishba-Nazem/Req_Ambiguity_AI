@@ -147,7 +147,10 @@ def test_llm_disabled_uses_bert_and_linguistic_only():
     client = _client(_prediction(), llm=None, settings=Settings(llm_enabled=False))
     body = client.post("/api/analyze", json={"requirement": QUICKLY}).json()
     assert body["llm_analysis"]["available"] is False
-    assert body["llm_analysis"]["reason"] in {"LLM disabled", "LLM unavailable"}
+    assert body["llm_analysis"]["reason"] in {
+        "Optional review skipped",
+        "Optional review unavailable",
+    }
     assert body["ml_prediction"]["stage_a"]["source"] == "bert"
     assert body["linguistic_findings"][0]["phrase"].lower() == "quickly"
     assert body["final_assessment"]["status"] == "ambiguous"
@@ -185,7 +188,7 @@ def test_invalid_llm_response_does_not_crash_api():
     assert response.status_code == 200
     body = response.json()
     assert body["llm_analysis"]["available"] is False
-    assert body["llm_analysis"]["reason"] == "LLM unavailable"
+    assert body["llm_analysis"]["reason"] == "Optional review unavailable"
     assert body["final_assessment"]["status"] == "ambiguous"
     assert body["linguistic_findings"][0]["phrase"].lower() == "quickly"
     _assert_no_secret(body)

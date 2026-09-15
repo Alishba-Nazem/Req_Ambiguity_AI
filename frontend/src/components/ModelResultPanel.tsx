@@ -46,23 +46,32 @@ export function ModelResultPanel() {
     user?.status === "needs_improvement" ||
     (user?.status !== "clear" && result.overallStatus === "ambiguous")
   const phrases = user?.phrases ?? []
-  const primary = result.issues.find((issue) => issue.status === "open") ?? result.issues[0] ?? null
+  const openIssues = result.issues.filter((issue) => issue.status === "open")
+  const selectedOpen =
+    openIssues.find((issue) => issue.id === selectedIssueId) ?? null
+  const primary = selectedOpen ?? openIssues[0] ?? result.issues[0] ?? null
   const editing = primary !== null && editingIssueId === primary.id
-  const accepted = result.issues.some(
+  const acceptedOrEdited = result.issues.some(
     (issue) => issue.status === "accepted" || issue.status === "edited",
   )
+  const allResolved =
+    result.issues.length > 0 &&
+    result.issues.every((issue) => issue.status !== "open")
   const allDismissed =
-    result.issues.length > 0 && result.issues.every((issue) => issue.status === "dismissed")
+    result.issues.length > 0 &&
+    result.issues.every((issue) => issue.status === "dismissed")
   const suggestion =
     user?.suggested_requirement ?? result.suggestedRequirement ?? primary?.suggestion ?? null
   const score = user?.score ?? result.finalScore
-  const reqType = user?.requirement_type_label ?? "Functional"
-  const ambType = user?.type_label ?? (result.ambiguityType ? MODEL_TYPE_LABELS[result.ambiguityType] : "—")
+  const reqType = user?.requirement_type_label ?? "—"
+  const ambType =
+    user?.type_label ??
+    (result.ambiguityType ? MODEL_TYPE_LABELS[result.ambiguityType] : "—")
   const missing = user?.missing_information ?? result.missingInformation ?? []
   const why = phrases[0]?.why ?? user?.why ?? null
   const specify = phrases[0]?.specify ?? missing[0] ?? null
-  const showIssueCopy = needsWork && !accepted && !allDismissed
-  const highlightIssues = accepted || allDismissed ? [] : result.issues
+  const showIssueCopy = needsWork && !allResolved
+  const highlightIssues = allResolved ? [] : openIssues
 
   return (
     <article>
@@ -73,10 +82,10 @@ export function ModelResultPanel() {
         </div>
         <p
           className={`text-[13px] font-semibold ${
-            needsWork && !accepted ? "text-warning" : "text-success"
+            needsWork && !allResolved ? "text-warning" : "text-success"
           }`}
         >
-          {accepted
+          {acceptedOrEdited && allResolved
             ? "Updated"
             : allDismissed
               ? "Suggestion dismissed"
@@ -84,7 +93,7 @@ export function ModelResultPanel() {
         </p>
       </div>
 
-      <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 text-[13px] sm:grid-cols-4">
+      <dl className="mt-4 grid grid-cols-1 gap-x-4 gap-y-3 text-[13px] sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted">
             Ambiguity score
@@ -119,14 +128,22 @@ export function ModelResultPanel() {
           <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted">
             Ambiguity type
           </dt>
-          <dd className="mt-1 font-medium">{needsWork && !accepted ? ambType : "None"}</dd>
+          <dd className="mt-1 font-medium">
+            {needsWork && !allResolved ? ambType : "None"}
+          </dd>
         </div>
         <div>
           <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted">
             Status
           </dt>
           <dd className="mt-1 font-medium">
-            {accepted ? "Accepted" : allDismissed ? "Dismissed" : needsWork ? "Needs improvement" : "Clear"}
+            {acceptedOrEdited && allResolved
+              ? "Accepted"
+              : allDismissed
+                ? "Dismissed"
+                : needsWork
+                  ? "Needs improvement"
+                  : "Clear"}
           </dd>
         </div>
       </dl>
@@ -186,7 +203,7 @@ export function ModelResultPanel() {
         </section>
       ) : null}
 
-      {suggestion && needsWork ? (
+      {suggestion && needsWork && !allResolved ? (
         <section className="mt-5">
           <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
             Suggested rewrite
@@ -228,25 +245,28 @@ export function ModelResultPanel() {
                     Dismiss
                   </button>
                 </>
-              ) : (
-                <button
-                  type="button"
-                  className="text-[13px] text-primary hover:underline"
-                  onClick={() => revertAll()}
-                >
-                  Undo
-                </button>
-              )}
+              ) : null}
             </div>
           ) : null}
         </section>
       ) : null}
 
-      {accepted && revisedText !== result.originalText ? (
+      {acceptedOrEdited && revisedText !== result.originalText ? (
         <section className="mt-5 border-t border-line pt-4">
-          <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
-            Current requirement
-          </h2>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+              Current requirement
+            </h2>
+            {allResolved ? (
+              <button
+                type="button"
+                className="text-[13px] text-primary hover:underline"
+                onClick={() => revertAll()}
+              >
+                Undo
+              </button>
+            ) : null}
+          </div>
           <p className="mt-1 text-[15px] leading-7">{revisedText}</p>
         </section>
       ) : null}
@@ -261,9 +281,13 @@ export function ModelResultPanel() {
       </button>
       {showDetails ? (
         <div className="mt-2 border border-line bg-background px-3 py-2 text-[12px] leading-5 text-muted">
-          <p>Final status: {result.overallStatus}</p>
-          <p>Fused score: {result.finalScore ?? "—"} / 10</p>
-          <p>Flagged phrases: {result.issues.map((issue) => issue.phrase).join(", ") || "none"}</p>
+          <p>Overall result: {result.overallStatus}</p>
+          <p>Ambiguity score: {result.finalScore ?? "—"} / 10</p>
+          <p>
+            Flagged phrases:{" "}
+            {result.issues.map((issue) => issue.phrase).filter(Boolean).join(", ") ||
+              "none"}
+          </p>
         </div>
       ) : null}
     </article>

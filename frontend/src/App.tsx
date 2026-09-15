@@ -44,7 +44,8 @@ function Shell() {
       {toast ? (
         <div
           role="status"
-          className="no-print fixed bottom-4 right-4 border border-line bg-surface px-3 py-2 text-[13px] shadow-sm"
+          className="no-print fixed bottom-4 left-4 right-4 border border-line bg-surface px-3 py-2 text-[13px] shadow-sm sm:left-auto sm:right-4 sm:max-w-sm"
+          style={{ bottom: "max(1rem, env(safe-area-inset-bottom))" }}
         >
           {toast}
         </div>

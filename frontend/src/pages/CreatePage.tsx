@@ -145,11 +145,29 @@ export function CreatePage() {
             </div>
           ) : null}
 
+          {createResult.questions.length > 0 ? (
+            <div className="mt-4">
+              <h3 className="text-[12px] font-semibold text-muted">Questions to resolve</h3>
+              <ul className="mt-1 list-disc pl-5 text-[13px] leading-6">
+                {createResult.questions.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          <p className="mt-4 text-[13px] text-muted">
+            {createResult.readyToUse
+              ? "This wording looks ready to use."
+              : "This is a draft. Fill in any placeholders before accepting it."}
+          </p>
+
           <div className="mt-5 flex flex-wrap gap-2">
             <button
               type="button"
               className="bg-primary px-3 py-1.5 text-[13px] text-white hover:bg-primary-hover"
               onClick={() => useGeneratedRequirement()}
+              disabled={generating}
             >
               Use requirement
             </button>
@@ -157,6 +175,7 @@ export function CreatePage() {
               type="button"
               className="border border-line px-3 py-1.5 text-[13px] hover:bg-background"
               onClick={() => setEditingGenerated((value) => !value)}
+              disabled={generating}
             >
               {editingGenerated ? "Done editing" : "Edit"}
             </button>
@@ -164,6 +183,7 @@ export function CreatePage() {
               type="button"
               className="px-3 py-1.5 text-[13px] text-muted hover:text-ink"
               onClick={() => analyzeGeneratedRequirement()}
+              disabled={generating}
             >
               Analyze
             </button>

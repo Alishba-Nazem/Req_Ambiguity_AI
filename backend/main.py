@@ -17,7 +17,11 @@ from backend.schemas import (
     GenerateResponse,
     HealthResponse,
 )
-from backend.services.ambiguity_model import ModelUnavailableError, TwoStageAmbiguityModel
+from backend.services.ambiguity_model import (
+    ModelUnavailableError,
+    TwoStageAmbiguityModel,
+    checkpoint_has_weights,
+)
 from backend.services.analyze import AnalyzeService
 from backend.services.generate import GenerateService
 from backend.services.llm_analyzer import LlmAnalyzer
@@ -41,6 +45,32 @@ def _error(status_code: int, message: str, code: str) -> JSONResponse:
     )
 
 
+def _stage_load_flags(model: object | None) -> tuple[bool, bool]:
+    if model is None:
+        return False, False
+    stage_a = getattr(model, "stage_a_loaded", None)
+    stage_b = getattr(model, "stage_b_loaded", None)
+    if isinstance(stage_a, bool) and isinstance(stage_b, bool):
+        return stage_a, stage_b
+    return True, True
+
+
+def _checkpoint_status_error(settings: Settings) -> str:
+    missing: list[str] = []
+    if not checkpoint_has_weights(settings.stage_a_dir):
+        missing.append("Stage A")
+    if not checkpoint_has_weights(settings.stage_b_dir):
+        missing.append("Stage B")
+    if missing:
+        return (
+            f"{' and '.join(missing)} not loaded. Place each inference folder at "
+            "ml/outputs_two_stage/stage_a/best_model and "
+            "ml/outputs_two_stage/stage_b/best_model "
+            "(config.json, tokenizer files, and model.safetensors)."
+        )
+    return "The two-stage model failed to load."
+
+
 def create_app(
     settings: Settings | None = None,
     model: TwoStageAmbiguityModel | None = None,
@@ -60,10 +90,7 @@ def create_app(
             except Exception:
                 logger.exception("Failed to load two-stage BERT checkpoints")
                 app.state.model = None
-                app.state.model_error = (
-                    "Trained model checkpoints are unavailable. "
-                    "Copy Stage A and Stage B best_model folders into ml/outputs_two_stage/."
-                )
+                app.state.model_error = _checkpoint_status_error(settings)
         yield
 
     app = FastAPI(
@@ -77,10 +104,7 @@ def create_app(
     if model is not None:
         app.state.model_error = None
     elif load_model:
-        app.state.model_error = (
-            "Trained model checkpoints are unavailable. "
-            "Copy Stage A and Stage B best_model folders into ml/outputs_two_stage/."
-        )
+        app.state.model_error = _checkpoint_status_error(settings)
     else:
         app.state.model_error = "Model was not loaded."
     app.add_middleware(
@@ -112,12 +136,14 @@ def create_app(
 
     @app.get("/api/health", response_model=HealthResponse)
     def health(request: Request) -> HealthResponse:
-        loaded = getattr(request.app.state, "model", None) is not None
+        model = getattr(request.app.state, "model", None)
+        loaded = model is not None
+        stage_a, stage_b = _stage_load_flags(model)
         return HealthResponse(
             status="ok",
             model_loaded=loaded,
-            stage_a_loaded=loaded,
-            stage_b_loaded=loaded,
+            stage_a_loaded=stage_a,
+            stage_b_loaded=stage_b,
             error=None if loaded else getattr(request.app.state, "model_error", None),
         )
 
@@ -230,13 +256,16 @@ app = create_app()
 
 
 def run() -> None:
+    import os
+
     import uvicorn
 
     settings = get_settings()
+    port = int(os.environ.get("PORT", settings.port))
     uvicorn.run(
         "backend.main:app",
         host="0.0.0.0",
-        port=settings.port,
+        port=port,
         reload=False,
     )
 
