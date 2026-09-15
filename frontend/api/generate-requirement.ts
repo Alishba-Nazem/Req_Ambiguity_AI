@@ -1,0 +1,61 @@
+import type { VercelRequest, VercelResponse } from "@vercel/node"
+
+import { generateOnSpace, toProxyError } from "./_lib/spaceProxy"
+
+export const config = {
+  maxDuration: 60,
+}
+
+export default async function handler(
+  req: VercelRequest,
+  res: VercelResponse,
+): Promise<void> {
+  if (req.method === "OPTIONS") {
+    res.status(204).end()
+    return
+  }
+  if (req.method !== "POST") {
+    res.status(405).json({ error: "Method not allowed.", code: "method_not_allowed" })
+    return
+  }
+
+  try {
+    let body: unknown = req.body
+    if (typeof body === "string") {
+      try {
+        body = JSON.parse(body)
+      } catch {
+        res.status(422).json({
+          error: "Request body must be valid JSON.",
+          code: "validation_error",
+        })
+        return
+      }
+    }
+    const record = (body ?? {}) as Record<string, unknown>
+    const idea = typeof record.idea === "string" ? record.idea : ""
+    if (!idea.trim()) {
+      res.status(422).json({
+        error: "idea must not be empty or whitespace-only",
+        code: "validation_error",
+      })
+      return
+    }
+
+    const requirementType =
+      typeof record.requirement_type === "string"
+        ? record.requirement_type
+        : undefined
+    const details =
+      typeof record.details === "string" ? record.details : undefined
+
+    const payload = await generateOnSpace(idea, requirementType, details)
+    res.status(200).json(payload)
+  } catch (error) {
+    const mapped = toProxyError(
+      error,
+      "The requirement could not be generated.",
+    )
+    res.status(mapped.status).json(mapped.body)
+  }
+}

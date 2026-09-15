@@ -19,9 +19,16 @@ npm run build
 | Mode | Env | Used for |
 | --- | --- | --- |
 | Mock | `VITE_USE_MOCK=true` (default) | UI demos without a backend |
-| Local FastAPI | `VITE_USE_MOCK=false` and empty `VITE_HF_SPACE` | Dev with Vite proxy `/api` → port 8000 |
-| Hugging Face Gradio | `VITE_USE_MOCK=false` and `VITE_HF_SPACE=lishyyyy-710/req-ambiguity-ai` | Vercel production |
+| Local FastAPI | `VITE_USE_MOCK=false` | Dev with Vite proxy `/api` → port 8000 |
+| Vercel production | `VITE_USE_MOCK=false` + server `HF_TOKEN` | Same-origin `/api/*` serverless proxy → Hugging Face Space |
 
-Never put `LLM_API_KEY` or other secrets in `VITE_*` variables. The Space keeps secrets server-side.
+Never put `HF_TOKEN`, `LLM_API_KEY`, or other secrets in `VITE_*` variables.
+
+### Vercel serverless proxy
+
+- `POST /api/analyze` → Space `/analyze` (authenticated with `HF_TOKEN`)
+- `POST /api/generate-requirement` → Space `/generate_requirement`
+
+Server env vars: `HF_TOKEN` (required), `HF_SPACE` (defaults to `lishyyyy-710/req-ambiguity-ai`).
 
 Copy `.env.example` to `.env` for local overrides.

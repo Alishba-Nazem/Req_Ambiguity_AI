@@ -1,9 +1,4 @@
 import { mockAnalyze, mockGenerate } from "./mockAnalyzer"
-import {
-  analyzeViaGradio,
-  generateViaGradio,
-  usesGradioSpace,
-} from "./gradioSpace"
 import type {
   AnalysisIssue,
   AnalysisResult,
@@ -18,7 +13,7 @@ import type {
   UserPhrase,
 } from "../types"
 
-export type BackendMode = "mock" | "gradio" | "fastapi"
+export type BackendMode = "mock" | "api"
 
 export function isMockMode(): boolean {
   const value = String(import.meta.env.VITE_USE_MOCK ?? "true")
@@ -27,26 +22,24 @@ export function isMockMode(): boolean {
   return value !== "false" && value !== "0" && value !== "no"
 }
 
-/** Resolve which backend the UI should call. Mock wins for local UI demos. */
+/**
+ * Mock for local UI demos. Otherwise same-origin `/api/*`
+ * (Vite → local FastAPI, Vercel → serverless Gradio proxy).
+ */
 export function resolveBackendMode(): BackendMode {
   if (isMockMode()) return "mock"
-  if (usesGradioSpace()) return "gradio"
-  return "fastapi"
+  return "api"
 }
 
 export async function analyzeDocument(text: string): Promise<AnalysisResult> {
-  const mode = resolveBackendMode()
-  if (mode === "mock") {
+  if (resolveBackendMode() === "mock") {
     await wait(850)
     return mockAnalyze(text)
   }
-  if (mode === "gradio") {
-    return fromApiResponse(await analyzeViaGradio(text))
-  }
-  return fromApiResponse(await analyzeViaFastapi(text))
+  return fromApiResponse(await analyzeViaApi(text))
 }
 
-async function analyzeViaFastapi(text: string): Promise<AnalyzeApiResponse> {
+async function analyzeViaApi(text: string): Promise<AnalyzeApiResponse> {
   const response = await fetch("/api/analyze", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -56,7 +49,9 @@ async function analyzeViaFastapi(text: string): Promise<AnalyzeApiResponse> {
     error?: string
   }
   if (!response.ok) {
-    throw new Error(payload.error ?? "The analysis service could not process this document.")
+    throw new Error(
+      payload.error ?? "The analysis service could not process this document.",
+    )
   }
   return payload
 }
@@ -245,22 +240,16 @@ export async function generateRequirement(
   requirementType?: RequirementKind | "",
   details?: string,
 ): Promise<GenerateResult> {
-  const mode = resolveBackendMode()
-  if (mode === "mock") {
+  if (resolveBackendMode() === "mock") {
     await wait(700)
     return mockGenerate(idea, requirementType, details)
   }
-  if (mode === "gradio") {
-    return fromGenerateApiResponse(
-      await generateViaGradio(idea, requirementType, details),
-    )
-  }
   return fromGenerateApiResponse(
-    await generateViaFastapi(idea, requirementType, details),
+    await generateViaApi(idea, requirementType, details),
   )
 }
 
-async function generateViaFastapi(
+async function generateViaApi(
   idea: string,
   requirementType?: RequirementKind | "",
   details?: string,
@@ -274,7 +263,9 @@ async function generateViaFastapi(
       details: details || undefined,
     }),
   })
-  const payload = (await response.json()) as GenerateApiResponse & { error?: string }
+  const payload = (await response.json()) as GenerateApiResponse & {
+    error?: string
+  }
   if (!response.ok) {
     throw new Error(payload.error ?? "The requirement could not be generated.")
   }

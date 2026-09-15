@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "functions": {
+    "api/analyze.ts": {
+      "maxDuration": 60,
+      "memory": 1024
+    },
+    "api/generate-requirement.ts": {
+      "maxDuration": 60,
+      "memory": 1024
+    }
+  }
+}

@@ -1,33 +1,47 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
 
-const predict = vi.fn()
-const connect = vi.fn(async () => ({
-  predict,
-  config: { api_prefix: "/gradio_api", root: "https://lishyyyy-710-req-ambiguity-ai.hf.space" },
-  api_prefix: "/gradio_api",
-}))
+describe("backend mode selection", () => {
+  afterEach(() => {
+    vi.unstubAllEnvs()
+    vi.resetModules()
+  })
 
-vi.mock("@gradio/client", () => ({
-  Client: { connect },
-}))
+  it("uses mock when VITE_USE_MOCK is not false", async () => {
+    vi.stubEnv("VITE_USE_MOCK", "true")
+    const { resolveBackendMode } = await import("./client")
+    expect(resolveBackendMode()).toBe("mock")
+  })
 
-describe("Gradio Space adapter", () => {
+  it("uses api when mock is off", async () => {
+    vi.stubEnv("VITE_USE_MOCK", "false")
+    const { resolveBackendMode } = await import("./client")
+    expect(resolveBackendMode()).toBe("api")
+  })
+
+  it("treats VITE_USE_MOCK=0 as non-mock api mode", async () => {
+    vi.stubEnv("VITE_USE_MOCK", "0")
+    const { resolveBackendMode } = await import("./client")
+    expect(resolveBackendMode()).toBe("api")
+  })
+})
+
+describe("same-origin /api client", () => {
   beforeEach(() => {
-    predict.mockReset()
-    connect.mockClear()
     vi.resetModules()
     vi.stubEnv("VITE_USE_MOCK", "false")
-    vi.stubEnv("VITE_HF_SPACE", "lishyyyy-710/req-ambiguity-ai")
+    vi.stubGlobal("fetch", vi.fn())
   })
 
   afterEach(() => {
     vi.unstubAllEnvs()
+    vi.unstubAllGlobals()
   })
 
-  it("connects to the Space host URL and calls /analyze positionally", async () => {
-    predict.mockResolvedValueOnce({
-      data: [
-        {
+  it("POSTs /api/analyze and maps the response", async () => {
+    const fetchMock = vi.mocked(fetch)
+    fetchMock.mockResolvedValueOnce(
+      new Response(
+        JSON.stringify({
           requirement: "The system should respond quickly.",
           classification: "ambiguous",
           ambiguity_type: "pragmatic",
@@ -36,9 +50,12 @@ describe("Gradio Space adapter", () => {
           explanation: "The phrase is vague.",
           suggested_requirement: "The system shall respond within [X] seconds.",
           overall_status: "ambiguous",
+          flagged_phrase: "quickly",
+          flagged_start: 25,
+          flagged_end: 32,
           final_assessment: {
             status: "ambiguous",
-            score: 8.2,
+            score: 7.8,
             severity: "high",
             ambiguity_type: "pragmatic",
             type: "pragmatic",
@@ -62,171 +79,79 @@ describe("Gradio Space adapter", () => {
                 suggestion: "The system shall respond within [X] seconds.",
               },
             ],
-            score: 8.2,
+            score: 7.8,
             score_label: "High ambiguity",
-            requirement_type_label: "Performance",
           },
-        },
-      ],
-    })
-
-    const { analyzeDocument, resolveBackendMode } = await import("./client")
-    const { resolveGradioSource } = await import("./gradioSpace")
-    expect(resolveBackendMode()).toBe("gradio")
-    expect(resolveGradioSource("lishyyyy-710/req-ambiguity-ai")).toBe(
-      "https://lishyyyy-710-req-ambiguity-ai.hf.space",
+        }),
+        { status: 200, headers: { "Content-Type": "application/json" } },
+      ),
     )
 
+    const { analyzeDocument } = await import("./client")
     const result = await analyzeDocument("The system should respond quickly.")
-    expect(connect).toHaveBeenCalledWith(
-      "https://lishyyyy-710-req-ambiguity-ai.hf.space",
-    )
-    expect(predict).toHaveBeenCalledWith("/analyze", [
-      "The system should respond quickly.",
-    ])
+
+    expect(fetchMock).toHaveBeenCalledWith("/api/analyze", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        requirement: "The system should respond quickly.",
+      }),
+    })
     expect(result.overallStatus).toBe("ambiguous")
-    expect(result.finalScore).toBe(8.2)
-    expect(result.userAssessment?.type_label).toBe("Pragmatic")
+    expect(result.finalScore).toBe(7.8)
     expect(result.issues[0]?.phrase).toBe("quickly")
   })
 
-  it("calls /generate_requirement positionally and preserves the response shape", async () => {
-    predict.mockResolvedValueOnce({
-      data: [
-        {
-          idea: "I want users to navigate the dashboard",
-          requirement_type: "usability",
-          suggested_requirement: "The system shall allow users to navigate the dashboard.",
-          explanation: "Rewrote as a shall-statement.",
-          missing_information: [],
-          questions: [],
-          ready_to_use: true,
-          quality_checks: [
-            { id: "actor", label: "Names the system as the actor", passed: true },
-          ],
-          analysis: {
-            requirement: "The system shall allow users to navigate the dashboard.",
-            classification: "clean",
-            ambiguity_type: null,
-            ambiguity_score: 10,
-            confidence: 0.9,
-            explanation: "Clear.",
-            suggested_requirement: null,
-            overall_status: "clean",
-            final_assessment: {
-              status: "clean",
-              score: 1.5,
-              severity: null,
-              ambiguity_type: null,
-              type: null,
-              source: "bert",
-            },
-            user_assessment: {
-              status: "clear",
-              title: "Clear",
-              why: "Looks testable.",
-              phrases: [],
-              score: 1.5,
-              score_label: "Low ambiguity",
-            },
-          },
-        },
-      ],
-    })
-
-    const { generateRequirement } = await import("./client")
-    const result = await generateRequirement(
-      "I want users to navigate the dashboard",
-      "usability",
-      "",
-    )
-
-    expect(predict).toHaveBeenCalledWith("/generate_requirement", [
-      "I want users to navigate the dashboard",
-      "usability",
-      "",
-    ])
-    expect(result.requirementType).toBe("usability")
-    expect(result.readyToUse).toBe(true)
-    expect(result.analysis?.overallStatus).toBe("clean")
-  })
-
-  it("throws when Gradio returns { error, code }", async () => {
-    predict.mockResolvedValueOnce({
-      data: [
-        {
-          error: "requirement must not be empty or whitespace-only",
-          code: "validation_error",
-        },
-      ],
-    })
-
-    const { analyzeDocument } = await import("./client")
-    await expect(analyzeDocument("   ")).rejects.toThrow(
-      /requirement must not be empty/i,
-    )
-  })
-
-  it("defaults requirement_type to auto when omitted", async () => {
-    predict.mockResolvedValueOnce({
-      data: [
-        {
+  it("POSTs /api/generate-requirement", async () => {
+    const fetchMock = vi.mocked(fetch)
+    fetchMock.mockResolvedValueOnce(
+      new Response(
+        JSON.stringify({
           idea: "reset password",
           requirement_type: "security",
-          suggested_requirement: "The system shall allow users to reset their password.",
+          suggested_requirement:
+            "The system shall allow users to reset their password.",
           explanation: "ok",
           missing_information: [],
           questions: [],
-          ready_to_use: false,
+          ready_to_use: true,
           quality_checks: [],
           analysis: null,
-        },
-      ],
-    })
+        }),
+        { status: 200, headers: { "Content-Type": "application/json" } },
+      ),
+    )
 
     const { generateRequirement } = await import("./client")
-    await generateRequirement("reset password")
-    expect(predict).toHaveBeenCalledWith("/generate_requirement", [
-      "reset password",
-      "auto",
-      "",
-    ])
-  })
-})
+    const result = await generateRequirement("reset password", "security", "")
 
-describe("backend mode selection", () => {
-  afterEach(() => {
-    vi.unstubAllEnvs()
-    vi.resetModules()
-  })
-
-  it("uses mock when VITE_USE_MOCK is not false", async () => {
-    vi.stubEnv("VITE_USE_MOCK", "true")
-    vi.stubEnv("VITE_HF_SPACE", "lishyyyy-710/req-ambiguity-ai")
-    const { resolveBackendMode } = await import("./client")
-    expect(resolveBackendMode()).toBe("mock")
+    expect(fetchMock).toHaveBeenCalledWith("/api/generate-requirement", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        idea: "reset password",
+        requirement_type: "security",
+      }),
+    })
+    expect(result.requirementType).toBe("security")
+    expect(result.readyToUse).toBe(true)
   })
 
-  it("uses fastapi when mock is off and VITE_HF_SPACE is empty", async () => {
-    vi.stubEnv("VITE_USE_MOCK", "false")
-    vi.stubEnv("VITE_HF_SPACE", "")
-    const { resolveBackendMode } = await import("./client")
-    expect(resolveBackendMode()).toBe("fastapi")
-  })
+  it("throws on non-OK analyze responses using the public error field", async () => {
+    const fetchMock = vi.mocked(fetch)
+    fetchMock.mockResolvedValueOnce(
+      new Response(
+        JSON.stringify({
+          error: "The analysis service is temporarily unavailable. Please try again.",
+          code: "model_unavailable",
+        }),
+        { status: 503, headers: { "Content-Type": "application/json" } },
+      ),
+    )
 
-  it("uses gradio when mock is off and VITE_HF_SPACE is set", async () => {
-    vi.stubEnv("VITE_USE_MOCK", "false")
-    vi.stubEnv("VITE_HF_SPACE", "lishyyyy-710/req-ambiguity-ai")
-    const { resolveBackendMode } = await import("./client")
-    expect(resolveBackendMode()).toBe("gradio")
-  })
-})
-
-describe("resolveGradioSource", () => {
-  it("maps space id to the hf.space host", async () => {
-    const { resolveGradioSource } = await import("./gradioSpace")
-    expect(resolveGradioSource("lishyyyy-710/req-ambiguity-ai")).toBe(
-      "https://lishyyyy-710-req-ambiguity-ai.hf.space",
+    const { analyzeDocument } = await import("./client")
+    await expect(analyzeDocument("x")).rejects.toThrow(
+      /temporarily unavailable/i,
     )
   })
 })
