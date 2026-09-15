@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node"
 
-import { generateOnSpace, toProxyError } from "./_lib/spaceProxy"
+import { generateOnSpace, toProxyError } from "./_lib/spaceProxy.js"
 
 export const config = {
   maxDuration: 60,
