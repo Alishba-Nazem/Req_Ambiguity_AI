@@ -126,6 +126,11 @@ export interface MlPrediction {
 
 export interface FinalAssessment {
   status: Classification
+  /** Fused ambiguity 0–10 (higher = more ambiguous). */
+  ambiguity_score?: number | null
+  /** Requirement quality / clarity 0–10 (higher = clearer). */
+  clarity_score?: number | null
+  /** Alias of clarity_score for user-facing displays. */
   score: number
   severity: LinguisticSeverity | null
   ambiguity_type: ModelAmbiguityType | null
@@ -173,7 +178,13 @@ export interface LlmAnalysis {
 }
 
 export interface AnalysisResult {
+  /** Exact text the user entered (idea or pasted requirement). Never overwritten by rewrites. */
   originalText: string
+  /**
+   * Clean generated shall-statement when the user came from Create.
+   * Null for paste/upload analyze flows. Phrase spans refer to this text when set.
+   */
+  generatedText: string | null
   issues: AnalysisIssue[]
   source: "mock" | "api"
   classification: Classification
@@ -188,7 +199,11 @@ export interface AnalysisResult {
   linguisticSeverity: LinguisticSeverity | null
   mlPrediction: MlPrediction | null
   finalAssessment: FinalAssessment | null
+  /** User-facing clarity / requirement quality (higher = clearer). */
   finalScore: number | null
+  clarityScore: number | null
+  /** Fused ambiguity 0–10 (higher = more ambiguous). */
+  fusedAmbiguityScore: number | null
   llmAnalysis: LlmAnalysis | null
   userAssessment: UserAssessment | null
   missingInformation: string[]
@@ -219,8 +234,11 @@ export interface UserAssessment {
   phrases?: UserPhrase[]
   requirement_type?: RequirementKind | null
   requirement_type_label?: string | null
+  /** User-facing clarity / requirement quality (higher = clearer). */
   score?: number | null
   score_label?: string | null
+  ambiguity_score?: number | null
+  clarity_score?: number | null
 }
 
 export interface QualityCheck {
@@ -285,6 +303,8 @@ export interface AnalyzeApiResponse {
   linguistic_severity?: LinguisticSeverity | null
   final_assessment?: FinalAssessment | null
   final_score?: number | null
+  fused_ambiguity_score?: number | null
+  clarity_score?: number | null
   llm_analysis?: LlmAnalysis | null
   user_assessment?: UserAssessment | null
   missing_information?: string[]

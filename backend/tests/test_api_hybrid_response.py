@@ -32,11 +32,17 @@ def test_api_quickly_exposes_fused_and_ml_evidence_separately():
 
     final = body["final_assessment"]
     assert final["status"] == "ambiguous"
-    assert final["score"] == 8.0
-    assert final["type"] == "pragmatic"
-    assert final["ambiguity_type"] == "pragmatic"
+    # User-facing score is CLARITY (higher = better).
+    assert final["clarity_score"] == 3.4
+    assert final["ambiguity_score"] == 6.6
+    assert final["score"] == final["clarity_score"]
+    # Stage B type is preserved; linguistic phrase remains evidence.
+    assert final["type"] == "syntax"
+    assert final["ambiguity_type"] == "syntax"
     assert final["severity"] == "high"
-    assert body["final_score"] == 8.0
+    assert body["final_score"] == 3.4
+    assert body["clarity_score"] == 3.4
+    assert body["fused_ambiguity_score"] == 6.6
     assert body["final_score"] != round(body["confidence"] * 10, 1)
 
     stage_a = body["ml_prediction"]["stage_a"]
@@ -65,6 +71,13 @@ def test_api_quickly_exposes_fused_and_ml_evidence_separately():
     assert issue["source"] == "linguistic"
     text = "The software should respond quickly"
     assert text[issue["start"] : issue["end"]].lower() == "quickly"
+
+    user = body["user_assessment"]
+    assert user["score"] == 3.4
+    assert user["clarity_score"] == 3.4
+    assert user["ambiguity_score"] == 6.6
+    assert user["type_label"] == "Structural"
+    assert user["phrases"][0]["text"].lower() == "quickly"
 
 
 def test_api_measurable_time_has_no_vague_time_finding():
@@ -124,6 +137,10 @@ def test_api_low_bert_confidence_still_uses_strong_linguistic_evidence():
     ).json()
     assert body["ml_prediction"]["stage_a"]["confidence"] == 0.22
     assert body["final_assessment"]["status"] == "ambiguous"
-    assert body["final_assessment"]["type"] == "pragmatic"
-    assert body["final_assessment"]["score"] >= 7.5
+    assert body["final_assessment"]["type"] == "syntax"
+    assert body["final_assessment"]["ambiguity_score"] < 7.5
+    assert body["final_assessment"]["clarity_score"] == round(
+        10.0 - body["final_assessment"]["ambiguity_score"], 1
+    )
+    assert body["final_assessment"]["score"] == body["final_assessment"]["clarity_score"]
     assert body["final_assessment"]["score"] != 2.2

@@ -7,7 +7,9 @@ export function RequirementViewer() {
   const accepted = result.issues.some(
     (issue) => issue.status === "accepted" || issue.status === "edited",
   )
-  const text = accepted ? result.displayText : result.originalText
+  const text = accepted
+    ? result.displayText
+    : result.generatedText || result.originalText
   const issues = accepted ? [] : result.issues
 
   return (

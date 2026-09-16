@@ -4,7 +4,8 @@ The BERT model is trained on the provided labeled dataset and therefore
 reflects the dataset's annotation patterns. This layer never mutates the
 raw ML prediction. It combines independent evidence into a separate
 sentence-level assessment. Linguistic detection does not catch all
-ambiguity. The LLM is an additional reasoning source, not a replacement.
+ambiguity, does not replace Stage A or Stage B, and must not overwrite
+the ML prediction's type when Stage B has a usable classification.
 """
 
 from __future__ import annotations
@@ -26,17 +27,28 @@ from backend.services.llm_analyzer import LlmPhrase, LlmReasoningResult
 logger = logging.getLogger(__name__)
 
 _SEVERITY_SCORE = {"high": 8.0, "medium": 6.0, "low": 4.0}
-_STRONG_HIGH_FLOOR = 7.8
+# Proportional blend weights: preserve BERT signal; linguistic contributes
+# without a hard floor that lets one heuristic dominate.
+_ML_WEIGHT = 0.6
+_LING_WEIGHT = 0.4
 
 
 @dataclass(frozen=True)
 class FusionResult:
     status: Classification
+    """Fused ambiguity score on 0–10 (higher = more ambiguous)."""
     score: float
+    """User-facing clarity score on 0–10 (higher = clearer). clarity = 10 − score."""
+    clarity_score: float
     severity: IssueSeverity | None
     ambiguity_type: AmbiguityType | None
     type_source: TypeSource | None
     evidence_source: EvidenceSource
+
+
+def clarity_from_ambiguity(ambiguity_0_to_10: float) -> float:
+    """Map fused ambiguity (higher = worse) to clarity (higher = better)."""
+    return round(max(0.0, min(10.0, 10.0 - float(ambiguity_0_to_10))), 1)
 
 
 def fuse_evidence(
@@ -47,7 +59,7 @@ def fuse_evidence(
     """Combine ML, linguistic, and optional LLM evidence.
 
     When LLM evidence is missing or unavailable, the result matches the
-    existing BERT + linguistic fusion exactly.
+    BERT + linguistic path (aside from score blend / type-priority rules).
     """
     ml_ambiguous = bool(prediction and prediction.classification == "ambiguous")
     has_linguistic = bool(issues)
@@ -56,7 +68,7 @@ def fuse_evidence(
     )
     ml_10 = _ml_score_out_of_ten(prediction)
     ling_10 = _linguistic_score_out_of_ten(issues)
-    score = _combined_score(ml_10, ling_10, ml_ambiguous, issues)
+    score = _combined_score(ml_10, ling_10, ml_ambiguous)
     ambiguity_type, type_source = _select_type(prediction, issues)
     evidence_source = _evidence_source(has_linguistic, prediction, llm=None)
     severity = _final_severity(status, score, issues)
@@ -64,6 +76,7 @@ def fuse_evidence(
     result = FusionResult(
         status=status,
         score=score,
+        clarity_score=clarity_from_ambiguity(score),
         severity=severity,
         ambiguity_type=ambiguity_type,
         type_source=type_source,
@@ -98,18 +111,20 @@ def _combined_score(
     ml_10: float,
     ling_10: float,
     ml_ambiguous: bool,
-    issues: list[LinguisticIssue],
 ) -> float:
+    """Blend Stage A ambiguity (0–10) with linguistic evidence.
+
+    Change vs prior version: removed the hard 7.8 floor for a single
+    high-severity phrase. Linguistic evidence now contributes via a
+    weighted average so one heuristic cannot force a near-max ambiguity
+    score when Stage A strongly predicts clean.
+    """
     if ling_10 <= 0:
         return round(ml_10, 1)
-    strong_high = any(
-        item.severity == "high" and item.confidence >= 0.85 for item in issues
-    )
-    floor = _STRONG_HIGH_FLOOR if strong_high else 0.0
-    combined = max(ml_10, ling_10, floor)
+    combined = (_ML_WEIGHT * ml_10) + (_LING_WEIGHT * ling_10)
     if ml_ambiguous and ling_10 > 0:
         combined = min(10.0, combined + 0.2)
-    return round(combined, 1)
+    return round(min(10.0, combined), 1)
 
 
 def _merge_llm(
@@ -136,6 +151,7 @@ def _merge_llm(
             else prediction.confidence
         )
     ml_uncertain = (not ml_ambiguous) or ml_confidence < 0.60
+    stage_b_usable = bool(prediction and prediction.ambiguity_type)
 
     if confirmed:
         status = "ambiguous"
@@ -143,11 +159,10 @@ def _merge_llm(
     elif llm_ambiguous and llm_conf >= 0.70 and ml_uncertain and not issues:
         status = "ambiguous"
         score = max(score, min(10.0, max(7.0, llm_score)))
-        if llm.ambiguity_type:
+        # Only adopt LLM type when Stage B has no usable classification.
+        if llm.ambiguity_type and not stage_b_usable:
             ambiguity_type = llm.ambiguity_type
-            type_source = (
-                "hybrid" if prediction and prediction.ambiguity_type else "llm"
-            )
+            type_source = "llm"
     elif ml_ambiguous and issues and llm_ambiguous:
         score = min(10.0, score + 0.2)
 
@@ -156,6 +171,7 @@ def _merge_llm(
     return FusionResult(
         status=status,
         score=round(score, 1),
+        clarity_score=clarity_from_ambiguity(score),
         severity=severity,
         ambiguity_type=ambiguity_type,
         type_source=type_source,
@@ -186,7 +202,16 @@ def _select_type(
     prediction: ModelPrediction | None,
     issues: list[LinguisticIssue],
 ) -> tuple[AmbiguityType | None, TypeSource | None]:
-    """Phrase-specific linguistic type wins over Stage B sentence type."""
+    """Stage B is primary for final type when it has a usable classification.
+
+    Linguistic findings remain phrase-level evidence (highlights, severity)
+    and only supply the final type when Stage B is unavailable.
+    """
+    stage_b_type = prediction.ambiguity_type if prediction else None
+    if stage_b_type:
+        if issues:
+            return stage_b_type, "hybrid"
+        return stage_b_type, "stage_b"
     if issues:
         ranked = sorted(
             issues,
@@ -196,13 +221,7 @@ def _select_type(
                 item.start,
             ),
         )
-        linguistic_type = ranked[0].ambiguity_type
-        stage_b_type = prediction.ambiguity_type if prediction else None
-        if stage_b_type:
-            return linguistic_type, "hybrid"
-        return linguistic_type, "linguistic"
-    if prediction and prediction.ambiguity_type:
-        return prediction.ambiguity_type, "stage_b"
+        return ranked[0].ambiguity_type, "linguistic"
     return None, None
 
 
@@ -254,7 +273,7 @@ def _log_fusion(
         llm_state = f"ambiguous={llm.is_ambiguous} score={llm.ambiguity_score}"
     logger.info(
         "Fusion BERT=%s p_amb=%.3f type=%s | linguistic=%s | llm=%s | "
-        "final status=%s score=%.1f type=%s source=%s",
+        "final status=%s ambiguity=%.1f clarity=%.1f type=%s source=%s",
         prediction.classification if prediction else "unavailable",
         ml_10 / 10.0,
         prediction.ambiguity_type if prediction else None,
@@ -262,6 +281,7 @@ def _log_fusion(
         llm_state,
         result.status,
         result.score,
+        result.clarity_score,
         result.ambiguity_type,
         result.evidence_source,
     )

@@ -57,8 +57,10 @@ def test_vague_requirement_includes_llm_and_preserves_other_evidence():
     body = client.post("/api/analyze", json={"requirement": QUICKLY}).json()
     assert body["overall_status"] == "ambiguous"
     assert body["final_assessment"]["status"] == "ambiguous"
-    assert body["final_assessment"]["type"] == "pragmatic"
-    assert body["final_assessment"]["score"] == 8.5
+    assert body["final_assessment"]["type"] == "syntax"
+    assert body["final_assessment"]["ambiguity_score"] == 7.1
+    assert body["final_assessment"]["clarity_score"] == 2.9
+    assert body["final_assessment"]["score"] == 2.9
     assert body["ml_prediction"]["stage_a"]["label"] == "ambiguous"
     assert body["ml_prediction"]["stage_a"]["confidence"] == 0.56
     assert body["ml_prediction"]["stage_a"]["source"] == "bert"
@@ -154,8 +156,10 @@ def test_llm_disabled_uses_bert_and_linguistic_only():
     assert body["ml_prediction"]["stage_a"]["source"] == "bert"
     assert body["linguistic_findings"][0]["phrase"].lower() == "quickly"
     assert body["final_assessment"]["status"] == "ambiguous"
-    assert body["final_assessment"]["type"] == "pragmatic"
-    assert body["final_assessment"]["score"] == 8.0
+    assert body["final_assessment"]["type"] == "syntax"
+    assert body["final_assessment"]["ambiguity_score"] == 6.6
+    assert body["final_assessment"]["clarity_score"] == 3.4
+    assert body["final_assessment"]["score"] == 3.4
     _assert_no_secret(body)
 
 

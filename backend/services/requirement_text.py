@@ -30,18 +30,42 @@ _LEAD_IN = re.compile(
     r"we\s+want|we\s+need|help\s+me(?:\s+to)?)\s+",
     re.IGNORECASE,
 )
+_SYSTEM_SHALL = re.compile(
+    r"^(?:the\s+)?(?:system|application|software|website|app)\s+"
+    r"(?:shall|must|should|will)\s+",
+    re.IGNORECASE,
+)
 _SYSTEM_LEAD = re.compile(
     r"^(?:the\s+)?(?:system|application|software|website|app)\s+"
-    r"(?:to\s+|should\s+|shall\s+|must\s+|can\s+)?",
+    r"(?:to\s+|should\s+|shall\s+|must\s+|will\s+|can\s+)?",
+    re.IGNORECASE,
+)
+# "Users/User/Use shall|must|should|will be able to …"
+_ABLE_TO = re.compile(
+    r"^(?:(?:the\s+)?(?:users?|use)\s+)?"
+    r"(?:shall|must|should|will|can)\s+be\s+able\s+to\s+",
     re.IGNORECASE,
 )
 _USER_LEAD = re.compile(
-    r"^(?:users?|the\s+user)\s+(?:should\s+|shall\s+|must\s+|can\s+|to\s+)?"
+    r"^(?:(?:the\s+)?(?:users?|use))\s+"
+    r"(?:should\s+|shall\s+|must\s+|will\s+|can\s+|to\s+)?"
     r"(?:be\s+able\s+to\s+)?",
     re.IGNORECASE,
 )
+# "Login should let users enter…" / "The app must allow users to…"
+_LET_USERS = re.compile(
+    r"^(?P<context>.+?)\s+(?:should|shall|must|will|can)\s+"
+    r"(?:let|allow|enable)\s+(?:the\s+)?users?\s+(?:to\s+)?",
+    re.IGNORECASE,
+)
 _BROKEN = re.compile(
-    r"\bshall\s+i\b|\bi\s+want\b|\bi\s+need\b|the system shall the system",
+    r"\bshall\s+(?:shall|must|should|will|can)\b|"
+    r"\bshall\s+be\s+able\s+to\b|"
+    r"\buse\s+shall\b|"
+    r"\bshall\s+i\b|"
+    r"\bi\s+want\b|"
+    r"\bi\s+need\b|"
+    r"the system shall the system",
     re.IGNORECASE,
 )
 _KIND_LABELS = {
@@ -59,6 +83,14 @@ _SCORE_BANDS = (
     (6.0, "Needs improvement"),
     (8.0, "Ambiguous"),
     (10.1, "Highly ambiguous"),
+)
+
+# Clarity bands (higher = better). Used for user-facing score labels.
+_CLARITY_BANDS = (
+    (4.0, "Highly ambiguous"),
+    (6.0, "Needs improvement"),
+    (8.0, "Mostly clear"),
+    (10.1, "Very clear"),
 )
 
 
@@ -86,18 +118,69 @@ def requirement_kind_label(kind: RequirementKind | None) -> str | None:
 
 
 def score_band(score: float) -> str:
+    """Legacy ambiguity-oriented bands (higher score = more ambiguous)."""
     for limit, label in _SCORE_BANDS:
         if score < limit:
             return label
     return "Highly ambiguous"
 
 
+def clarity_band(clarity_score: float) -> str:
+    """User-facing clarity bands (higher score = clearer / higher quality)."""
+    for limit, label in _CLARITY_BANDS:
+        if clarity_score < limit:
+            return label
+    return "Very clear"
+
+
+def _finish_action(text: str) -> str:
+    cleaned = re.sub(r"\s+", " ", (text or "").strip()).strip(" .")
+    if not cleaned:
+        return "perform [specify the intended action]"
+    return cleaned[0].lower() + cleaned[1:]
+
+
 def extract_action(idea: str) -> str:
-    """Return the intended system behavior without first-person wrappers."""
+    """Return the intended system behavior without wrappers or modal verbs.
+
+    Never returns a string that still starts with shall/must/should/will so
+    ``build_requirement`` can safely prepend a single "The system shall".
+    """
     text = re.sub(r"\s+", " ", (idea or "").strip()).rstrip(".!?")
     text = _LEAD_IN.sub("", text).strip()
+
+    # Already a shall-statement: keep only the predicate.
+    system_shall = _SYSTEM_SHALL.match(text)
+    if system_shall:
+        return _finish_action(text[system_shall.end() :])
+
+    # "Login should let users enter credentials" → allow users to enter…
+    let_users = _LET_USERS.match(text)
+    if let_users:
+        remainder = text[let_users.end() :].strip()
+        context = (let_users.group("context") or "").strip()
+        action = remainder
+        if context and context.lower() not in remainder.lower():
+            if len(context.split()) <= 4 and not re.search(
+                r"\b(?:system|application|software|users?)\b", context, re.I
+            ):
+                if not re.search(re.escape(context), remainder, re.I):
+                    action = f"{remainder} during {context.lower()}"
+        if not re.match(r"^(allow|enable)\b", action, re.I):
+            action = f"allow users to {action}"
+        return _finish_action(action)
+
+    # "Use/User(s) shall be able to create…" → allow the user to create…
+    able = _ABLE_TO.match(text)
+    if able:
+        remainder = text[able.end() :].strip()
+        if re.match(r"^(?:the\s+)?(?:users?|use)\b", text, re.I):
+            return _finish_action(f"allow the user to {remainder}")
+        return _finish_action(f"allow users to {remainder}")
+
     text = _SYSTEM_LEAD.sub("", text).strip()
     text = re.sub(r"^to\s+", "", text, flags=re.IGNORECASE).strip()
+
     user_match = _USER_LEAD.match(text)
     if user_match:
         remainder = text[user_match.end() :].strip()
@@ -106,9 +189,21 @@ def extract_action(idea: str) -> str:
                 text = f"allow users to {remainder}"
             else:
                 text = remainder
+        else:
+            text = remainder
+
     text = re.sub(r"^(?:allow|enable)\s+the\s+system\s+to\s+", "", text, flags=re.IGNORECASE)
     if re.match(r"^allow\s+users\s+(?!to\b)", text, re.IGNORECASE):
         text = re.sub(r"^allow\s+users\s+", "allow users to ", text, flags=re.IGNORECASE)
+
+    # Strip a leftover leading modal before we prefix "The system shall".
+    text = re.sub(
+        r"^(?:shall|must|should|will|can)\s+(?:be\s+able\s+to\s+)?",
+        "",
+        text,
+        flags=re.IGNORECASE,
+    ).strip()
+
     if not text:
         return "perform [specify the intended action]"
     if re.match(
@@ -117,11 +212,22 @@ def extract_action(idea: str) -> str:
         re.IGNORECASE,
     ):
         text = f"allow users to {text}"
-    return text[0].lower() + text[1:] if text else text
+    return _finish_action(text)
 
 
 def build_requirement(idea: str, extras: str | None = None) -> str:
+    """Build exactly one 'The system shall …' sentence from an informal idea."""
     action = extract_action(idea)
+    # Guard: never concatenate a second modal after shall.
+    action = re.sub(
+        r"^(?:shall|must|should|will|can)\s+(?:be\s+able\s+to\s+)?",
+        "",
+        action,
+        flags=re.IGNORECASE,
+    ).strip()
+    action = re.sub(r"^(?:use|users?)\s+shall\s+", "", action, flags=re.IGNORECASE).strip()
+    if not action:
+        action = "perform [specify the intended action]"
     extra = (extras or "").strip()
     if extra:
         extra = extra.rstrip(".")
@@ -130,6 +236,25 @@ def build_requirement(idea: str, extras: str | None = None) -> str:
     sentence = f"The system shall {action}."
     sentence = re.sub(r"\s+", " ", sentence).strip()
     sentence = re.sub(r"\s+\.", ".", sentence)
+    # Final safety net against duplicated modals.
+    sentence = re.sub(
+        r"\bshall\s+(?:shall|must|should|will|can)\b",
+        "shall",
+        sentence,
+        flags=re.I,
+    )
+    sentence = re.sub(
+        r"\bshall\s+be\s+able\s+to\b",
+        "shall allow the user to",
+        sentence,
+        flags=re.I,
+    )
+    sentence = re.sub(
+        r"\bshall\s+use\s+shall\b",
+        "shall allow the user to",
+        sentence,
+        flags=re.I,
+    )
     return sentence
 
 
@@ -180,6 +305,8 @@ def sanitize_requirement(text: str, idea: str, extras: str | None = None) -> str
     if not re.match(r"^(the\s+)?(system|application|software)\s+shall\b", candidate, re.I):
         if candidate.lower().startswith("the system should"):
             candidate = re.sub(r"\bshould\b", "shall", candidate, count=1, flags=re.I)
+            if is_broken_requirement(candidate):
+                return build_requirement(idea, extras)
         else:
             return build_requirement(idea, extras)
     return candidate if candidate.endswith(".") else f"{candidate}."

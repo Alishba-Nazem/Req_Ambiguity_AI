@@ -34,10 +34,13 @@ def test_unavailable_llm_matches_bert_linguistic_fusion():
         LlmReasoningResult.unavailable("Optional review unavailable"),
     )
     assert with_llm == without
-    assert without.score == 8.0
+    # ml=5.6, ling=7.6 → 0.6*5.6 + 0.4*7.6 + 0.2 = 6.6
+    assert without.score == 6.6
+    assert without.clarity_score == 3.4
+    assert without.ambiguity_type == "syntax"
 
 
-def test_llm_confirmation_raises_score_but_keeps_pragmatic_type():
+def test_llm_confirmation_raises_score_but_keeps_stage_b_type():
     prediction = ModelPrediction(
         classification="ambiguous",
         ambiguity_type="syntax",
@@ -52,8 +55,10 @@ def test_llm_confirmation_raises_score_but_keeps_pragmatic_type():
         llm_quickly_result("The software should respond quickly."),
     )
     assert fused.status == "ambiguous"
-    assert fused.ambiguity_type == "pragmatic"
-    assert fused.score == 8.5
+    assert fused.ambiguity_type == "syntax"
+    assert fused.type_source == "hybrid"
+    assert fused.score == 7.1  # 6.6 + 0.5 confirmation
+    assert fused.clarity_score == 2.9
     assert fused.evidence_source == "hybrid"
 
 
@@ -89,9 +94,10 @@ def test_llm_can_mark_contextual_ambiguity_when_bert_is_clean():
     assert fused.type_source == "llm"
     assert fused.score >= 7.0
     assert fused.score != 1.8
+    assert fused.clarity_score == round(10.0 - fused.score, 1)
 
 
-def test_llm_clean_does_not_cancel_strong_linguistic():
+def test_llm_clean_does_not_cancel_linguistic_evidence():
     prediction = ModelPrediction(
         classification="clean",
         ambiguity_type=None,
@@ -109,7 +115,10 @@ def test_llm_clean_does_not_cancel_strong_linguistic():
     fused = fuse_evidence(prediction, [_issue()], llm)
     assert fused.status == "ambiguous"
     assert fused.ambiguity_type == "pragmatic"
-    assert fused.score >= 7.5
+    assert fused.type_source == "linguistic"
+    # Proportional blend, not ≥7.5 floor
+    assert fused.score < 7.0
+    assert fused.clarity_score > 3.0
 
 
 def test_measurable_requirement_stays_low_when_llm_agrees_clear():
@@ -132,3 +141,4 @@ def test_measurable_requirement_stays_low_when_llm_agrees_clear():
     fused = fuse_evidence(prediction, issues, llm)
     assert fused.status == "clean"
     assert fused.score == 0.8
+    assert fused.clarity_score == 9.2

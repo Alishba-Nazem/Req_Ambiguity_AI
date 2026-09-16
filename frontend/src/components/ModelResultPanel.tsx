@@ -5,9 +5,10 @@ import { useAnalysis } from "../state/useAnalysis"
 import { MODEL_TYPE_LABELS } from "../types"
 
 function scoreTone(score: number | null | undefined) {
+  // Clarity score: higher is better.
   if (score == null) return "text-muted"
-  if (score < 4) return "text-success"
-  if (score < 6) return "text-warning"
+  if (score >= 8) return "text-success"
+  if (score >= 6) return "text-warning"
   return "text-danger"
 }
 
@@ -62,7 +63,8 @@ export function ModelResultPanel() {
     result.issues.every((issue) => issue.status === "dismissed")
   const suggestion =
     user?.suggested_requirement ?? result.suggestedRequirement ?? primary?.suggestion ?? null
-  const score = user?.score ?? result.finalScore
+  const score =
+    user?.clarity_score ?? user?.score ?? result.clarityScore ?? result.finalScore
   const reqType = user?.requirement_type_label ?? "—"
   const ambType =
     user?.type_label ??
@@ -72,6 +74,16 @@ export function ModelResultPanel() {
   const specify = phrases[0]?.specify ?? missing[0] ?? null
   const showIssueCopy = needsWork && !allResolved
   const highlightIssues = allResolved ? [] : openIssues
+  const barWidth =
+    score == null ? 0 : Math.min(100, Math.max(0, score * 10))
+  const barColor =
+    score == null
+      ? "bg-line"
+      : score >= 8
+        ? "bg-success"
+        : score >= 6
+          ? "bg-warning"
+          : "bg-danger"
 
   return (
     <article>
@@ -96,7 +108,7 @@ export function ModelResultPanel() {
       <dl className="mt-4 grid grid-cols-1 gap-x-4 gap-y-3 text-[13px] sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <dt className="text-[11px] font-semibold uppercase tracking-wide text-muted">
-            Ambiguity score
+            Requirement quality
           </dt>
           <dd className={`mt-1 text-[22px] font-semibold ${scoreTone(score)}`}>
             {score != null ? `${score.toFixed(1)} / 10` : "—"}
@@ -106,14 +118,14 @@ export function ModelResultPanel() {
             <div
               className="mt-2 h-1.5 w-full bg-line"
               role="meter"
-              aria-label="Ambiguity score"
+              aria-label="Requirement quality score"
               aria-valuemin={0}
               aria-valuemax={10}
               aria-valuenow={Number(score.toFixed(1))}
             >
               <div
-                className={`h-full ${score < 4 ? "bg-success" : score < 6 ? "bg-warning" : "bg-danger"}`}
-                style={{ width: `${Math.min(100, Math.max(0, score * 10))}%` }}
+                className={`h-full ${barColor}`}
+                style={{ width: `${barWidth}%` }}
               />
             </div>
           ) : null}
@@ -148,19 +160,44 @@ export function ModelResultPanel() {
         </div>
       </dl>
 
-      <section className="mt-6">
-        <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
-          Original requirement
-        </h2>
-        <div className="mt-1">
-          <HighlightedRequirement
-            text={result.originalText}
-            issues={highlightIssues}
-            selectedIssueId={selectedIssueId}
-            onSelect={selectIssue}
-          />
-        </div>
-      </section>
+      {result.generatedText &&
+      result.generatedText.trim() !== result.originalText.trim() ? (
+        <>
+          <section className="mt-6">
+            <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+              Original requirement
+            </h2>
+            <p className="mt-1 text-[15px] leading-7">{result.originalText}</p>
+          </section>
+          <section className="mt-5">
+            <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+              Generated requirement
+            </h2>
+            <div className="mt-1">
+              <HighlightedRequirement
+                text={result.generatedText}
+                issues={highlightIssues}
+                selectedIssueId={selectedIssueId}
+                onSelect={selectIssue}
+              />
+            </div>
+          </section>
+        </>
+      ) : (
+        <section className="mt-6">
+          <h2 className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+            Original requirement
+          </h2>
+          <div className="mt-1">
+            <HighlightedRequirement
+              text={result.originalText}
+              issues={highlightIssues}
+              selectedIssueId={selectedIssueId}
+              onSelect={selectIssue}
+            />
+          </div>
+        </section>
+      )}
 
       {showIssueCopy && phrases.length > 0 ? (
         <section className="mt-5">
@@ -282,7 +319,10 @@ export function ModelResultPanel() {
       {showDetails ? (
         <div className="mt-2 border border-line bg-background px-3 py-2 text-[12px] leading-5 text-muted">
           <p>Overall result: {result.overallStatus}</p>
-          <p>Ambiguity score: {result.finalScore ?? "—"} / 10</p>
+          <p>Requirement quality: {result.clarityScore ?? result.finalScore ?? "—"} / 10</p>
+          <p>
+            Fused ambiguity: {result.fusedAmbiguityScore ?? "—"} / 10
+          </p>
           <p>
             Flagged phrases:{" "}
             {result.issues.map((issue) => issue.phrase).filter(Boolean).join(", ") ||

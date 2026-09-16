@@ -153,8 +153,10 @@ def test_clean_with_vague_term_gets_heuristic_type():
     assert body["confidence"] == 0.89
     assert body["overall_status"] == "ambiguous"
     assert body["final_assessment"]["status"] == "ambiguous"
-    assert body["final_assessment"]["score"] >= 7.5
-    assert body["final_assessment"]["score"] != 1.1
+    # Clarity is user-facing; fused ambiguity is lower without the 7.8 floor.
+    assert body["final_assessment"]["ambiguity_score"] < 7.0
+    assert body["final_assessment"]["clarity_score"] > 3.0
+    assert body["final_assessment"]["score"] == body["final_assessment"]["clarity_score"]
     assert body["final_score"] == body["final_assessment"]["score"]
     assert body["ambiguity_type"] == "pragmatic"
     assert body["type_source"] == "linguistic"
@@ -281,7 +283,7 @@ def test_stage_b_without_linguistic_hits_keeps_rewrite_service():
     assert body["ambiguity_score"] == 72
 
 
-def test_quickly_hybrid_does_not_use_stage_b_syntax_as_final_type():
+def test_quickly_keeps_stage_b_type_while_highlighting_linguistic_phrase():
     client = _client(
         ModelPrediction(
             classification="ambiguous",
@@ -298,11 +300,14 @@ def test_quickly_hybrid_does_not_use_stage_b_syntax_as_final_type():
     assert body["ml_prediction"]["confidence"] == 0.56
     assert body["ml_prediction"]["stage_b_type"] == "syntax"
     assert body["overall_status"] == "ambiguous"
-    assert body["ambiguity_type"] == "pragmatic"
-    assert body["final_assessment"]["ambiguity_type"] == "pragmatic"
+    assert body["ambiguity_type"] == "syntax"
+    assert body["final_assessment"]["ambiguity_type"] == "syntax"
     assert body["final_assessment"]["status"] == "ambiguous"
-    assert body["final_score"] >= 7.5
-    assert body["final_score"] != 5.6
+    assert body["final_assessment"]["ambiguity_score"] == 6.6
+    assert body["final_assessment"]["clarity_score"] == 3.4
+    assert body["final_score"] == 3.4
+    assert body["user_assessment"]["score"] == 3.4
+    assert body["user_assessment"]["score_label"] == "Highly ambiguous"
     issue = body["detected_issues"][0]
     assert issue["phrase"].lower() == "quickly"
     assert issue["source"] == "linguistic"

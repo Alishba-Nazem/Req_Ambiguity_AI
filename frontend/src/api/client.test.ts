@@ -55,16 +55,22 @@ describe("same-origin /api client", () => {
           flagged_end: 32,
           final_assessment: {
             status: "ambiguous",
-            score: 7.8,
+            ambiguity_score: 7.8,
+            clarity_score: 2.2,
+            score: 2.2,
             severity: "high",
-            ambiguity_type: "pragmatic",
-            type: "pragmatic",
+            ambiguity_type: "lexical",
+            type: "lexical",
             source: "hybrid",
           },
+          fused_ambiguity_score: 7.8,
+          clarity_score: 2.2,
+          final_score: 2.2,
           user_assessment: {
             status: "needs_improvement",
             title: "Needs improvement",
-            type_label: "Pragmatic",
+            type_label: "Lexical / wording",
+            ambiguity_type: "lexical",
             why: "Quickly is not measurable.",
             suggested_requirement: "The system shall respond within [X] seconds.",
             phrases: [
@@ -79,8 +85,10 @@ describe("same-origin /api client", () => {
                 suggestion: "The system shall respond within [X] seconds.",
               },
             ],
-            score: 7.8,
-            score_label: "High ambiguity",
+            score: 2.2,
+            clarity_score: 2.2,
+            ambiguity_score: 7.8,
+            score_label: "Highly ambiguous",
           },
         }),
         { status: 200, headers: { "Content-Type": "application/json" } },
@@ -98,7 +106,9 @@ describe("same-origin /api client", () => {
       }),
     })
     expect(result.overallStatus).toBe("ambiguous")
-    expect(result.finalScore).toBe(7.8)
+    expect(result.finalScore).toBe(2.2)
+    expect(result.clarityScore).toBe(2.2)
+    expect(result.fusedAmbiguityScore).toBe(7.8)
     expect(result.issues[0]?.phrase).toBe("quickly")
   })
 
@@ -135,6 +145,72 @@ describe("same-origin /api client", () => {
     })
     expect(result.requirementType).toBe("security")
     expect(result.readyToUse).toBe(true)
+  })
+
+  it("POSTs /api/generate-requirement and preserves idea as originalText", async () => {
+    const fetchMock = vi.mocked(fetch)
+    const idea = "Use shall be able to create a password and fill other credentials while logging into the system"
+    const suggested =
+      "The system shall allow the user to create a password and fill other credentials while logging into the system."
+    fetchMock.mockResolvedValueOnce(
+      new Response(
+        JSON.stringify({
+          idea,
+          requirement_type: "security",
+          suggested_requirement: suggested,
+          explanation: "ok",
+          missing_information: [],
+          questions: [],
+          ready_to_use: true,
+          quality_checks: [],
+          analysis: {
+            requirement: suggested,
+            classification: "clean",
+            ambiguity_type: null,
+            ambiguity_score: 9,
+            confidence: 0.9,
+            explanation: "Clear.",
+            suggested_requirement: null,
+            overall_status: "clean",
+            final_assessment: {
+              status: "clean",
+              ambiguity_score: 0.9,
+              clarity_score: 9.1,
+              score: 9.1,
+              severity: null,
+              ambiguity_type: null,
+              type: null,
+              source: "bert",
+            },
+            clarity_score: 9.1,
+            fused_ambiguity_score: 0.9,
+            final_score: 9.1,
+            user_assessment: {
+              status: "clear",
+              title: "Clear",
+              why: "Looks testable.",
+              phrases: [],
+              score: 9.1,
+              clarity_score: 9.1,
+              ambiguity_score: 0.9,
+              score_label: "Very clear",
+            },
+          },
+        }),
+        { status: 200, headers: { "Content-Type": "application/json" } },
+      ),
+    )
+
+    const { generateRequirement } = await import("./client")
+    const result = await generateRequirement(idea, "security", "")
+
+    expect(result.idea).toBe(idea)
+    expect(result.suggestedRequirement).toBe(suggested)
+    expect(result.analysis?.originalText).toBe(idea)
+    expect(result.analysis?.generatedText).toBe(suggested)
+    expect(result.analysis?.originalText).not.toBe(result.analysis?.generatedText)
+    expect(result.analysis?.clarityScore).toBe(9.1)
+    expect(result.analysis?.fusedAmbiguityScore).toBe(0.9)
   })
 
   it("throws on non-OK analyze responses using the public error field", async () => {

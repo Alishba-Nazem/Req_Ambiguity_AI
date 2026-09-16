@@ -129,14 +129,31 @@ class IssueView(BaseModel):
 
 
 class FinalAssessment(BaseModel):
-    """Canonical user-facing conclusion after evidence fusion."""
+    """Canonical conclusion after evidence fusion.
+
+    ``ambiguity_score`` is internal (higher = more ambiguous).
+    ``clarity_score`` is user-facing requirement quality (higher = clearer).
+    ``score`` is an alias of ``clarity_score`` for the UI.
+    """
 
     status: Classification = Field(..., description="Authoritative clean vs ambiguous.")
+    ambiguity_score: float = Field(
+        ...,
+        ge=0.0,
+        le=10.0,
+        description="Fused ambiguity 0-10 (higher = more ambiguous).",
+    )
+    clarity_score: float = Field(
+        ...,
+        ge=0.0,
+        le=10.0,
+        description="Requirement quality / clarity 0-10 (higher = clearer).",
+    )
     score: float = Field(
         ...,
         ge=0.0,
         le=10.0,
-        description="Fused ambiguity score 0-10. Not BERT confidence × 10.",
+        description="Alias of clarity_score for user-facing displays.",
     )
     severity: IssueSeverity | None = None
     ambiguity_type: AmbiguityType | None = Field(
@@ -212,8 +229,25 @@ class UserAssessment(BaseModel):
     phrases: list[UserPhrase] = Field(default_factory=list)
     requirement_type: RequirementKind | None = None
     requirement_type_label: str | None = None
-    score: float | None = Field(default=None, ge=0.0, le=10.0)
+    score: float | None = Field(
+        default=None,
+        ge=0.0,
+        le=10.0,
+        description="User-facing clarity / requirement quality (higher = clearer).",
+    )
     score_label: str | None = None
+    ambiguity_score: float | None = Field(
+        default=None,
+        ge=0.0,
+        le=10.0,
+        description="Fused ambiguity 0-10 (higher = more ambiguous).",
+    )
+    clarity_score: float | None = Field(
+        default=None,
+        ge=0.0,
+        le=10.0,
+        description="Same as score: clarity 0-10 (higher = clearer).",
+    )
 
 
 class AnalyzeResponse(BaseModel):
@@ -237,7 +271,7 @@ class AnalyzeResponse(BaseModel):
         ...,
         ge=0,
         le=100,
-        description="Legacy Stage A P(ambiguous)×100. Use final_assessment.score.",
+        description="Legacy Stage A P(ambiguous)×100. Use ml_prediction.ambiguity_score.",
     )
     confidence: float = Field(
         ...,
@@ -265,7 +299,19 @@ class AnalyzeResponse(BaseModel):
         default=None,
         ge=0.0,
         le=10.0,
-        description="Alias of final_assessment.score.",
+        description="Alias of final_assessment.clarity_score (user-facing).",
+    )
+    fused_ambiguity_score: float | None = Field(
+        default=None,
+        ge=0.0,
+        le=10.0,
+        description="Fused ambiguity 0-10 (higher = more ambiguous).",
+    )
+    clarity_score: float | None = Field(
+        default=None,
+        ge=0.0,
+        le=10.0,
+        description="Requirement quality / clarity 0-10 (higher = clearer).",
     )
     llm_analysis: LlmAnalysis | None = None
     user_assessment: UserAssessment | None = None

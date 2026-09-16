@@ -223,16 +223,18 @@ export function mockAnalyze(originalText: string) {
 
   const primary = issues[0] ?? null
   const ambiguous = issues.length > 0
-  const score = primary ? scoreFromSeverity(primary.severity) : 1.2
+  const ambiguityOutOfTen = primary ? scoreFromSeverity(primary.severity) : 1.2
+  const clarity = Math.round((10 - ambiguityOutOfTen) * 10) / 10
   const suggested = primary?.suggestion ?? null
 
   return {
     originalText,
+    generatedText: null,
     issues,
     source: "mock" as const,
     classification: ambiguous ? ("ambiguous" as const) : ("clean" as const),
     ambiguityType: primary?.modelType ?? null,
-    ambiguityScore: ambiguous ? Math.round(score * 10) : 8,
+    ambiguityScore: ambiguous ? Math.round(ambiguityOutOfTen * 10) : 8,
     confidence: primary?.confidence ?? 0.9,
     explanation:
       primary?.explanation ?? "The requirement looks specific and measurable as written.",
@@ -250,7 +252,9 @@ export function mockAnalyze(originalText: string) {
     mlPrediction: null,
     finalAssessment: {
       status: ambiguous ? ("ambiguous" as const) : ("clean" as const),
-      score,
+      ambiguity_score: ambiguityOutOfTen,
+      clarity_score: clarity,
+      score: clarity,
       severity:
         primary?.severity === "critical"
           ? ("high" as const)
@@ -263,7 +267,9 @@ export function mockAnalyze(originalText: string) {
       type: primary?.modelType ?? null,
       source: "linguistic" as const,
     },
-    finalScore: score,
+    finalScore: clarity,
+    clarityScore: clarity,
+    fusedAmbiguityScore: ambiguityOutOfTen,
     llmAnalysis: null,
     userAssessment: {
       status: ambiguous ? ("needs_improvement" as const) : ("clear" as const),
@@ -295,9 +301,17 @@ export function mockAnalyze(originalText: string) {
       })),
       requirement_type: "functional" as const,
       requirement_type_label: "Functional",
-      score,
+      score: clarity,
+      clarity_score: clarity,
+      ambiguity_score: ambiguityOutOfTen,
       score_label:
-        score >= 7 ? "High ambiguity" : score >= 4 ? "Moderate ambiguity" : "Low ambiguity",
+        clarity >= 8
+          ? "Very clear"
+          : clarity >= 6
+            ? "Mostly clear"
+            : clarity >= 4
+              ? "Needs improvement"
+              : "Highly ambiguous",
     },
     missingInformation: suggested?.includes("[")
       ? ["Replace bracketed placeholders with measurable values."]
@@ -307,16 +321,73 @@ export function mockAnalyze(originalText: string) {
   }
 }
 
+function mockBuildRequirement(idea: string, details?: string): string {
+  let text = idea.replace(/\s+/g, " ").trim().replace(/[.!?]+$/, "")
+  text = text.replace(/^\s*(i want(?: you to)?|i need|please)\s+/i, "").trim()
+
+  const systemShall = text.match(
+    /^(?:the\s+)?(?:system|application|software)\s+(?:shall|must|should|will)\s+(.+)$/i,
+  )
+  if (systemShall?.[1]) {
+    text = systemShall[1]
+  } else {
+    const able = text.match(
+      /^(?:(?:the\s+)?(?:users?|use)\s+)?(?:shall|must|should|will|can)\s+be\s+able\s+to\s+(.+)$/i,
+    )
+    if (able?.[1]) {
+      text = `allow the user to ${able[1]}`
+    } else {
+      const letUsers = text.match(
+        /^(.+?)\s+(?:should|shall|must|will|can)\s+(?:let|allow|enable)\s+(?:the\s+)?users?\s+(?:to\s+)?(.+)$/i,
+      )
+      if (letUsers?.[2]) {
+        const context = letUsers[1].trim()
+        text = `allow users to ${letUsers[2]}`
+        if (
+          context &&
+          context.split(/\s+/).length <= 4 &&
+          !/\b(system|application|software|users?)\b/i.test(context)
+        ) {
+          text = `${text} during ${context.toLowerCase()}`
+        }
+      } else {
+        text = text.replace(
+          /^(?:(?:the\s+)?(?:users?|use))\s+(?:should|shall|must|will|can|to)\s+(?:be\s+able\s+to\s+)?/i,
+          "",
+        )
+        if (
+          /^(navigate|reset|open|view|export|upload|download|search|filter|edit|create|delete|login)\b/i.test(
+            text,
+          )
+        ) {
+          text = `allow users to ${text}`
+        }
+      }
+    }
+  }
+
+  text = text
+    .replace(/^(?:shall|must|should|will|can)\s+(?:be\s+able\s+to\s+)?/i, "")
+    .trim()
+  if (!text) text = "perform [specify the intended action]"
+  text = text.charAt(0).toLowerCase() + text.slice(1)
+  if (details?.trim() && !text.toLowerCase().includes(details.trim().toLowerCase())) {
+    text = `${text} ${details.trim().replace(/\.$/, "")}`
+  }
+  let suggested = `The system shall ${text}.`
+  suggested = suggested.replace(/\bshall\s+(?:shall|must|should|will|can)\b/gi, "shall")
+  suggested = suggested.replace(/\bshall\s+be\s+able\s+to\b/gi, "shall allow the user to")
+  if (/\bquickly\b/i.test(suggested)) {
+    suggested = suggested.replace(/\bquickly\b/i, "within [maximum response time]")
+  }
+  return suggested.replace(/\s+/g, " ").trim()
+}
+
 export function mockGenerate(
   idea: string,
   requirementType?: string | "",
   details?: string,
 ) {
-  const cleaned = idea
-    .replace(/^\s*(i want|i need|please)\s+/i, "")
-    .replace(/\s+/g, " ")
-    .trim()
-  const action = cleaned.replace(/\.$/, "")
   const kind =
     (requirementType as
       | "functional"
@@ -331,15 +402,16 @@ export function mockGenerate(
       ? "performance"
       : /\bnavigate|interface|usable/i.test(idea)
         ? "usability"
-        : "functional")
-  let suggested = `The system shall ${action}.`
-  if (/\bquickly\b/i.test(suggested)) {
-    suggested = suggested.replace(/\bquickly\b/i, "within [maximum response time]")
+        : /\bpassword|login|credential|secur/i.test(idea)
+          ? "security"
+          : "functional")
+  const suggested = mockBuildRequirement(idea, details)
+  const analysis = {
+    ...mockAnalyze(suggested),
+    originalText: idea,
+    generatedText: suggested,
+    displayText: suggested,
   }
-  if (details?.trim()) {
-    suggested = suggested.replace(/\.$/, ` (${details.trim()}).`)
-  }
-  const analysis = mockAnalyze(suggested)
   return {
     idea,
     requirementType: kind,

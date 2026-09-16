@@ -71,7 +71,11 @@ def test_quickly_user_assessment_hides_nothing_needed_for_ui():
     user = body["user_assessment"]
     assert user["status"] == "needs_improvement"
     assert user["phrases"][0]["text"].lower() == "quickly"
-    assert user["ambiguity_type"] == "pragmatic"
+    assert user["ambiguity_type"] == "syntax"
+    assert user["type_label"] == "Structural"
+    assert user["clarity_score"] == user["score"]
+    assert user["ambiguity_score"] is not None
+    assert user["score"] == round(10.0 - user["ambiguity_score"], 1)
     assert "response time" in user["suggested_requirement"].lower()
     assert "[maximum response time]" in user["suggested_requirement"]
     assert user["suggested_requirement"].lower().startswith("the system shall")

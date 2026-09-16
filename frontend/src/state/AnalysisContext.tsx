@@ -107,12 +107,16 @@ function toHistory(result: AnalysisResult): HistoryItem {
   }
 }
 
+function analyzedBase(result: AnalysisResult): string {
+  return result.generatedText || result.originalText
+}
+
 function applyDisplayText(
   result: AnalysisResult,
   issues: AnalysisIssue[],
   suggestion: string | null,
 ): AnalysisResult {
-  const revised = buildRevisedText(result.originalText, issues, suggestion)
+  const revised = buildRevisedText(analyzedBase(result), issues, suggestion)
   return { ...result, issues, displayText: revised }
 }
 
@@ -262,7 +266,7 @@ function reducer(state: AnalysisState, action: Action): AnalysisState {
         result: {
           ...state.result,
           issues,
-          displayText: state.result.originalText,
+          displayText: analyzedBase(state.result),
         },
         toast: "All suggestions reverted.",
       }
@@ -360,15 +364,17 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
 
   const useGeneratedRequirement = useCallback(() => {
     if (!state.createResult) return
-    const text = state.createResult.suggestedRequirement
-    dispatch({ type: "set-draft", text })
+    const idea = state.createResult.idea
+    const generated = state.createResult.suggestedRequirement
+    dispatch({ type: "set-draft", text: generated })
     if (state.createResult.analysis) {
       dispatch({
         type: "analyze-success",
         result: {
           ...state.createResult.analysis,
-          originalText: text,
-          displayText: text,
+          originalText: idea,
+          generatedText: generated,
+          displayText: generated,
         },
       })
       return
@@ -378,14 +384,17 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
 
   const analyzeGeneratedRequirement = useCallback(() => {
     if (!state.createResult) return
-    dispatch({ type: "set-draft", text: state.createResult.suggestedRequirement })
+    const idea = state.createResult.idea
+    const generated = state.createResult.suggestedRequirement
+    dispatch({ type: "set-draft", text: generated })
     if (state.createResult.analysis) {
       dispatch({
         type: "analyze-success",
         result: {
           ...state.createResult.analysis,
-          originalText: state.createResult.suggestedRequirement,
-          displayText: state.createResult.suggestedRequirement,
+          originalText: idea,
+          generatedText: generated,
+          displayText: generated,
         },
       })
       return

@@ -10,9 +10,9 @@ from backend.services.fusion import FusionResult
 from backend.services.linguistic_detector import LinguisticIssue
 from backend.services.llm_analyzer import LlmReasoningResult
 from backend.services.requirement_text import (
+    clarity_band,
     infer_requirement_kind,
     requirement_kind_label,
-    score_band,
 )
 
 _MISSING = {
@@ -63,8 +63,10 @@ def build_user_assessment(
         phrases=phrases,
         requirement_type=kind,
         requirement_type_label=requirement_kind_label(kind),
-        score=fused.score,
-        score_label=score_band(fused.score),
+        score=fused.clarity_score,
+        score_label=clarity_band(fused.clarity_score),
+        ambiguity_score=fused.score,
+        clarity_score=fused.clarity_score,
     )
 
 

@@ -188,6 +188,7 @@ export function fromApiResponse(payload: AnalyzeApiResponse): AnalysisResult {
 
   return {
     originalText: payload.requirement,
+    generatedText: null,
     issues,
     source: "api",
     classification,
@@ -206,9 +207,23 @@ export function fromApiResponse(payload: AnalyzeApiResponse): AnalysisResult {
     },
     finalAssessment: payload.final_assessment ?? null,
     finalScore:
+      payload.user_assessment?.clarity_score ??
       payload.user_assessment?.score ??
+      payload.clarity_score ??
       payload.final_score ??
+      payload.final_assessment?.clarity_score ??
       payload.final_assessment?.score ??
+      null,
+    clarityScore:
+      payload.clarity_score ??
+      payload.user_assessment?.clarity_score ??
+      payload.final_assessment?.clarity_score ??
+      payload.final_score ??
+      null,
+    fusedAmbiguityScore:
+      payload.fused_ambiguity_score ??
+      payload.user_assessment?.ambiguity_score ??
+      payload.final_assessment?.ambiguity_score ??
       null,
     llmAnalysis: payload.llm_analysis ?? null,
     userAssessment: payload.user_assessment ?? null,
@@ -222,6 +237,15 @@ export function fromApiResponse(payload: AnalyzeApiResponse): AnalysisResult {
 }
 
 export function fromGenerateApiResponse(payload: GenerateApiResponse): GenerateResult {
+  const analysis = payload.analysis
+    ? {
+        ...fromApiResponse(payload.analysis),
+        // Preserve the exact Create-form idea; never replace it with the rewrite.
+        originalText: payload.idea,
+        generatedText: payload.suggested_requirement,
+        displayText: payload.suggested_requirement,
+      }
+    : null
   return {
     idea: payload.idea,
     requirementType: payload.requirement_type,
@@ -231,7 +255,7 @@ export function fromGenerateApiResponse(payload: GenerateApiResponse): GenerateR
     questions: payload.questions ?? [],
     readyToUse: payload.ready_to_use,
     qualityChecks: payload.quality_checks ?? [],
-    analysis: payload.analysis ? fromApiResponse(payload.analysis) : null,
+    analysis,
   }
 }
 

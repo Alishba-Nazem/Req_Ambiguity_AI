@@ -18,8 +18,8 @@ export function ReviewPage() {
     (issue) => issue.category === "vague_term" || issue.modelType === "pragmatic",
   ).length
   const other = Math.max(0, issues.length - vague)
-  const finalScore = result.finalScore ?? result.finalAssessment?.score ?? 0
-  const clarity = Math.max(0, Math.round(100 - finalScore * 4))
+  const finalScore = result.clarityScore ?? result.finalScore ?? 0
+  const clarity = Math.max(0, Math.min(100, Math.round(finalScore * 10)))
   const words = countWords(result.originalText)
   const nextSteps = issues.slice(0, 3).map((issue, index) => ({
     n: String(index + 1).padStart(2, "0"),

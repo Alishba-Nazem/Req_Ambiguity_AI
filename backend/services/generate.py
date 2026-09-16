@@ -28,7 +28,10 @@ GENERATE_SYSTEM_PROMPT = """You turn a rough idea into ONE standalone software r
 
 Hard rules:
 - Output a single grammatically correct sentence.
-- Start with "The system shall".
+- Start with "The system shall" exactly once.
+- If the idea already contains shall/must/should/will or "be able to", rewrite it;
+  never produce "The system shall shall", "The system shall must",
+  "The system shall should", or "The system shall use shall be able to".
 - Do not copy phrases such as "I want", "I need", or "please".
 - Do not write "The system shall I want...".
 - Do not invent numbers, SLAs, or technologies the user did not provide.
