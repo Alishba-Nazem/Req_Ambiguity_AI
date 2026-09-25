@@ -7,7 +7,7 @@ export function DashboardPage() {
   return (
     <div className="mx-auto max-w-[880px] px-4 py-8">
       <p className="text-[12px] text-muted">Workspace / Dashboard</p>
-      <h1 className="mt-1 text-[22px] font-semibold">Requirement workspace</h1>
+      <h1 className="mt-1 text-[22px] font-semibold">Requirement Ambiguity AI</h1>
       <p className="mt-2 max-w-[60ch] text-[14px] text-muted">
         Write a requirement from an idea, or analyze an existing statement for
         vague wording and missing measures.

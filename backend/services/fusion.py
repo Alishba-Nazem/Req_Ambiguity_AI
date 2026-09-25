@@ -202,15 +202,15 @@ def _select_type(
     prediction: ModelPrediction | None,
     issues: list[LinguisticIssue],
 ) -> tuple[AmbiguityType | None, TypeSource | None]:
-    """Stage B is primary for final type when it has a usable classification.
+    """Stage B is the sole source of final type when Stage A is ambiguous.
 
-    Linguistic findings remain phrase-level evidence (highlights, severity)
-    and only supply the final type when Stage B is unavailable.
+    When Stage A is clean, Stage B is not run; linguistic findings may
+    supply the type (``linguistic``). Phrase-level issue types may
+    still differ from the fused type when Stage B ran.
     """
+    ml_ambiguous = bool(prediction and prediction.classification == "ambiguous")
     stage_b_type = prediction.ambiguity_type if prediction else None
-    if stage_b_type:
-        if issues:
-            return stage_b_type, "hybrid"
+    if ml_ambiguous and stage_b_type:
         return stage_b_type, "stage_b"
     if issues:
         ranked = sorted(
@@ -221,7 +221,10 @@ def _select_type(
                 item.start,
             ),
         )
-        return ranked[0].ambiguity_type, "linguistic"
+        issue_type = ranked[0].ambiguity_type
+        if prediction and prediction.classification == "clean":
+            return issue_type, "linguistic"
+        return issue_type, "linguistic"
     return None, None
 
 
@@ -283,5 +286,6 @@ def _log_fusion(
         result.score,
         result.clarity_score,
         result.ambiguity_type,
+        result.type_source,
         result.evidence_source,
     )

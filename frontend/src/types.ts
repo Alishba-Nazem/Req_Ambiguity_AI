@@ -35,7 +35,14 @@ export const MODEL_TYPE_LABELS: Record<ModelAmbiguityType, string> = {
   pragmatic: "Pragmatic",
 }
 
-export type TypeSource = "stage_b" | "heuristic" | "linguistic" | "hybrid" | "bert" | "llm"
+export type TypeSource =
+  | "stage_b"
+  | "heuristic"
+  | "linguistic"
+  | "linguistic_override"
+  | "hybrid"
+  | "bert"
+  | "llm"
 export type LinguisticSeverity = "high" | "medium" | "low"
 export type EvidenceSource = "bert" | "linguistic" | "hybrid" | "llm"
 export type FindingSource = "linguistic" | "llm"

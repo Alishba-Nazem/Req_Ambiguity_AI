@@ -19,7 +19,7 @@ export function AppHeader() {
           className="text-[14px] font-semibold text-ink"
           onClick={() => setView("dashboard")}
         >
-          Requirement Quality
+          Requirement Ambiguity AI
         </button>
         <nav
           aria-label="Workspace"
@@ -54,6 +54,12 @@ export function AppHeader() {
               {result.requirementId}
             </button>
           ) : null}
+          <a className="px-2.5 py-1 text-muted hover:text-ink" href="/learn/what-is-requirement-ambiguity">
+            Learn
+          </a>
+          <a className="px-2.5 py-1 text-muted hover:text-ink" href="/about">
+            About
+          </a>
         </nav>
       </div>
     </header>

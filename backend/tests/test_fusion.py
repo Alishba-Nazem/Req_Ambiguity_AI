@@ -37,7 +37,7 @@ def test_fusion_keeps_stage_b_type_when_linguistic_hits():
     assert fused.status == "ambiguous"
     # Stage B remains primary; linguistic is evidence only.
     assert fused.ambiguity_type == "syntax"
-    assert fused.type_source == "hybrid"
+    assert fused.type_source == "stage_b"
     # Proportional blend — no 7.8 floor.
     # ml=5.2, ling≈7.6 → 0.6*5.2 + 0.4*7.6 + 0.2 = 6.36 → 6.4
     assert fused.score == 6.4
@@ -89,7 +89,7 @@ def test_fusion_multiple_findings_use_stage_b_when_present():
     fused = fuse_evidence(prediction, issues)
     assert fused.status == "ambiguous"
     assert fused.ambiguity_type == "lexical"
-    assert fused.type_source == "hybrid"
+    assert fused.type_source == "stage_b"
     assert fused.clarity_score == clarity_from_ambiguity(fused.score)
 
 

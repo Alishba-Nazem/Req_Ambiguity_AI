@@ -170,7 +170,7 @@ def test_clean_with_vague_term_gets_heuristic_type():
     assert issue["ambiguity_type"] == "pragmatic"
     assert issue["source"] == "linguistic"
     assert issue["severity"] == "high"
-    assert "[X]" in issue["suggestion"]
+    assert "[maximum response time]" in issue["suggestion"]
     assert "quickly" in body["explanation"].lower()
     assert "pragmatic" in body["explanation"].lower()
     assert "bert" not in body["explanation"].lower()
@@ -244,7 +244,7 @@ def test_valid_requirement_ambiguous_response_structure():
     assert body["classification"] == "ambiguous"
     assert body["overall_status"] == "ambiguous"
     assert body["ambiguity_type"] == "pragmatic"
-    assert body["type_source"] == "hybrid"
+    assert body["type_source"] == "stage_b"
     assert body["final_assessment"]["ambiguity_type"] == "pragmatic"
     assert body["final_assessment"]["score"] != round(body["confidence"] * 10, 1)
     assert body["ml_prediction"]["stage_b_type"] == "pragmatic"
@@ -314,8 +314,7 @@ def test_quickly_keeps_stage_b_type_while_highlighting_linguistic_phrase():
     assert issue["severity"] == "high"
     assert issue["confidence"] >= 0.9
     assert text[issue["start"] : issue["end"]].lower() == "quickly"
-    assert "[X]" in issue["suggestion"]
-    assert "second" in issue["suggestion"].lower()
+    assert "[maximum response time]" in issue["suggestion"]
 
 
 def test_multiple_linguistic_findings_have_separate_spans():

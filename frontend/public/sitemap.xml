@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://your-domain.dev/</loc></url>
+  <url><loc>https://your-domain.dev/analyze</loc></url>
+  <url><loc>https://your-domain.dev/about</loc></url>
+  <url><loc>https://your-domain.dev/privacy</loc></url>
+  <url><loc>https://your-domain.dev/terms</loc></url>
+  <url><loc>https://your-domain.dev/learn/what-is-requirement-ambiguity</loc></url>
+  <url><loc>https://your-domain.dev/learn/lexical-ambiguity</loc></url>
+  <url><loc>https://your-domain.dev/learn/syntactic-ambiguity</loc></url>
+  <url><loc>https://your-domain.dev/learn/semantic-ambiguity</loc></url>
+  <url><loc>https://your-domain.dev/learn/pragmatic-ambiguity</loc></url>
+  <url><loc>https://your-domain.dev/learn/how-to-write-clear-software-requirements</loc></url>
+  <url><loc>https://your-domain.dev/learn/ambiguous-requirement-examples</loc></url>
+</urlset>

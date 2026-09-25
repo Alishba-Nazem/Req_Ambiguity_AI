@@ -18,9 +18,11 @@ npm run build
 
 | Mode | Env | Used for |
 | --- | --- | --- |
-| Mock | `VITE_USE_MOCK=true` (default) | UI demos without a backend |
+| Mock | `VITE_USE_MOCK=true` | UI demos without a backend |
 | Local FastAPI | `VITE_USE_MOCK=false` | Dev with Vite proxy `/api` → port 8000 |
 | Vercel production | `VITE_USE_MOCK=false` + server `HF_TOKEN` | Same-origin `/api/*` serverless proxy → Hugging Face Space |
+
+The real analyzer is the default. Set `VITE_USE_MOCK=true` only for an offline UI demo.
 
 Never put `HF_TOKEN`, `LLM_API_KEY`, or other secrets in `VITE_*` variables.
 

@@ -37,7 +37,7 @@ def test_available_extracts_exact_phrase_and_span():
     assert issues[0].start > 0
     assert issues[0].end < len(text)
     assert issues[0].ambiguity_type == "pragmatic"
-    assert "[X]" in issues[0].suggestion
+    assert "[target availability percentage]" in issues[0].suggestion
 
 
 def test_available_api_returns_user_assessment():
@@ -118,6 +118,20 @@ def test_many_users_phrase_and_placeholder():
     assert phrase == "many users"
     assert "[maximum number of concurrent users]" in body["suggested_requirement"]
     assert body["suggested_requirement"].lower().count("the system shall") == 1
+
+
+def test_appropriate_format_uses_linguistic_type_source_without_stage_b_claim():
+    text = "The system shall display the user's information in an appropriate format."
+    body = _client().post("/api/analyze", json={"requirement": text}).json()
+    assert body["classification"] == "clean"
+    assert body["ml_prediction"]["stage_b"] is None
+    assert body["overall_status"] == "ambiguous"
+    assert body["type_source"] == "linguistic"
+    assert body["ambiguity_type"] == "pragmatic"
+    assert body["suggested_requirement"] == (
+        "The system shall display the user's information in a [specified view format]."
+    )
+    assert "stage b" not in body["explanation"].lower()
 
 
 def test_multiple_ambiguities_have_separate_phrases_and_one_rewrite():

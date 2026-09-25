@@ -18,8 +18,7 @@ def test_quickly_is_pragmatic_unmeasurable_time():
     assert "quickly" in issue.reason.lower()
     assert "measurable" in issue.reason.lower() or "threshold" in issue.reason.lower()
     assert issue.confidence >= 0.9
-    assert "[X]" in issue.suggestion
-    assert "second" in issue.suggestion.lower()
+    assert "[maximum response time]" in issue.suggestion
 
 
 def test_measurable_response_time_is_not_flagged():
@@ -41,7 +40,7 @@ def test_many_requests_is_quantity_ambiguity():
     assert issues[0].phrase.lower() == "many requests"
     assert issues[0].category == "unclear_quantity"
     assert issues[0].ambiguity_type == "pragmatic"
-    assert "at least [X]" in issues[0].suggestion
+    assert "at least [maximum quantity]" in issues[0].suggestion
 
 
 def test_measurable_quantity_is_not_flagged():
@@ -56,7 +55,7 @@ def test_user_friendly_is_subjective_pragmatic():
     assert "user-friendly" in issues[0].phrase.lower().replace(" ", "-")
     assert issues[0].category == "subjective_quality"
     assert issues[0].ambiguity_type == "pragmatic"
-    assert "[X]" in issues[0].suggestion
+    assert "[maximum number of steps]" in issues[0].suggestion
     assert "step" in issues[0].suggestion.lower()
 
 
@@ -80,7 +79,7 @@ def test_many_users_and_user_friendly_application():
     quantity = detect_linguistic_issues("The system shall support many users.")
     assert quantity[0].phrase.lower() == "many users"
     assert quantity[0].ambiguity_type == "pragmatic"
-    assert "at least [N]" in quantity[0].suggestion
+    assert "at least [maximum number of concurrent users]" in quantity[0].suggestion
 
     quality = detect_linguistic_issues("The application shall be user-friendly.")
     assert quality

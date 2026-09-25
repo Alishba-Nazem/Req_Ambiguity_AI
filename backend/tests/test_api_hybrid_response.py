@@ -61,8 +61,7 @@ def test_api_quickly_exposes_fused_and_ml_evidence_separately():
     assert findings[0]["source"] == "linguistic"
     assert findings[0]["severity"] == "high"
     assert findings[0]["confidence"] >= 0.9
-    assert "[X]" in findings[0]["suggestion"]
-    assert "second" in findings[0]["suggestion"].lower()
+    assert "[maximum response time]" in findings[0]["suggestion"]
 
     issue = body["issues"][0]
     assert issue["id"] == "issue-1"

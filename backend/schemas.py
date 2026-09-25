@@ -7,7 +7,15 @@ from pydantic import BaseModel, Field, computed_field, field_validator
 
 AmbiguityType = Literal["lexical", "syntactic", "semantic", "syntax", "pragmatic"]
 Classification = Literal["clean", "ambiguous"]
-TypeSource = Literal["stage_b", "linguistic", "heuristic", "hybrid", "bert", "llm"]
+TypeSource = Literal[
+    "stage_b",
+    "linguistic",
+    "linguistic_override",
+    "heuristic",
+    "hybrid",
+    "bert",
+    "llm",
+]
 IssueSeverity = Literal["high", "medium", "low"]
 EvidenceSource = Literal["bert", "linguistic", "hybrid", "llm"]
 IssueSource = Literal["linguistic", "llm"]

@@ -1,0 +1,17 @@
+Stage B balanced training-data report
+Original Stage B training rows: 2352
+Curated rows added: 40
+Final Stage B training rows: 2392
+
+Class counts by length bucket:
+<=5: lexical=12, syntactic=12, semantic=12, syntax=36, pragmatic=313
+6-15: lexical=100, syntactic=231, semantic=206, syntax=243, pragmatic=171
+>15: lexical=268, syntactic=245, semantic=267, syntax=110, pragmatic=166
+
+Final class counts:
+lexical=380, syntactic=488, semantic=485, syntax=389, pragmatic=650
+
+Exact duplicate curated groups: 0
+Exact leakage with validation/test: 0
+Near-match leakage at SequenceMatcher >= 0.92: 0
+Original training keys reused by curated rows: 0

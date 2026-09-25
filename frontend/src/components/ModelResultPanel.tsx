@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { HighlightedRequirement } from "./HighlightedRequirement"
 import { SuggestionEditor } from "./SuggestionEditor"
+import { ExportActions } from "./ExportActions"
 import { useAnalysis } from "../state/useAnalysis"
 import { MODEL_TYPE_LABELS } from "../types"
 
@@ -38,6 +39,7 @@ export function ModelResultPanel() {
     setEditing,
     editingIssueId,
     revertAll,
+    setView,
   } = useAnalysis()
   const [showDetails, setShowDetails] = useState(false)
   if (!result) return null
@@ -307,6 +309,17 @@ export function ModelResultPanel() {
           <p className="mt-1 text-[15px] leading-7">{revisedText}</p>
         </section>
       ) : null}
+
+      <div className="mt-7 flex flex-wrap items-center gap-3 border-t border-line pt-5">
+        <ExportActions />
+        <button
+          type="button"
+          className="text-[13px] font-medium text-primary hover:underline"
+          onClick={() => setView("input")}
+        >
+          Analyze another requirement
+        </button>
+      </div>
 
       <button
         type="button"

@@ -107,7 +107,7 @@ RULES: tuple[IndicatorRule, ...] = (
         ),
         skip_collocations=("immediate mode",),
         clear_if=(_TIME_CONSTRAINT,),
-        replacement="within [X] seconds",
+        replacement="within [maximum response time]",
     ),
     IndicatorRule(
         category="unclear_quantity",
@@ -128,7 +128,7 @@ RULES: tuple[IndicatorRule, ...] = (
             r"\bfew\b",
         ),
         clear_if=(_QUANTITY_CONSTRAINT,),
-        replacement="at least [X]",
+        replacement="at least [maximum quantity]",
     ),
     IndicatorRule(
         category="subjective_quality",
@@ -152,11 +152,11 @@ RULES: tuple[IndicatorRule, ...] = (
         clear_if=(_UX_CONSTRAINT,),
         replacement=(
             "that allows users to complete [specific task] "
-            "in no more than [X] steps"
+            "in no more than [maximum number of steps]"
         ),
         full_suggestion=(
             "The system shall allow users to complete [specific task] "
-            "in no more than [X] steps."
+            "in no more than [maximum number of steps]."
         ),
     ),
     IndicatorRule(
@@ -191,7 +191,7 @@ RULES: tuple[IndicatorRule, ...] = (
         ),
         clear_if=(),
         require_no_nearby_number=True,
-        replacement="meeting [specify measurable threshold]",
+        replacement="[specify: measurable threshold for this quality]",
     ),
     IndicatorRule(
         category="open_ended",
@@ -234,9 +234,13 @@ RULES: tuple[IndicatorRule, ...] = (
         patterns=(r"\bavailability\b", r"\bavailable\b"),
         skip_collocations=("available in memory", "available disk"),
         clear_if=(_AVAILABILITY_CONSTRAINT,),
-        replacement="able to maintain [X]% availability during each calendar month",
+        replacement=(
+            "able to maintain [target availability percentage] availability "
+            "during [measurement period]"
+        ),
         full_suggestion=(
-            "The system shall maintain [X]% availability during each calendar month."
+            "The system shall maintain [target availability percentage] availability "
+            "during [measurement period]."
         ),
     ),
     IndicatorRule(
@@ -350,9 +354,13 @@ def _replacement_for(
 ) -> str | None:
     phrase = requirement[start:end].lower()
     if rule.category == "unclear_quantity" and "user" in phrase:
-        return "at least [N] concurrent users"
+        return "at least [maximum number of concurrent users]"
     if rule.category == "vague_degree" and phrase == "fast":
-        return "within [X] seconds"
+        return "within [maximum response time]"
+    if rule.category == "vague_degree" and re.search(
+        r"\bformat\b", requirement[max(0, start - 32) : end + 32], re.IGNORECASE
+    ):
+        return "[specified view format]"
     if rule.category == "unmeasurable_availability" and re.search(
         r"\bbe\s+available\b", requirement, re.IGNORECASE
     ):
@@ -367,12 +375,21 @@ def _suggestion_for(
     rule: IndicatorRule,
     replacement: str | None = None,
 ) -> str:
+    if rule.category == "vague_degree":
+        for pattern, repl in (
+            (r"\bin\s+an?\s+appropriate\s+format\b", "in a [specified view format]"),
+            (r"\ban?\s+appropriate\s+format\b", "a [specified view format]"),
+        ):
+            match = re.search(pattern, requirement, re.IGNORECASE)
+            if match:
+                rewritten = requirement[: match.start()] + repl + requirement[match.end() :]
+                return _finish_sentence(rewritten)
     if rule.category == "subjective_quality" and rule.full_suggestion:
         if re.search(r"\binterface\b", requirement, re.IGNORECASE):
             rewritten = re.sub(
                 r"\ba\s+user(?:\s+|-)friendly\s+interface\b",
                 "an interface that allows users to complete [specific task] "
-                "in no more than [X] steps",
+                "in no more than [maximum number of steps]",
                 requirement,
                 count=1,
                 flags=re.IGNORECASE,
@@ -385,7 +402,7 @@ def _suggestion_for(
         if re.search(r"\bbe\s+available\b", requirement, re.IGNORECASE):
             rewritten = re.sub(
                 r"\bbe\s+available\b",
-                "maintain [X]% availability during each calendar month",
+                "maintain [target availability percentage] availability during [measurement period]",
                 requirement,
                 count=1,
                 flags=re.IGNORECASE,

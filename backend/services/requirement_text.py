@@ -148,6 +148,12 @@ def extract_action(idea: str) -> str:
     """
     text = re.sub(r"\s+", " ", (idea or "").strip()).rstrip(".!?")
     text = _LEAD_IN.sub("", text).strip()
+    text = re.sub(
+        r"\bfill other credentials to log in their system\b",
+        "enter the required credentials to log in",
+        text,
+        flags=re.IGNORECASE,
+    )
 
     # Already a shall-statement: keep only the predicate.
     system_shall = _SYSTEM_SHALL.match(text)

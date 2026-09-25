@@ -17,12 +17,16 @@ REWRITE_SYSTEM_PROMPT = """You rewrite software requirements to remove ambiguity
 
 Hard rules:
 - Return exactly ONE complete requirement sentence.
-- Preserve the original intent and, where possible, the original sentence structure.
+- Preserve the original intent, actor, action, and object.
+- Change only the ambiguous portion of the sentence when possible.
 - Do not concatenate suggestion templates or duplicate clauses.
-- Do not invent numbers, SLAs, or business rules that are not in the original.
-- If a measurable value is missing, use a named placeholder such as
+- Do not invent numbers, SLAs, fields, or business rules that are not in the original.
+- If a measurable value is missing, use a scoped placeholder such as
   [maximum response time], [maximum number of steps], [maximum number of concurrent users],
-  [specific task], [target availability percentage], [measurement period], or [security control].
+  [specific task], [specified view format], [target availability percentage],
+  [measurement period], [security control], or [specify: what must be defined].
+- Do NOT use vague meta-phrases such as "measurable acceptance criterion",
+  "specific requirement", "appropriate criteria", or "specified criteria".
 - Start with "The system shall" when appropriate.
 - Return only the rewritten requirement. No quotes, labels, or commentary.
 """
@@ -53,6 +57,18 @@ _ARTIFACTS = (
 
 _THIN_STEM = re.compile(
     r"^(?:the\s+)?(?:system|application|software)\s+shall(?:\s+be)?\.?$",
+    re.IGNORECASE,
+)
+
+_BANNED_GENERIC_PHRASES = (
+    r"\bmeasurable acceptance criterion\b",
+    r"\bappropriate criteria\b",
+    r"\bspecified criteria\b",
+    r"\bspecific requirement\b",
+)
+
+_FORMAT_VAGUE = re.compile(
+    r"\bin\s+an?\s+appropriate\s+format\b",
     re.IGNORECASE,
 )
 
@@ -105,9 +121,22 @@ def compose_improved_requirement(
     issues: list[LinguisticIssue],
     llm: LlmReasoningResult | None = None,
     ambiguity_type: str | None = None,
+    rewrite_service: RewriteService | None = None,
 ) -> str:
     """Build exactly one complete rewritten requirement from the original and issues."""
     candidates: list[str] = []
+    if issues:
+        candidates.extend(_context_aware_rule_rewrites(requirement, issues))
+        if len(issues) > 1:
+            candidates.append(_rewrite_from_issues(requirement, issues))
+            candidates.append(_rewrite_all_spans(requirement, issues))
+        for item in issues:
+            if item.suggestion:
+                candidates.append(item.suggestion)
+    service = rewrite_service or RewriteService()
+    llm_rewrite = service._rewrite_with_llm(requirement, ambiguity_type)
+    if llm_rewrite:
+        candidates.append(llm_rewrite)
     if issues:
         candidates.append(_rewrite_from_issues(requirement, issues))
         candidates.append(_category_sentence(requirement, issues))
@@ -143,7 +172,7 @@ def fallback_rewrite(requirement: str, ambiguity_type: str | None = None) -> str
     elif kind == "performance" or re.search(r"\brespond", requirement, re.I):
         clause = "within [maximum response time]"
     else:
-        clause = "meeting [measurable acceptance criterion]"
+        clause = "under [specify: conditions needed to verify this requirement]"
     if re.search(r"\bwithin\b", stem, re.IGNORECASE):
         return _normalize_sentence(stem)
     assembled = f"{stem.rstrip('.')} {clause}."
@@ -179,6 +208,11 @@ def is_valid_suggestion(text: str, original: str | None = None) -> bool:
         return False
     if original and _invents_numbers(original, cleaned):
         return False
+    for pattern in _BANNED_GENERIC_PHRASES:
+        if re.search(pattern, cleaned, re.IGNORECASE):
+            return False
+    if re.search(r"\ban\s+format\b", cleaned, re.IGNORECASE):
+        return False
     return True
 
 
@@ -193,8 +227,73 @@ def issues_need_measure(text: str) -> bool:
     )
 
 
+def _context_aware_rule_rewrites(
+    requirement: str, issues: list[LinguisticIssue]
+) -> list[str]:
+    """Category-specific full-sentence rewrites (after span suggestions)."""
+    out: list[str] = []
+    categories = {item.category for item in issues}
+
+    if _FORMAT_VAGUE.search(requirement):
+        text = _FORMAT_VAGUE.sub("in a [specified view format]", requirement)
+        out.append(_normalize_modals(text))
+
+    if categories == {"unmeasurable_time"} or (
+        "unmeasurable_time" in categories
+        and len(categories) == 1
+        and re.search(r"\brespond\b", requirement, re.IGNORECASE)
+    ):
+        out.append("The system shall respond within [maximum response time].")
+
+    if "unclear_quantity" in categories and re.search(
+        r"\b(?:many|large|numerous|several|few)\b", requirement, re.IGNORECASE
+    ):
+        user_quantity = re.search(
+            r"\ba\s+(?:large|many|numerous|several|few)\s+number\s+of\s+users?\b",
+            requirement,
+            re.IGNORECASE,
+        )
+        if user_quantity:
+            out.append(
+                _normalize_modals(
+                    requirement[: user_quantity.start()]
+                    + "at least [maximum number of concurrent users]"
+                    + requirement[user_quantity.end() :]
+                )
+            )
+            return out
+        stem = _stem_without_phrases(requirement, issues)
+        if re.search(r"\buser", stem, re.IGNORECASE):
+            out.append(
+                _normalize_sentence(
+                    f"{stem.rstrip('.')} at least [maximum number of concurrent users]."
+                )
+            )
+
+    if "unmeasurable_availability" in categories or re.search(
+        r"\bat all times\b", requirement, re.IGNORECASE
+    ):
+        out.append(
+            "The system shall maintain [target availability percentage] "
+            "availability during [measurement period]."
+        )
+
+    if "subjective_quality" in categories and re.search(
+        r"\binterface\b", requirement, re.IGNORECASE
+    ):
+        out.append(
+            "The system shall provide an interface that allows users to complete "
+            "[specific task] in no more than [maximum number of steps]."
+        )
+    return out
+
+
 def _rewrite_from_issues(requirement: str, issues: list[LinguisticIssue]) -> str:
     categories = {item.category for item in issues}
+    if _FORMAT_VAGUE.search(requirement):
+        return _normalize_modals(
+            _FORMAT_VAGUE.sub("in a [specified view format]", requirement)
+        )
     if categories == {"unmeasurable_availability"} or (
         "unmeasurable_availability" in categories and _thin_after_removal(requirement, issues)
     ):
@@ -221,6 +320,17 @@ def _rewrite_from_issues(requirement: str, issues: list[LinguisticIssue]) -> str
     return _assemble(stem, clauses)
 
 
+def _rewrite_all_spans(requirement: str, issues: list[LinguisticIssue]) -> str:
+    """Apply every detector replacement while retaining the original sentence."""
+    text = requirement
+    for item in sorted(issues, key=lambda issue: issue.start, reverse=True):
+        replacement = item.replacement
+        if not replacement:
+            continue
+        text = text[: item.start] + replacement + text[item.end :]
+    return _normalize_modals(text)
+
+
 def _category_sentence(requirement: str, issues: list[LinguisticIssue]) -> str:
     """Second-pass complete sentence if the first assembly is invalid."""
     categories = {item.category for item in issues}
@@ -238,8 +348,8 @@ def _category_sentence(requirement: str, issues: list[LinguisticIssue]) -> str:
         parts.append(
             "so users can complete [specific task] in no more than [maximum number of steps]"
         )
-    if "vague_degree" in categories:
-        parts.append("meeting [measurable acceptance criterion]")
+    if "vague_degree" in categories and not _FORMAT_VAGUE.search(requirement):
+        parts.append("[specify: measurable threshold for this quality]")
     if "vague_frequency" in categories:
         parts.append("at [required frequency]")
     if "open_ended" in categories:
@@ -278,8 +388,10 @@ def _constraint_clauses(
                 "that allows users to complete [specific task] in no more than [maximum number of steps]",
             )
         )
-    if "vague_degree" in categories:
-        clauses.append(("quality", "that meet [measurable acceptance criterion]"))
+    if "vague_degree" in categories and not _FORMAT_VAGUE.search(requirement):
+        clauses.append(
+            ("quality", "[specify: measurable threshold for this quality]")
+        )
     if "open_ended" in categories:
         clauses.append(("scope", "under [specified conditions]"))
     return clauses
@@ -393,6 +505,8 @@ def _strip_subjective_words(text: str) -> str:
 
 def _fix_articles(text: str) -> str:
     cleaned = re.sub(r"\s+", " ", text).strip()
+    cleaned = re.sub(r"\bin\s+an\s+format\b", "in a format", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\ban\s+format\b", "a format", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"\ba\s+([aeiou])", r"an \1", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"\s+([,.])", r"\1", cleaned)
     cleaned = re.sub(r"\s+\.", ".", cleaned)
@@ -454,8 +568,12 @@ def _safe_fallback(requirement: str, issues: list[LinguisticIssue]) -> str:
         return _normalize_sentence(
             f"The system shall {action} within [maximum response time]."
         )
+    if _FORMAT_VAGUE.search(requirement):
+        return _normalize_modals(
+            _FORMAT_VAGUE.sub("in a [specified view format]", requirement)
+        )
     return _normalize_sentence(
-        f"The system shall {action} meeting [measurable acceptance criterion]."
+        f"The system shall {action} under [specify: conditions needed to verify this requirement]."
     )
 
 

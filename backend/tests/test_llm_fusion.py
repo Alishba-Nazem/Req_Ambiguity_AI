@@ -56,7 +56,7 @@ def test_llm_confirmation_raises_score_but_keeps_stage_b_type():
     )
     assert fused.status == "ambiguous"
     assert fused.ambiguity_type == "syntax"
-    assert fused.type_source == "hybrid"
+    assert fused.type_source == "stage_b"
     assert fused.score == 7.1  # 6.6 + 0.5 confirmation
     assert fused.clarity_score == 2.9
     assert fused.evidence_source == "hybrid"

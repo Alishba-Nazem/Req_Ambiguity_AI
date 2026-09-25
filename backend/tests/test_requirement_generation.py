@@ -126,6 +126,20 @@ def test_screenshot_input_does_not_duplicate_shall():
     )
 
 
+def test_create_requirement_preserves_password_and_credentials_intent():
+    idea = "User shall be able to create a password and fill other credentials to log in their system."
+    body = _client().post("/api/generate-requirement", json={"idea": idea}).json()
+    suggested = body["suggested_requirement"]
+    assert body["idea"] == idea
+    assert suggested == (
+        "The system shall allow the user to create a password and enter the required credentials "
+        "to log in."
+    )
+    _assert_single_shall(suggested)
+    assert "password" in suggested.lower()
+    assert "credentials" in suggested.lower()
+
+
 def test_existing_shall_requirement_is_not_double_prefixed():
     idea = "The system shall allow users to reset their password."
     built = build_requirement(idea)

@@ -16,7 +16,7 @@ import type {
 export type BackendMode = "mock" | "api"
 
 export function isMockMode(): boolean {
-  const value = String(import.meta.env.VITE_USE_MOCK ?? "true")
+  const value = String(import.meta.env.VITE_USE_MOCK ?? "false")
     .trim()
     .toLowerCase()
   return value !== "false" && value !== "0" && value !== "no"
