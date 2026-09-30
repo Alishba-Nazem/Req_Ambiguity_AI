@@ -75,9 +75,9 @@ const ARTICLES: Record<string, Article> = {
 }
 
 const pageMeta: Record<string, { title: string; description: string }> = {
-  "/about": { title: "About Requirement Ambiguity AI", description: "Requirement Ambiguity AI, created by Alishba Nazem, helps teams write clearer software requirements." },
-  "/privacy": { title: "Privacy | Requirement Ambiguity AI", description: "How Requirement Ambiguity AI handles requirement text, uploads, analytics, and future advertising." },
-  "/terms": { title: "Terms | Requirement Ambiguity AI", description: "Terms for using Requirement Ambiguity AI as a requirement analysis tool." },
+  "/about": { title: "About Req AI", description: "Req AI, created by Alishba Nazem, helps teams write clearer software requirements." },
+  "/privacy": { title: "Privacy | Req AI", description: "How Req AI handles requirement text, uploads, analytics, and future advertising." },
+  "/terms": { title: "Terms | Req AI", description: "Terms for using Req AI as a requirement ambiguity analysis tool." },
   ...Object.fromEntries(Object.entries(ARTICLES).map(([path, article]) => [path, { title: article.title, description: article.description }])),
 }
 
@@ -87,14 +87,15 @@ function AnalyzeLink() {
 
 export function PublicPage({ path }: PublicPageProps) {
   const article = ARTICLES[path]
-  const meta = pageMeta[path] ?? { title: "Requirement Ambiguity AI", description: "Analyze software requirements for ambiguity and improve them with clear, testable suggestions." }
+  const meta = pageMeta[path] ?? { title: "Req AI — Requirement Ambiguity Analyzer", description: "Req AI is an AI-powered requirement ambiguity analyzer that identifies unclear requirements and helps improve them with precise, testable wording." }
 
   useEffect(() => {
     document.title = meta.title
     const description = document.querySelector('meta[name="description"]')
     description?.setAttribute("content", meta.description)
     const canonical = document.querySelector('link[rel="canonical"]')
-    const siteUrl = (import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, "")
+    const configuredSiteUrl = import.meta.env.VITE_SITE_URL || window.location.origin
+    const siteUrl = (import.meta.env.PROD ? "https://www.reqai.software" : configuredSiteUrl).replace(/\/$/, "")
     canonical?.setAttribute("href", `${siteUrl}${path}`)
   }, [meta.description, meta.title, path])
 

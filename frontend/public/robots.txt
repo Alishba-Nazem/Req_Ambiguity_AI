@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Sitemap: https://your-domain.dev/sitemap.xml
+Sitemap: https://www.reqai.software/sitemap.xml
